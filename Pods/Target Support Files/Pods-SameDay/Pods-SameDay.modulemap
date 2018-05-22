@@ -1,0 +1,6 @@
+framework module Pods_SameDay {
+  umbrella header "Pods-SameDay-umbrella.h"
+
+  export *
+  module * { export * }
+}
