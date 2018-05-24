@@ -10,26 +10,48 @@ import UIKit
 
 class QueueManagementViewController: UIViewController {
 
+    @IBOutlet var dataSource: QueueManagementDataSource!
+    @IBOutlet weak var tableView: UITableView!
+
+    var core = App.sharedCore
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        tableView.isEditing = true
+        dataSource.areas = core.state.userState.areas
+        tableView.reloadData()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        core.add(subscriber: self)
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        core.remove(subscriber: self)
+    }
+
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
     }
     
+}
 
-    /*
-    // MARK: - Navigation
+extension QueueManagementViewController: UITableViewDelegate {
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
     }
-    */
 
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .none
+    }
+
+}
+
+extension QueueManagementViewController: Subscriber {
+
+    func update(with state: AppState) {
+
+    }
 }

@@ -20,6 +20,16 @@
 		EC95DEE720B49C0E0093C3B6 /* QueueManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95DEE620B49C0D0093C3B6 /* QueueManagementViewController.swift */; };
 		EC95DEEC20B49DF40093C3B6 /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95DEEB20B49DF40093C3B6 /* StoryboardInitializable.swift */; };
 		EC95DEEE20B49E4D0093C3B6 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95DEED20B49E4D0093C3B6 /* HomeTabBarController.swift */; };
+		ECFC3E7520B7305C005E192F /* QueueManagementDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E7420B7305C005E192F /* QueueManagementDataSource.swift */; };
+		ECFC3E7720B73098005E192F /* ReuseableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E7620B73098005E192F /* ReuseableView.swift */; };
+		ECFC3E7920B730D6005E192F /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E7820B730D6005E192F /* UITableView+Extensions.swift */; };
+		ECFC3E7B20B73173005E192F /* CircleAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E7A20B73173005E192F /* CircleAvatarView.swift */; };
+		ECFC3E7D20B73392005E192F /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E7C20B73392005E192F /* UserCell.swift */; };
+		ECFC3E7F20B737A1005E192F /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E7E20B737A1005E192F /* UserState.swift */; };
+		ECFC3E8120B737FF005E192F /* GenericEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8020B737FF005E192F /* GenericEvents.swift */; };
+		ECFC3E8420B73816005E192F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8320B73816005E192F /* User.swift */; };
+		ECFC3E8620B73875005E192F /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8520B73875005E192F /* Area.swift */; };
+		ECFC3E8820B738DC005E192F /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8720B738DC005E192F /* Array+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +49,16 @@
 		EC95DEE620B49C0D0093C3B6 /* QueueManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueManagementViewController.swift; sourceTree = "<group>"; };
 		EC95DEEB20B49DF40093C3B6 /* StoryboardInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
 		EC95DEED20B49E4D0093C3B6 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
+		ECFC3E7420B7305C005E192F /* QueueManagementDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueManagementDataSource.swift; sourceTree = "<group>"; };
+		ECFC3E7620B73098005E192F /* ReuseableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseableView.swift; sourceTree = "<group>"; };
+		ECFC3E7820B730D6005E192F /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		ECFC3E7A20B73173005E192F /* CircleAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleAvatarView.swift; sourceTree = "<group>"; };
+		ECFC3E7C20B73392005E192F /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		ECFC3E7E20B737A1005E192F /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
+		ECFC3E8020B737FF005E192F /* GenericEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericEvents.swift; sourceTree = "<group>"; };
+		ECFC3E8320B73816005E192F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		ECFC3E8520B73875005E192F /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
+		ECFC3E8720B738DC005E192F /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		FE5BC21D9ACEF9E9CD9BD2A3 /* Pods-SameDay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SameDay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SameDay/Pods-SameDay.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,8 +104,9 @@
 			isa = PBXGroup;
 			children = (
 				EC8F0A5B20B31D2D0042E486 /* AppDelegate.swift */,
-				EC95DEE820B49C1E0093C3B6 /* UI */,
 				EC95DEE920B49C260093C3B6 /* State */,
+				EC95DEE820B49C1E0093C3B6 /* UI */,
+				ECFC3E8220B7380A005E192F /* Data */,
 				EC95DEEA20B49C2E0093C3B6 /* Infrastructure */,
 				EC8F0A6220B31D2E0042E486 /* Assets.xcassets */,
 				EC8F0A6420B31D2E0042E486 /* LaunchScreen.storyboard */,
@@ -101,7 +122,10 @@
 				EC8F0A5D20B31D2D0042E486 /* MainViewController.swift */,
 				EC95DEE220B4927B0093C3B6 /* Home.storyboard */,
 				EC95DEE620B49C0D0093C3B6 /* QueueManagementViewController.swift */,
+				ECFC3E7420B7305C005E192F /* QueueManagementDataSource.swift */,
+				ECFC3E7C20B73392005E192F /* UserCell.swift */,
 				EC95DEED20B49E4D0093C3B6 /* HomeTabBarController.swift */,
+				ECFC3E7A20B73173005E192F /* CircleAvatarView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -110,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				EC95DEE020B3586F0093C3B6 /* AppState.swift */,
+				ECFC3E7E20B737A1005E192F /* UserState.swift */,
+				ECFC3E8020B737FF005E192F /* GenericEvents.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -120,8 +146,20 @@
 				EC95DEDE20B355CC0093C3B6 /* Reactor.swift */,
 				EC95DEEB20B49DF40093C3B6 /* StoryboardInitializable.swift */,
 				EC95DEE420B4965D0093C3B6 /* UIColor+Extensions.swift */,
+				ECFC3E7620B73098005E192F /* ReuseableView.swift */,
+				ECFC3E7820B730D6005E192F /* UITableView+Extensions.swift */,
+				ECFC3E8720B738DC005E192F /* Array+Extensions.swift */,
 			);
 			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		ECFC3E8220B7380A005E192F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				ECFC3E8320B73816005E192F /* User.swift */,
+				ECFC3E8520B73875005E192F /* Area.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		EFD5D0DCAA7121AE12A802E6 /* Pods */ = {
@@ -247,13 +285,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC95DEEC20B49DF40093C3B6 /* StoryboardInitializable.swift in Sources */,
+				ECFC3E8820B738DC005E192F /* Array+Extensions.swift in Sources */,
+				ECFC3E7D20B73392005E192F /* UserCell.swift in Sources */,
+				ECFC3E7B20B73173005E192F /* CircleAvatarView.swift in Sources */,
 				EC8F0A5E20B31D2D0042E486 /* MainViewController.swift in Sources */,
+				ECFC3E8420B73816005E192F /* User.swift in Sources */,
 				EC95DEE520B4965D0093C3B6 /* UIColor+Extensions.swift in Sources */,
 				EC95DEDF20B355CC0093C3B6 /* Reactor.swift in Sources */,
 				EC8F0A5C20B31D2D0042E486 /* AppDelegate.swift in Sources */,
 				EC95DEE120B3586F0093C3B6 /* AppState.swift in Sources */,
 				EC95DEEE20B49E4D0093C3B6 /* HomeTabBarController.swift in Sources */,
+				ECFC3E7920B730D6005E192F /* UITableView+Extensions.swift in Sources */,
+				ECFC3E8620B73875005E192F /* Area.swift in Sources */,
+				ECFC3E7720B73098005E192F /* ReuseableView.swift in Sources */,
 				EC95DEE720B49C0E0093C3B6 /* QueueManagementViewController.swift in Sources */,
+				ECFC3E7F20B737A1005E192F /* UserState.swift in Sources */,
+				ECFC3E8120B737FF005E192F /* GenericEvents.swift in Sources */,
+				ECFC3E7520B7305C005E192F /* QueueManagementDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

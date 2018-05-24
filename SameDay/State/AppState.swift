@@ -16,8 +16,10 @@ enum App {
 
 struct AppState: State {
 
-    mutating func react(to event: Event) {
+    var userState = UserState()
 
+    mutating func react(to event: Event) {
+        userState.react(to: event)
     }
 
 }
