@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Area {
     let name: String
     var users: [User]
+    var coordinate: CLLocationCoordinate2D
 }
 
 extension Area: Equatable {

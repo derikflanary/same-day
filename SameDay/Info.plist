@@ -41,5 +41,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>googlechromes</string>
+        <string>comgooglemaps</string>
+    </array>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Your location to help you select areas to create new areas for sales representitives to work in.</string>
 </dict>
 </plist>

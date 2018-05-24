@@ -30,6 +30,8 @@
 		ECFC3E8420B73816005E192F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8320B73816005E192F /* User.swift */; };
 		ECFC3E8620B73875005E192F /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8520B73875005E192F /* Area.swift */; };
 		ECFC3E8820B738DC005E192F /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8720B738DC005E192F /* Array+Extensions.swift */; };
+		ECFC3E8A20B7585E005E192F /* AddAreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8920B7585E005E192F /* AddAreaViewController.swift */; };
+		ECFC3E8C20B75F4C005E192F /* QueueState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8B20B75F4C005E192F /* QueueState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		ECFC3E8320B73816005E192F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ECFC3E8520B73875005E192F /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
 		ECFC3E8720B738DC005E192F /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		ECFC3E8920B7585E005E192F /* AddAreaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAreaViewController.swift; sourceTree = "<group>"; };
+		ECFC3E8B20B75F4C005E192F /* QueueState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueState.swift; sourceTree = "<group>"; };
 		FE5BC21D9ACEF9E9CD9BD2A3 /* Pods-SameDay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SameDay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SameDay/Pods-SameDay.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +127,7 @@
 				EC95DEE220B4927B0093C3B6 /* Home.storyboard */,
 				EC95DEE620B49C0D0093C3B6 /* QueueManagementViewController.swift */,
 				ECFC3E7420B7305C005E192F /* QueueManagementDataSource.swift */,
+				ECFC3E8920B7585E005E192F /* AddAreaViewController.swift */,
 				ECFC3E7C20B73392005E192F /* UserCell.swift */,
 				EC95DEED20B49E4D0093C3B6 /* HomeTabBarController.swift */,
 				ECFC3E7A20B73173005E192F /* CircleAvatarView.swift */,
@@ -135,6 +140,7 @@
 			children = (
 				EC95DEE020B3586F0093C3B6 /* AppState.swift */,
 				ECFC3E7E20B737A1005E192F /* UserState.swift */,
+				ECFC3E8B20B75F4C005E192F /* QueueState.swift */,
 				ECFC3E8020B737FF005E192F /* GenericEvents.swift */,
 			);
 			path = State;
@@ -183,6 +189,7 @@
 				EC8F0A5520B31D2D0042E486 /* Frameworks */,
 				EC8F0A5620B31D2D0042E486 /* Resources */,
 				04A68FDCD0A4B568C2B36B71 /* [CP] Embed Pods Frameworks */,
+				B834D91DA5758E26C70D589E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -277,6 +284,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B834D91DA5758E26C70D589E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SameDay/Pods-SameDay-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SameDay/Pods-SameDay-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -287,11 +314,13 @@
 				EC95DEEC20B49DF40093C3B6 /* StoryboardInitializable.swift in Sources */,
 				ECFC3E8820B738DC005E192F /* Array+Extensions.swift in Sources */,
 				ECFC3E7D20B73392005E192F /* UserCell.swift in Sources */,
+				ECFC3E8A20B7585E005E192F /* AddAreaViewController.swift in Sources */,
 				ECFC3E7B20B73173005E192F /* CircleAvatarView.swift in Sources */,
 				EC8F0A5E20B31D2D0042E486 /* MainViewController.swift in Sources */,
 				ECFC3E8420B73816005E192F /* User.swift in Sources */,
 				EC95DEE520B4965D0093C3B6 /* UIColor+Extensions.swift in Sources */,
 				EC95DEDF20B355CC0093C3B6 /* Reactor.swift in Sources */,
+				ECFC3E8C20B75F4C005E192F /* QueueState.swift in Sources */,
 				EC8F0A5C20B31D2D0042E486 /* AppDelegate.swift in Sources */,
 				EC95DEE120B3586F0093C3B6 /* AppState.swift in Sources */,
 				EC95DEEE20B49E4D0093C3B6 /* HomeTabBarController.swift in Sources */,
@@ -447,6 +476,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 92H4P6C5WB;
 				INFOPLIST_FILE = SameDay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -465,6 +495,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 92H4P6C5WB;
 				INFOPLIST_FILE = SameDay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         self.window?.tintColor = UIColor.themeColor
+        GMSServices.provideAPIKey("AIzaSyAq3VuWNyJb8mqAdid3GGfa61JeAU4_Kkw")
+        GMSPlacesClient.provideAPIKey("AIzaSyAq3VuWNyJb8mqAdid3GGfa61JeAU4_Kkw")
         return true
     }
 

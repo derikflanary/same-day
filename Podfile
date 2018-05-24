@@ -6,5 +6,7 @@ target 'SameDay' do
 use_frameworks!
 
 pod 'Alamofire'
+pod 'GoogleMaps'
+pod 'GooglePlaces'
 
 end
