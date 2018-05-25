@@ -13,6 +13,13 @@ import GooglePlaces
 
 class AddAreaViewController: UIViewController {
 
+    enum AnimationDirection {
+        case into
+        case out
+    }
+
+    @IBOutlet var newAreaView: NewAreaView!
+
     var core = App.sharedCore
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
@@ -21,6 +28,7 @@ class AddAreaViewController: UIViewController {
     var zoomLevel: Float = 10.0
     var areas = [Area]()
     var addedMarkers = [GMSMarker]()
+    var temporaryMarker: GMSMarker?
     var markers: [GMSMarker] {
         var marks = [GMSMarker]()
         for area in areas {
@@ -31,6 +39,11 @@ class AddAreaViewController: UIViewController {
         }
         return marks
     }
+
+    private let dropDownHiddenY: CGFloat = -100
+    private let dropDownVisibleY: CGFloat = 100
+    private let dropDownMargin: CGFloat = 16
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,14 +123,45 @@ extension AddAreaViewController: CLLocationManagerDelegate {
 
 }
 
+
+// MARK: - MapView delegate
 extension AddAreaViewController: GMSMapViewDelegate {
 
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
+        guard temporaryMarker == nil else { return }
         let geocoder = GMSGeocoder()
         geocoder.reverseGeocodeCoordinate(coordinate) { (response, error) in
             if let address = response?.firstResult() {
-                let area = Area(name: address.locality ?? "nameless", users: [], coordinate: coordinate)
-                self.core.fire(event: Added(item: area))
+                self.newAreaView.frame = CGRect(x: self.dropDownMargin, y: self.dropDownHiddenY, width: self.view.frame.width - (self.dropDownMargin * 2), height: NewAreaView.height)
+                self.newAreaView.update(with: address.locality, coordinate: coordinate)
+                self.view.addSubview(self.newAreaView)
+                self.temporaryMarker = GMSMarker(position: coordinate)
+                self.temporaryMarker?.map = mapView
+                self.temporaryMarker?.icon = #imageLiteral(resourceName: "map-pin")
+                self.animateNewAreaView(.into)
+
+                self.newAreaView.completion = {
+                    self.temporaryMarker?.map = nil
+                    self.temporaryMarker = nil
+                    self.animateNewAreaView(.out)
+                }
+            }
+        }
+    }
+
+    func animateNewAreaView(_ direction: AnimationDirection) {
+        var yPosition: CGFloat = 0
+        switch direction {
+        case .into:
+            yPosition = dropDownVisibleY
+        case .out:
+            yPosition = dropDownHiddenY
+        }
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: .curveEaseInOut, animations: {
+            self.newAreaView.frame = CGRect(x: self.dropDownMargin, y: yPosition, width: self.view.frame.width - (self.dropDownMargin * 2), height: NewAreaView.height)
+        }) { _ in
+            if case .out = direction {
+                self.newAreaView.removeFromSuperview()
             }
         }
     }

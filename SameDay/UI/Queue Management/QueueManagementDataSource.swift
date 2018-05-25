@@ -28,7 +28,7 @@ class QueueManagementDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "Users"
+            return "Unassigned Techs"
         default:
             return areas[section - 1].name
         }
@@ -67,7 +67,6 @@ class QueueManagementDataSource: NSObject, UITableViewDataSource {
         switch sourceIndexPath.section {
         case 0:
             userToMove = unassignedUsers[sourceIndexPath.row]
-            //            unassignedUsers.remove(at: sourceIndexPath.row)
         default:
             userToMove = areas[sourceIndexPath.section - 1].users[sourceIndexPath.row]
             areas[sourceIndexPath.section - 1].users.remove(at: sourceIndexPath.row)

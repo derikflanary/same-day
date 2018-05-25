@@ -20,15 +20,12 @@ class QueueManagementViewController: UIViewController {
         tableView.isEditing = true
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        dataSource.users = core.state.userState.users
-        dataSource.areas = core.state.queueState.areas
-        tableView.reloadData()
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         core.add(subscriber: self)
+        dataSource.users = core.state.userState.users
+        dataSource.areas = core.state.queueState.areas
+        tableView.reloadData()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
