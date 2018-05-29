@@ -22,6 +22,8 @@ struct QueueState: State {
             areas.append(event.item)
         case let event as Updated<Area>:
             areas.replace(item: event.item)
+        case let event as Deleted<Area>:
+            areas.remove(item: event.item)
         default:
             break
         }

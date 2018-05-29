@@ -13,6 +13,7 @@ class AreaInfoWindow: UIView {
     static var height: CGFloat = 101.0
     var core = App.sharedCore
     var doneToolbar = CustomInputAccessory()
+    var completion: (() -> Void)?
     var area: Area? {
         didSet {
             nameTextField.text = area?.name
@@ -32,18 +33,22 @@ class AreaInfoWindow: UIView {
         nameTextField.inputAccessoryView = doneToolbar
     }
 
-    @IBAction func moveButtonTapped() {
-        print("time to move")
-    }
-
     @IBAction func deleteButtonTapped() {
         guard let area = area else { return }
         core.fire(event: Deleted(item: area))
+        completion?()
     }
     
     @IBAction func editButtonTapped() {
+        nameTextField.borderStyle = .roundedRect
+        nameTextField.isUserInteractionEnabled = true
         nameTextField.becomeFirstResponder()
     }
+
+    @IBAction func cancelButtonTapped() {
+        completion?()
+    }
+    
 }
 
 // MARK: - Input accessory delegate
@@ -52,6 +57,8 @@ extension AreaInfoWindow: CustomInputAccessoryDelegate {
 
     func donePressed() {
         endEditing(true)
+        nameTextField.isUserInteractionEnabled = false
+        nameTextField.borderStyle = .none
         guard let area = area, let name = nameTextField.text else { return }
         var updatedArea = area
         updatedArea.name = name

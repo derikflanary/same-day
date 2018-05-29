@@ -45,7 +45,7 @@ class NewAreaView: UIView {
 
     @IBAction func saveButtonTapped() {
         guard let name = name, let coordinate = coordinate else { return }
-        let area = Area(name: name, users: [], coordinate: coordinate)
+        let area = Area(id: Date().timeIntervalSince1970, name: name, users: [], coordinate: coordinate)
         self.core.fire(event: Added(item: area))
         completion?()
     }

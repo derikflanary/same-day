@@ -30,11 +30,12 @@
 		ECFC3E8420B73816005E192F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8320B73816005E192F /* User.swift */; };
 		ECFC3E8620B73875005E192F /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8520B73875005E192F /* Area.swift */; };
 		ECFC3E8820B738DC005E192F /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8720B738DC005E192F /* Array+Extensions.swift */; };
-		ECFC3E8A20B7585E005E192F /* AddAreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8920B7585E005E192F /* AddAreaViewController.swift */; };
+		ECFC3E8A20B7585E005E192F /* AreasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8920B7585E005E192F /* AreasViewController.swift */; };
 		ECFC3E8C20B75F4C005E192F /* QueueState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8B20B75F4C005E192F /* QueueState.swift */; };
 		ECFC3E8E20B8619F005E192F /* NewAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8D20B8619F005E192F /* NewAreaView.swift */; };
 		ECFC3E9220BDB2D6005E192F /* AreaInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E9120BDB2D6005E192F /* AreaInfoWindow.swift */; };
 		ECFC3E9420BDB8CE005E192F /* CustomInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E9320BDB8CE005E192F /* CustomInputAccessoryView.swift */; };
+		ECFC3E9620BDFC02005E192F /* GMSMarker+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E9520BDFC02005E192F /* GMSMarker+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,11 +65,12 @@
 		ECFC3E8320B73816005E192F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ECFC3E8520B73875005E192F /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
 		ECFC3E8720B738DC005E192F /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
-		ECFC3E8920B7585E005E192F /* AddAreaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAreaViewController.swift; sourceTree = "<group>"; };
+		ECFC3E8920B7585E005E192F /* AreasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreasViewController.swift; sourceTree = "<group>"; };
 		ECFC3E8B20B75F4C005E192F /* QueueState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueState.swift; sourceTree = "<group>"; };
 		ECFC3E8D20B8619F005E192F /* NewAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAreaView.swift; sourceTree = "<group>"; };
 		ECFC3E9120BDB2D6005E192F /* AreaInfoWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaInfoWindow.swift; sourceTree = "<group>"; };
 		ECFC3E9320BDB8CE005E192F /* CustomInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputAccessoryView.swift; sourceTree = "<group>"; };
+		ECFC3E9520BDFC02005E192F /* GMSMarker+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GMSMarker+Extensions.swift"; sourceTree = "<group>"; };
 		FE5BC21D9ACEF9E9CD9BD2A3 /* Pods-SameDay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SameDay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SameDay/Pods-SameDay.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +160,7 @@
 				ECFC3E7620B73098005E192F /* ReuseableView.swift */,
 				ECFC3E7820B730D6005E192F /* UITableView+Extensions.swift */,
 				ECFC3E8720B738DC005E192F /* Array+Extensions.swift */,
+				ECFC3E9520BDFC02005E192F /* GMSMarker+Extensions.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -176,7 +179,7 @@
 			children = (
 				EC95DEE620B49C0D0093C3B6 /* QueueManagementViewController.swift */,
 				ECFC3E7420B7305C005E192F /* QueueManagementDataSource.swift */,
-				ECFC3E8920B7585E005E192F /* AddAreaViewController.swift */,
+				ECFC3E8920B7585E005E192F /* AreasViewController.swift */,
 				ECFC3E8D20B8619F005E192F /* NewAreaView.swift */,
 				ECFC3E9120BDB2D6005E192F /* AreaInfoWindow.swift */,
 				ECFC3E7C20B73392005E192F /* UserCell.swift */,
@@ -339,12 +342,13 @@
 				EC95DEEC20B49DF40093C3B6 /* StoryboardInitializable.swift in Sources */,
 				ECFC3E8820B738DC005E192F /* Array+Extensions.swift in Sources */,
 				ECFC3E7D20B73392005E192F /* UserCell.swift in Sources */,
-				ECFC3E8A20B7585E005E192F /* AddAreaViewController.swift in Sources */,
+				ECFC3E8A20B7585E005E192F /* AreasViewController.swift in Sources */,
 				ECFC3E7B20B73173005E192F /* CircleAvatarView.swift in Sources */,
 				EC8F0A5E20B31D2D0042E486 /* MainViewController.swift in Sources */,
 				ECFC3E8420B73816005E192F /* User.swift in Sources */,
 				EC95DEE520B4965D0093C3B6 /* UIColor+Extensions.swift in Sources */,
 				EC95DEDF20B355CC0093C3B6 /* Reactor.swift in Sources */,
+				ECFC3E9620BDFC02005E192F /* GMSMarker+Extensions.swift in Sources */,
 				ECFC3E8C20B75F4C005E192F /* QueueState.swift in Sources */,
 				EC8F0A5C20B31D2D0042E486 /* AppDelegate.swift in Sources */,
 				EC95DEE120B3586F0093C3B6 /* AppState.swift in Sources */,

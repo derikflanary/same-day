@@ -10,6 +10,7 @@ import Foundation
 import CoreLocation
 
 struct Area {
+    var id: TimeInterval
     var name: String
     var users: [User]
     var coordinate: CLLocationCoordinate2D
@@ -17,6 +18,6 @@ struct Area {
 
 extension Area: Equatable {
     static func == (lhs: Area, rhs: Area) -> Bool {
-        return lhs.coordinate.latitude == rhs.coordinate.latitude && lhs.coordinate.longitude == rhs.coordinate.longitude
+        return lhs.id == rhs.id
     }
 }

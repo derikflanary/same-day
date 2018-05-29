@@ -16,5 +16,11 @@ extension Array where Element: Equatable  {
         }
     }
 
+    mutating func remove(item: Element) {
+        if let index = index(of: item) {
+            remove(at: index)
+        }
+    }
+
 }
 
