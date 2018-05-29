@@ -38,6 +38,9 @@ class QueueManagementViewController: UIViewController {
     
 }
 
+
+// MARK: - Tableview delegate
+
 extension QueueManagementViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
@@ -50,9 +53,13 @@ extension QueueManagementViewController: UITableViewDelegate {
 
 }
 
+
+// MARK: - Subscriber
+
 extension QueueManagementViewController: Subscriber {
 
     func update(with state: AppState) {
 
     }
+    
 }

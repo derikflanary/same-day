@@ -10,13 +10,13 @@ import Foundation
 import CoreLocation
 
 struct Area {
-    let name: String
+    var name: String
     var users: [User]
     var coordinate: CLLocationCoordinate2D
 }
 
 extension Area: Equatable {
     static func == (lhs: Area, rhs: Area) -> Bool {
-        return lhs.name == rhs.name
+        return lhs.coordinate.latitude == rhs.coordinate.latitude && lhs.coordinate.longitude == rhs.coordinate.longitude
     }
 }
