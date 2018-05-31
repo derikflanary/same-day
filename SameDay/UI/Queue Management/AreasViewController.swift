@@ -11,7 +11,7 @@ import CoreLocation
 import GoogleMaps
 import GooglePlaces
 
-class AreasViewController: UIViewController {
+class AreasViewController: UIViewController, Mappable {
 
     enum AnimationDirection {
         case into
@@ -27,11 +27,11 @@ class AreasViewController: UIViewController {
     @IBOutlet var areaInfoWindow: AreaInfoWindow!
     
     var core = App.sharedCore
-    private var locationManager = CLLocationManager()
     private var currentLocation: CLLocation?
-    private var mapView: GMSMapView!
+    internal var locationManager = CLLocationManager()
+    internal var mapView: GMSMapView?
+    internal var zoomLevel: Float = 10.0
     private var placesClient: GMSPlacesClient = GMSPlacesClient.shared()
-    private var zoomLevel: Float = 10.0
     private var areas = [Area]()
     private var addedMarkers = [GMSMarker]()
     private var temporaryMarker: GMSMarker?
@@ -57,7 +57,7 @@ class AreasViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureMap()
+        configureMap(for: view)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -79,13 +79,7 @@ extension AreasViewController: CLLocationManagerDelegate {
 
     // Handle incoming location events.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last, mapView.isHidden else { return }
-        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
-                                                  longitude: location.coordinate.longitude,
-                                                  zoom: zoomLevel)
-        mapView.isHidden = false
-        mapView.camera = camera
-        mapView.animate(to: camera)
+        handleLocationManagerDidUpLocations(with: manager, locations: locations)
     }
 
     // Handle authorization for the location manager.
@@ -96,7 +90,7 @@ extension AreasViewController: CLLocationManagerDelegate {
         case .denied:
             print("User denied access to location.")
             // Display the map using the default location.
-            mapView.isHidden = false
+            mapView?.isHidden = false
         case .notDetermined:
             print("Location status not determined.")
         case .authorizedAlways: fallthrough
@@ -146,7 +140,7 @@ extension AreasViewController: GMSMapViewDelegate {
     }
 
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        guard let area = area(for: marker) else { return false }
+        guard let area = areas.area(for: marker) else { return false }
         areaInfoWindow.removeFromSuperview()
         areaInfoWindow.frame = CGRect(x: 0, y: 0, width: self.view.frame.width - (self.dropDownMargin * 2), height: AreaInfoWindow.height)
         let markerPosition = mapView.projection.point(for: marker.position)
@@ -171,7 +165,7 @@ extension AreasViewController: GMSMapViewDelegate {
     }
 
     func mapView(_ mapView: GMSMapView, didBeginDragging marker: GMSMarker) {
-        guard let areaMoving = area(for: marker) else { return }
+        guard let areaMoving = areas.area(for: marker) else { return }
         marker.designedForDragging()
         mapState = .move(area: areaMoving)
     }
@@ -190,29 +184,6 @@ extension AreasViewController: GMSMapViewDelegate {
 
 private extension AreasViewController {
 
-    func configureMap() {
-        locationManager = CLLocationManager()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.distanceFilter = 50
-        locationManager.startUpdatingLocation()
-        locationManager.delegate = self
-        placesClient = GMSPlacesClient.shared()
-        let location = CLLocation(latitude: CLLocationDegrees(exactly: 40.7608)!, longitude: CLLocationDegrees(exactly: 111.8910)!)
-        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
-                                              longitude: location.coordinate.longitude,
-                                              zoom: zoomLevel)
-        mapView = GMSMapView.map(withFrame: view.bounds, camera: camera)
-        mapView.settings.myLocationButton = true
-        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mapView.isMyLocationEnabled = true
-        mapView.settings.tiltGestures = false
-        mapView.settings.indoorPicker = false
-        mapView.delegate = self
-        view.addSubview(mapView)
-        mapView.isHidden = true
-    }
-
     func addMarkersToMap() {
         for marker in addedMarkers {
             marker.map = nil
@@ -224,10 +195,6 @@ private extension AreasViewController {
             marker.isDraggable = true
             addedMarkers.append(marker)
         }
-    }
-
-    func area(for marker: GMSMarker) -> Area? {
-        return areas.filter { $0.coordinate.latitude == marker.position.latitude && $0.coordinate.longitude == marker.position.longitude }.first
     }
 
     func animateNewAreaView(_ direction: AnimationDirection) {

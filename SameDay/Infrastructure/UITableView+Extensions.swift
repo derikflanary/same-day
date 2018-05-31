@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import JTAppleCalendar
 
 extension UITableView {
 
@@ -38,4 +39,14 @@ extension UICollectionView {
         return header
     }
 
+}
+
+extension JTAppleCalendarView {
+
+    func dequeueReusableCalendarCell<T: JTAppleCell>(for indexPath: IndexPath) -> T where T: ReusableView {
+        guard let cell = dequeueReusableJTAppleCell(withReuseIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
+            fatalError("Could not dequeue cell with identifier: \(T.reuseIdentifier)")
+        }
+        return cell
+    }
 }

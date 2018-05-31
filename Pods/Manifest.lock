@@ -7,23 +7,27 @@ PODS:
     - GoogleMaps/Base
   - GooglePlaces (2.5.0):
     - GoogleMaps/Base (= 2.5.0)
+  - JTAppleCalendar (7.1.5)
 
 DEPENDENCIES:
   - Alamofire
   - GoogleMaps
   - GooglePlaces
+  - JTAppleCalendar (~> 7.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - GoogleMaps
     - GooglePlaces
+    - JTAppleCalendar
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
   GooglePlaces: dd70d9d71ea1c7944846afe67de3712c99b30a77
+  JTAppleCalendar: 2d4f974f9f3c8b4964d51ca1f6e004883c031fbe
 
-PODFILE CHECKSUM: 90c1c2b23909e0bb3c1268dd0021655e6dcdffc2
+PODFILE CHECKSUM: c050af2709a1dbff8c023044f5451ac9890f9729
 
 COCOAPODS: 1.5.2

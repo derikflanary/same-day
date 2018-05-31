@@ -36,6 +36,9 @@
 		ECFC3E9220BDB2D6005E192F /* AreaInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E9120BDB2D6005E192F /* AreaInfoWindow.swift */; };
 		ECFC3E9420BDB8CE005E192F /* CustomInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E9320BDB8CE005E192F /* CustomInputAccessoryView.swift */; };
 		ECFC3E9620BDFC02005E192F /* GMSMarker+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E9520BDFC02005E192F /* GMSMarker+Extensions.swift */; };
+		ECFC3E9820BF0A25005E192F /* PersonalScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E9720BF0A25005E192F /* PersonalScheduleViewController.swift */; };
+		ECFC3E9A20BF6654005E192F /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E9920BF6654005E192F /* Mappable.swift */; };
+		ECFC3EBF20C0600E005E192F /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3EBE20C0600E005E192F /* CalendarCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +74,9 @@
 		ECFC3E9120BDB2D6005E192F /* AreaInfoWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaInfoWindow.swift; sourceTree = "<group>"; };
 		ECFC3E9320BDB8CE005E192F /* CustomInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputAccessoryView.swift; sourceTree = "<group>"; };
 		ECFC3E9520BDFC02005E192F /* GMSMarker+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GMSMarker+Extensions.swift"; sourceTree = "<group>"; };
+		ECFC3E9720BF0A25005E192F /* PersonalScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalScheduleViewController.swift; sourceTree = "<group>"; };
+		ECFC3E9920BF6654005E192F /* Mappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mappable.swift; sourceTree = "<group>"; };
+		ECFC3EBE20C0600E005E192F /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		FE5BC21D9ACEF9E9CD9BD2A3 /* Pods-SameDay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SameDay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SameDay/Pods-SameDay.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +103,7 @@
 		EC8F0A4F20B31D2D0042E486 = {
 			isa = PBXGroup;
 			children = (
+				ECFC3E9920BF6654005E192F /* Mappable.swift */,
 				EC8F0A5A20B31D2D0042E486 /* SameDay */,
 				EC8F0A5920B31D2D0042E486 /* Products */,
 				EFD5D0DCAA7121AE12A802E6 /* Pods */,
@@ -134,6 +141,8 @@
 				EC8F0A5D20B31D2D0042E486 /* MainViewController.swift */,
 				EC95DEE220B4927B0093C3B6 /* Home.storyboard */,
 				EC95DEED20B49E4D0093C3B6 /* HomeTabBarController.swift */,
+				ECFC3E9720BF0A25005E192F /* PersonalScheduleViewController.swift */,
+				ECFC3EBE20C0600E005E192F /* CalendarCell.swift */,
 				ECFC3E9020B87953005E192F /* Common */,
 				ECFC3E8F20B8793A005E192F /* Queue Management */,
 			);
@@ -284,10 +293,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SameDay/Pods-SameDay-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -346,6 +357,7 @@
 				ECFC3E7B20B73173005E192F /* CircleAvatarView.swift in Sources */,
 				EC8F0A5E20B31D2D0042E486 /* MainViewController.swift in Sources */,
 				ECFC3E8420B73816005E192F /* User.swift in Sources */,
+				ECFC3E9A20BF6654005E192F /* Mappable.swift in Sources */,
 				EC95DEE520B4965D0093C3B6 /* UIColor+Extensions.swift in Sources */,
 				EC95DEDF20B355CC0093C3B6 /* Reactor.swift in Sources */,
 				ECFC3E9620BDFC02005E192F /* GMSMarker+Extensions.swift in Sources */,
@@ -355,6 +367,7 @@
 				EC95DEEE20B49E4D0093C3B6 /* HomeTabBarController.swift in Sources */,
 				ECFC3E8E20B8619F005E192F /* NewAreaView.swift in Sources */,
 				ECFC3E9420BDB8CE005E192F /* CustomInputAccessoryView.swift in Sources */,
+				ECFC3EBF20C0600E005E192F /* CalendarCell.swift in Sources */,
 				ECFC3E9220BDB2D6005E192F /* AreaInfoWindow.swift in Sources */,
 				ECFC3E7920B730D6005E192F /* UITableView+Extensions.swift in Sources */,
 				ECFC3E8620B73875005E192F /* Area.swift in Sources */,
@@ -363,6 +376,7 @@
 				ECFC3E7F20B737A1005E192F /* UserState.swift in Sources */,
 				ECFC3E8120B737FF005E192F /* GenericEvents.swift in Sources */,
 				ECFC3E7520B7305C005E192F /* QueueManagementDataSource.swift in Sources */,
+				ECFC3E9820BF0A25005E192F /* PersonalScheduleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

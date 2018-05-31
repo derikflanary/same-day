@@ -32,9 +32,6 @@ class QueueManagementViewController: UIViewController {
         super.viewDidDisappear(animated)
         core.remove(subscriber: self)
     }
-
-    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
-    }
     
 }
 
