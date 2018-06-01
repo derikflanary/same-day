@@ -11,7 +11,7 @@ import Foundation
 struct UserState: State {
 
     var users = [User(name: "Gilg Gwilliams"), User(name: "Mary Jane")]
-
+    
     mutating func react(to event: Event) {
         switch event {
         case let event as Added<User>:
@@ -22,4 +22,3 @@ struct UserState: State {
     }
 
 }
-

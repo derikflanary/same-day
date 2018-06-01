@@ -18,8 +18,11 @@ class PersonalScheduleViewController: UIViewController, Mappable {
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
     var mapView: GMSMapView?
-    var zoomLevel: Float = 8.0
+    var zoomLevel: Float = 12.0
+    var addedMarkers = [GMSMarker]()
     
+    @IBOutlet var tableViewDataSource: PersonalScheduleDataSource!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
 
@@ -101,6 +104,8 @@ extension PersonalScheduleViewController: JTAppleCalendarViewDelegate {
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         guard let cell = cell as? CalendarCell else { return }
         cell.selectedView.isHidden = false
+        core.fire(event: Selected(item: date))
+        tableViewDataSource.selectedIndex = nil
     }
 
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
@@ -151,9 +156,38 @@ extension PersonalScheduleViewController: CLLocationManagerDelegate {
 extension PersonalScheduleViewController: GMSMapViewDelegate { }
 
 
+// MARK: - Tableview delegate
+
+extension PersonalScheduleViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let job = tableViewDataSource.jobs[indexPath.row]
+        mapView?.animate(to: GMSCameraPosition(target: job.coordinate, zoom: 15, bearing: 0, viewingAngle: 0))
+        tableViewDataSource.selectedIndex = indexPath
+        tableView.reloadSections(IndexSet(integer: 0), with: .none)
+    }
+
+}
+
+
 // MARK: - Private functions
 
-private extension PersonalScheduleViewController { }
+private extension PersonalScheduleViewController {
+
+    func addMarkersToMap(from coordinates: [CLLocationCoordinate2D]) {
+        for marker in addedMarkers {
+            marker.map = nil
+        }
+        addedMarkers.removeAll()
+        let markers: [GMSMarker] = coordinates.map { GMSMarker(position: $0) }
+        for marker in markers {
+            guard !addedMarkers.contains(marker) else { continue }
+            marker.map = mapView
+            addedMarkers.append(marker)
+        }
+    }
+
+}
 
 
 // MARK: - Subscriber
@@ -161,15 +195,10 @@ private extension PersonalScheduleViewController { }
 extension PersonalScheduleViewController: Subscriber {
 
     func update(with state: AppState) {
-
+        tableViewDataSource.jobs = state.personalScheduleState.jobsOfSelectedDate
+        tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+        addMarkersToMap(from: state.personalScheduleState.jobsOfSelectedDate.map { $0.coordinate } )
     }
 
 }
 
-extension Date {
-    func dayOfWeek() -> String? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEE"
-        return dateFormatter.string(from: self).capitalized
-    }
-}

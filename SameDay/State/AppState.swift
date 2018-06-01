@@ -18,10 +18,12 @@ struct AppState: State {
 
     var userState = UserState()
     var queueState = QueueState()
+    var personalScheduleState = PersonalScheduleState()
 
     mutating func react(to event: Event) {
         userState.react(to: event)
         queueState.react(to: event)
+        personalScheduleState.react(to: event)
     }
 
 }
