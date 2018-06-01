@@ -20,18 +20,28 @@ class PersonalScheduleViewController: UIViewController, Mappable {
     var mapView: GMSMapView?
     var zoomLevel: Float = 12.0
     var addedMarkers = [GMSMarker]()
-    
+
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: UIControlEvents.valueChanged)
+        return refreshControl
+    }()
+
     @IBOutlet var tableViewDataSource: PersonalScheduleDataSource!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
 
 
+    // MARK: - View life cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureMap(for: topView)
         calendarView.scrollToDate(Date())
         calendarView.selectDates([Date()])
+        tableView.refreshControl = refreshControl
+        refreshControl.tintColor = UIColor.themeColor
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -42,6 +52,13 @@ class PersonalScheduleViewController: UIViewController, Mappable {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         core.remove(subscriber: self)
+    }
+
+    @objc func handleRefresh() {
+        tableViewDataSource.jobs = core.state.personalScheduleState.jobsOfSelectedDate
+        tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+        addMarkersToMap(from: core.state.personalScheduleState.jobsOfSelectedDate.map { $0.coordinate } )
+        refreshControl.endRefreshing()
     }
 
 }
