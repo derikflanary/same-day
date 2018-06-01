@@ -27,6 +27,8 @@ class PersonalScheduleViewController: UIViewController, Mappable {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureMap(for: topView)
+        calendarView.scrollToDate(Date())
+        calendarView.selectDates([Date()])
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -54,14 +56,12 @@ extension PersonalScheduleViewController: JTAppleCalendarViewDataSource {
 
         let startDate = Date()
         let endDate = Calendar.current.date(byAdding: .year, value: 1, to: Date())!
-        let params = ConfigurationParameters(startDate: startDate, endDate: endDate)
-        return params
         let parameters = ConfigurationParameters(startDate: startDate,
                                                  endDate: endDate,
                                                  numberOfRows: 1,
                                                  calendar: Calendar.current,
-                                                 generateInDates: .forAllMonths,
-                                                 generateOutDates: .tillEndOfGrid,
+                                                 generateInDates: .off,
+                                                 generateOutDates: .off,
                                                  firstDayOfWeek: .sunday)
         return parameters
     }
@@ -76,6 +76,19 @@ extension PersonalScheduleViewController: JTAppleCalendarViewDelegate {
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         let cell = calendar.dequeueReusableCalendarCell(for: indexPath) as CalendarCell
         cell.dayLabel.text = cellState.text
+        cell.weekDayLabel.text = date.dayOfWeek()
+        if cellState.dateBelongsTo == .thisMonth {
+            cell.dayLabel.textColor = UIColor.blackOne
+            cell.weekDayLabel.textColor = UIColor.blackOne
+        } else {
+            cell.dayLabel.textColor = UIColor.grayTwo
+            cell.weekDayLabel.textColor = UIColor.blackOne
+        }
+        if Calendar.current.isDate(date, inSameDayAs: Date()) {
+            cell.dayLabel.textColor = UIColor.destructiveRed
+            cell.weekDayLabel.textColor = UIColor.destructiveRed
+        }
+        cell.selectedView.isHidden = !cellState.isSelected
         return cell
     }
 
@@ -84,6 +97,17 @@ extension PersonalScheduleViewController: JTAppleCalendarViewDelegate {
         let cell = cell as! CalendarCell
         cell.dayLabel.text = cellState.text
     }
+
+    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+        guard let cell = cell as? CalendarCell else { return }
+        cell.selectedView.isHidden = false
+    }
+
+    func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+        guard let cell = cell as? CalendarCell else { return }
+        cell.selectedView.isHidden = true
+    }
+
 }
 
 
@@ -140,4 +164,12 @@ extension PersonalScheduleViewController: Subscriber {
 
     }
 
+}
+
+extension Date {
+    func dayOfWeek() -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEE"
+        return dateFormatter.string(from: self).capitalized
+    }
 }

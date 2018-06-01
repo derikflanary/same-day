@@ -12,5 +12,12 @@ import JTAppleCalendar
 class CalendarCell: JTAppleCell, ReusableView {
 
     @IBOutlet weak var dayLabel: UILabel!
-    
+    @IBOutlet weak var weekDayLabel: UILabel!
+
+    @IBOutlet weak var selectedView: UIView!
+
+    override func didMoveToWindow() {
+        selectedView.layer.cornerRadius = selectedView.frame.height / 2
+        selectedView.clipsToBounds = true
+    }
 }
