@@ -12,7 +12,7 @@ import UIKit
 class PersonalScheduleDataSource: NSObject, UITableViewDataSource {
 
     var jobs = [Job]()
-    var selectedIndex: IndexPath?
+    var selectedJob: Job?
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return jobs.count
@@ -20,7 +20,9 @@ class PersonalScheduleDataSource: NSObject, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell() as JobCell
-        cell.configure(with: jobs[indexPath.row], isSelected: selectedIndex == indexPath)
+        let job = jobs[indexPath.row]
+        let isSelected = selectedJob == job
+        cell.configure(with: job, isSelected: isSelected)
         return cell
     }
 

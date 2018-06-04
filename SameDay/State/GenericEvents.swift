@@ -26,6 +26,8 @@ struct Selected<T>: Event {
     var item: T
 }
 
+struct Deselected<T>: Event { }
+
 struct Updated<T>: Event {
     var item: T
 }

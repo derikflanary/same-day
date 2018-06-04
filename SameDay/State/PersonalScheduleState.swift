@@ -63,7 +63,7 @@ struct Job: Coordinatable {
 
 extension Job: Equatable {
     static func == (lhs: Job, rhs: Job) -> Bool {
-        return lhs.id == rhs.id
+        return lhs.coordinate.latitude == rhs.coordinate.latitude && lhs.coordinate.longitude == rhs.coordinate.longitude
     }
 
 

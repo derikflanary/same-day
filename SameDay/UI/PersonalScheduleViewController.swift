@@ -125,7 +125,7 @@ extension PersonalScheduleViewController: JTAppleCalendarViewDelegate {
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         core.fire(event: Selected(item: date))
         calendarView.reloadData()
-        tableViewDataSource.selectedIndex = nil
+        tableViewDataSource.selectedJob = nil
     }
 
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
@@ -183,9 +183,7 @@ extension PersonalScheduleViewController: GMSMapViewDelegate {
 
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         guard let job = core.state.personalScheduleState.jobsOfSelectedDate.job(for: marker) else { return false }
-        guard let row = tableViewDataSource.jobs.index(of: job) else { return false }
-        let indexPath = IndexPath(row: row, section: 0)
-        tableViewDataSource.selectedIndex = indexPath
+        tableViewDataSource.selectedJob = job
         tableView.reloadSections(IndexSet(integer: 0), with: .none)
         return false
     }
@@ -200,7 +198,7 @@ extension PersonalScheduleViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let job = tableViewDataSource.jobs[indexPath.row]
         mapView?.animate(to: GMSCameraPosition(target: job.coordinate, zoom: 15, bearing: 0, viewingAngle: 0))
-        tableViewDataSource.selectedIndex = indexPath
+        tableViewDataSource.selectedJob = job
         tableView.reloadSections(IndexSet(integer: 0), with: .none)
     }
 
