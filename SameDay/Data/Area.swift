@@ -9,7 +9,11 @@
 import Foundation
 import CoreLocation
 
-struct Area {
+protocol Coordinatable {
+    var coordinate: CLLocationCoordinate2D { get set }
+}
+
+struct Area: Coordinatable {
     var id: TimeInterval
     var name: String
     var users: [User]

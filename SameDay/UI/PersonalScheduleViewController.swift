@@ -27,6 +27,14 @@ class PersonalScheduleViewController: UIViewController, Mappable {
         return refreshControl
     }()
 
+    lazy var monthFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "LLLL"
+        return dateFormatter
+    }()
+
+
+    @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet var tableViewDataSource: PersonalScheduleDataSource!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topView: UIView!
@@ -41,7 +49,7 @@ class PersonalScheduleViewController: UIViewController, Mappable {
         calendarView.scrollToDate(Date())
         calendarView.selectDates([Date()])
         tableView.refreshControl = refreshControl
-        refreshControl.tintColor = UIColor.themeColor
+        refreshControl.tintColor = UIColor.theme
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -57,7 +65,7 @@ class PersonalScheduleViewController: UIViewController, Mappable {
     @objc func handleRefresh() {
         tableViewDataSource.jobs = core.state.personalScheduleState.jobsOfSelectedDate
         tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
-        addMarkersToMap(from: core.state.personalScheduleState.jobsOfSelectedDate.map { $0.coordinate } )
+        addMarkersToMap(from: core.state.personalScheduleState.jobsOfSelectedDate)
         refreshControl.endRefreshing()
     }
 
@@ -94,24 +102,20 @@ extension PersonalScheduleViewController: JTAppleCalendarViewDataSource {
 extension PersonalScheduleViewController: JTAppleCalendarViewDelegate {
 
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
+
         let cell = calendar.dequeueReusableCalendarCell(for: indexPath) as CalendarCell
-        cell.dayLabel.text = cellState.text
-        cell.weekDayLabel.text = date.dayOfWeek()
-        if cellState.dateBelongsTo == .thisMonth {
-            cell.dayLabel.textColor = UIColor.blackOne
-            cell.weekDayLabel.textColor = UIColor.blackOne
-        } else {
-            cell.dayLabel.textColor = UIColor.grayTwo
-            cell.weekDayLabel.textColor = UIColor.blackOne
-        }
-        if Calendar.current.isDate(date, inSameDayAs: Date()) {
-            cell.dayLabel.textColor = UIColor.destructiveRed
-            cell.weekDayLabel.textColor = UIColor.destructiveRed
-        }
-        cell.selectedView.isHidden = !cellState.isSelected
+        cell.configure(with: date, cellState: cellState, datesWithJobs: core.state.personalScheduleState.datesWithJobs, selectedDate: core.state.personalScheduleState.selectedDate)
         return cell
     }
 
+    func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
+        var monthDate = Date()
+        if let date = visibleDates.monthDates.first?.date {
+            monthDate = date
+        }
+        let nameOfMonth = monthFormatter.string(from: monthDate)
+        monthLabel.text = nameOfMonth
+    }
 
     func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
         let cell = cell as! CalendarCell
@@ -119,15 +123,13 @@ extension PersonalScheduleViewController: JTAppleCalendarViewDelegate {
     }
 
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        guard let cell = cell as? CalendarCell else { return }
-        cell.selectedView.isHidden = false
         core.fire(event: Selected(item: date))
+        calendarView.reloadData()
         tableViewDataSource.selectedIndex = nil
     }
 
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        guard let cell = cell as? CalendarCell else { return }
-        cell.selectedView.isHidden = true
+        calendarView.reloadData()
     }
 
 }
@@ -170,7 +172,25 @@ extension PersonalScheduleViewController: CLLocationManagerDelegate {
 
 // MARK: - Mapview delegate
 
-extension PersonalScheduleViewController: GMSMapViewDelegate { }
+extension PersonalScheduleViewController: GMSMapViewDelegate {
+
+    func mapView(_ mapView: GMSMapView, didLongPressInfoWindowOf marker: GMSMarker) {
+        guard let mapsURL = URL(string:"comgooglemaps://"), let directionsURL = URL(string: "comgooglemaps://?saddr=&daddr=\(Float(marker.position.latitude)),\(Float(marker.position.longitude))&directionsmode=driving") else { return }
+        if UIApplication.shared.canOpenURL(mapsURL) {
+            UIApplication.shared.open(directionsURL, options: [:], completionHandler: nil)
+        }
+    }
+
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        guard let job = core.state.personalScheduleState.jobsOfSelectedDate.job(for: marker) else { return false }
+        guard let row = tableViewDataSource.jobs.index(of: job) else { return false }
+        let indexPath = IndexPath(row: row, section: 0)
+        tableViewDataSource.selectedIndex = indexPath
+        tableView.reloadSections(IndexSet(integer: 0), with: .none)
+        return false
+    }
+
+}
 
 
 // MARK: - Tableview delegate
@@ -191,12 +211,18 @@ extension PersonalScheduleViewController: UITableViewDelegate {
 
 private extension PersonalScheduleViewController {
 
-    func addMarkersToMap(from coordinates: [CLLocationCoordinate2D]) {
+    func addMarkersToMap(from jobs: [Job]) {
         for marker in addedMarkers {
             marker.map = nil
         }
         addedMarkers.removeAll()
-        let markers: [GMSMarker] = coordinates.map { GMSMarker(position: $0) }
+        let markers: [GMSMarker] = jobs.map {
+            let marker =  GMSMarker(position: $0.coordinate)
+            marker.icon = GMSMarker.markerImage(with: UIColor.secondary)
+            marker.title = $0.title
+            marker.snippet = $0.startTime
+            return marker
+        }
         for marker in markers {
             guard !addedMarkers.contains(marker) else { continue }
             marker.map = mapView
@@ -214,7 +240,7 @@ extension PersonalScheduleViewController: Subscriber {
     func update(with state: AppState) {
         tableViewDataSource.jobs = state.personalScheduleState.jobsOfSelectedDate
         tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
-        addMarkersToMap(from: state.personalScheduleState.jobsOfSelectedDate.map { $0.coordinate } )
+        addMarkersToMap(from: state.personalScheduleState.jobsOfSelectedDate)
     }
 
 }

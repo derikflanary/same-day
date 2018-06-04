@@ -11,7 +11,8 @@ import UIKit
 
 extension UIColor {
 
-    class var themeColor: UIColor { return #colorLiteral(red: 0.3137254902, green: 0.7882352941, blue: 0.5294117647, alpha: 1) }
+    class var theme: UIColor { return #colorLiteral(red: 0.3137254902, green: 0.7882352941, blue: 0.5294117647, alpha: 1) }
+    class var secondary: UIColor { return #colorLiteral(red: 0.2823529412, green: 0.5490196078, blue: 0.6941176471, alpha: 1) }
     class var destructiveRed: UIColor { return #colorLiteral(red: 0.9254901961, green: 0.1215686275, blue: 0.07843137255, alpha: 1) }
 
     class var darkText: UIColor { return #colorLiteral(red: 0.1294117647, green: 0.1294117647, blue: 0.1294117647, alpha: 1) }

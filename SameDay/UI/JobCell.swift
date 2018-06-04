@@ -25,14 +25,9 @@ class JobCell: UITableViewCell, ReusableView {
     }
 
     func configure(with job: Job, isSelected: Bool) {
-        let formatter = DateFormatter()
-        formatter.timeStyle = .short
-        formatter.dateStyle = .none
-        startTimeLabel.text = formatter.string(from: job.date)
-        let time = Calendar.current.date(byAdding: .hour, value: job.duration, to: job.date)
-        endTimeLabel.text = formatter.string(from: time!)
+        startTimeLabel.text = job.startTime
+        endTimeLabel.text = job.endTime
         titleLabel.text = job.title
-
         selectedView.isHidden = !isSelected
     }
     

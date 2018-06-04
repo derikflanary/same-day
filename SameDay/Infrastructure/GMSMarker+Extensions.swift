@@ -32,3 +32,18 @@ extension Array where Element == Area {
     }
 
 }
+
+extension Array where Element == Job {
+
+    func job(for marker: GMSMarker) -> Job? {
+        return self.filter { $0.coordinate.latitude == marker.position.latitude && $0.coordinate.longitude == marker.position.longitude }.first
+    }
+
+}
+extension Array where Element == GMSMarker {
+
+    func marker(for coordinates: CLLocationCoordinate2D) -> GMSMarker? {
+        return self.filter { $0.position.latitude == coordinates.latitude && $0.position.longitude == coordinates.longitude }.first
+    }
+
+}

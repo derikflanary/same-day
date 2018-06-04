@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -359,7 +360,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gqs-pK-X72" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                <rect key="frame" x="0.0" y="339" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="355" width="375" height="60"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="lca-UL-tf6"/>
@@ -378,46 +379,60 @@
                                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vpt-To-cVn">
-                                                    <rect key="frame" x="0.0" y="25" width="60" height="21"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Vf-kb-qrN">
+                                                    <rect key="frame" x="8" y="2" width="44" height="44"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="OWg-eV-LgX"/>
+                                                        <constraint firstAttribute="width" secondItem="8Vf-kb-qrN" secondAttribute="height" multiplier="1:1" id="xwR-cT-fWF"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="14"/>
-                                                    <color key="textColor" red="0.3803921569" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ce2-uY-h71">
-                                                    <rect key="frame" x="0.0" y="4" width="60" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="14"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                </view>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Zs2-UH-5LE">
+                                                    <rect key="frame" x="15" y="6" width="30" height="36"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ce2-uY-h71">
+                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="18"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vpt-To-cVn">
+                                                            <rect key="frame" x="0.0" y="18" width="30" height="18"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="14"/>
+                                                            <color key="textColor" red="0.3803921569" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </stackView>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vob-Ix-Ned">
-                                                    <rect key="frame" x="26" y="48" width="8" height="8"/>
-                                                    <color key="backgroundColor" red="0.31372549020000001" green="0.78823529410000004" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <rect key="frame" x="27" y="48" width="6" height="6"/>
+                                                    <color key="backgroundColor" red="0.28235294117647058" green="0.5490196078431373" blue="0.69411764705882351" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="8" id="Ns0-dh-LeY"/>
-                                                        <constraint firstAttribute="height" constant="8" id="oaQ-Fh-r5J"/>
+                                                        <constraint firstAttribute="width" constant="6" id="Ns0-dh-LeY"/>
+                                                        <constraint firstAttribute="height" constant="6" id="oaQ-Fh-r5J"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="ce2-uY-h71" firstAttribute="top" secondItem="pj1-mQ-BSV" secondAttribute="top" constant="4" id="1Aw-RC-u9n"/>
-                                            <constraint firstItem="Vpt-To-cVn" firstAttribute="leading" secondItem="pj1-mQ-BSV" secondAttribute="leading" id="Tos-wg-Zpl"/>
-                                            <constraint firstItem="Vpt-To-cVn" firstAttribute="top" secondItem="ce2-uY-h71" secondAttribute="bottom" id="VIP-cd-BRO"/>
-                                            <constraint firstItem="ce2-uY-h71" firstAttribute="leading" secondItem="pj1-mQ-BSV" secondAttribute="leading" id="fcc-5b-zhA"/>
-                                            <constraint firstAttribute="bottom" secondItem="vob-Ix-Ned" secondAttribute="bottom" constant="4" id="lct-Ea-JSy"/>
-                                            <constraint firstAttribute="trailing" secondItem="ce2-uY-h71" secondAttribute="trailing" id="rnE-u3-v4e"/>
-                                            <constraint firstAttribute="trailing" secondItem="Vpt-To-cVn" secondAttribute="trailing" id="uvh-0D-kUC"/>
-                                            <constraint firstAttribute="bottom" secondItem="Vpt-To-cVn" secondAttribute="bottom" constant="14" id="vvx-sw-7G2"/>
+                                            <constraint firstItem="Zs2-UH-5LE" firstAttribute="centerX" secondItem="pj1-mQ-BSV" secondAttribute="centerX" id="9aZ-EK-WLQ"/>
+                                            <constraint firstItem="8Vf-kb-qrN" firstAttribute="height" secondItem="Zs2-UH-5LE" secondAttribute="height" constant="8" id="DhY-o3-aM2"/>
+                                            <constraint firstItem="Zs2-UH-5LE" firstAttribute="top" secondItem="pj1-mQ-BSV" secondAttribute="top" constant="6" id="Seg-8q-ech"/>
+                                            <constraint firstItem="8Vf-kb-qrN" firstAttribute="centerY" secondItem="Zs2-UH-5LE" secondAttribute="centerY" id="fxV-DZ-Bkg"/>
+                                            <constraint firstItem="8Vf-kb-qrN" firstAttribute="centerX" secondItem="Zs2-UH-5LE" secondAttribute="centerX" id="hVM-Jm-LB5"/>
+                                            <constraint firstAttribute="bottom" secondItem="vob-Ix-Ned" secondAttribute="bottom" constant="6" id="lct-Ea-JSy"/>
+                                            <constraint firstAttribute="bottom" secondItem="Zs2-UH-5LE" secondAttribute="bottom" constant="18" id="qDs-fw-MhY"/>
                                             <constraint firstItem="vob-Ix-Ned" firstAttribute="centerX" secondItem="pj1-mQ-BSV" secondAttribute="centerX" id="yPI-BN-wVO"/>
                                         </constraints>
                                         <size key="customSize" width="60" height="60"/>
                                         <connections>
                                             <outlet property="dayLabel" destination="Vpt-To-cVn" id="PIo-01-u3c"/>
                                             <outlet property="selectedView" destination="vob-Ix-Ned" id="TGL-mk-cWn"/>
+                                            <outlet property="stackView" destination="Zs2-UH-5LE" id="O2n-8T-Id1"/>
+                                            <outlet property="todayView" destination="8Vf-kb-qrN" id="wsy-Ne-b61"/>
                                             <outlet property="weekDayLabel" destination="ce2-uY-h71" id="dOe-xz-cK6"/>
                                         </connections>
                                     </collectionViewCell>
@@ -433,7 +448,7 @@
                                 </connections>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vaz-VL-ars">
-                                <rect key="frame" x="0.0" y="399" width="375" height="219"/>
+                                <rect key="frame" x="0.0" y="415" width="375" height="203"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="uDQ-eX-8ya">
                                     <rect key="frame" x="0.0" y="88" width="375" height="0.0"/>
@@ -522,17 +537,26 @@
                                     <outlet property="delegate" destination="FYD-WO-iP6" id="JnX-t2-frb"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEQ-th-NO2">
+                                <rect key="frame" x="16" y="335" width="49" height="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="gqs-pK-X72" firstAttribute="top" secondItem="vyu-1I-ms2" secondAttribute="bottom" constant="8" id="18V-Tx-8ew"/>
+                            <constraint firstItem="gqs-pK-X72" firstAttribute="top" secondItem="vyu-1I-ms2" secondAttribute="bottom" constant="24" id="18V-Tx-8ew"/>
                             <constraint firstItem="vyu-1I-ms2" firstAttribute="leading" secondItem="JY1-qA-iAC" secondAttribute="leading" id="FGh-cm-0ae"/>
                             <constraint firstItem="vyu-1I-ms2" firstAttribute="height" secondItem="99J-LJ-kap" secondAttribute="height" multiplier="0.4" id="Gj6-hS-CCm"/>
                             <constraint firstItem="gqs-pK-X72" firstAttribute="leading" secondItem="JY1-qA-iAC" secondAttribute="leading" id="H64-JC-THt"/>
                             <constraint firstItem="vyu-1I-ms2" firstAttribute="trailing" secondItem="JY1-qA-iAC" secondAttribute="trailing" id="J8w-te-f0a"/>
                             <constraint firstItem="vyu-1I-ms2" firstAttribute="top" secondItem="JY1-qA-iAC" secondAttribute="top" id="Jj9-zL-adC"/>
                             <constraint firstItem="vaz-VL-ars" firstAttribute="leading" secondItem="JY1-qA-iAC" secondAttribute="leading" id="JxL-o6-I8f"/>
+                            <constraint firstItem="gqs-pK-X72" firstAttribute="top" secondItem="VEQ-th-NO2" secondAttribute="bottom" constant="4" id="Nyn-qp-V2f"/>
+                            <constraint firstItem="VEQ-th-NO2" firstAttribute="leading" secondItem="JY1-qA-iAC" secondAttribute="leading" constant="16" id="eM7-eN-Xdj"/>
                             <constraint firstItem="vaz-VL-ars" firstAttribute="top" secondItem="gqs-pK-X72" secondAttribute="bottom" id="eaf-q7-1BM"/>
+                            <constraint firstItem="VEQ-th-NO2" firstAttribute="top" secondItem="vyu-1I-ms2" secondAttribute="bottom" constant="4" id="iEw-zk-JfA"/>
                             <constraint firstItem="vaz-VL-ars" firstAttribute="trailing" secondItem="JY1-qA-iAC" secondAttribute="trailing" id="k9I-2i-lpH"/>
                             <constraint firstItem="vaz-VL-ars" firstAttribute="bottom" secondItem="JY1-qA-iAC" secondAttribute="bottom" id="n06-I5-AMz"/>
                             <constraint firstItem="gqs-pK-X72" firstAttribute="trailing" secondItem="JY1-qA-iAC" secondAttribute="trailing" id="zb6-Qk-ecS"/>
@@ -542,6 +566,7 @@
                     <navigationItem key="navigationItem" title="Personal Schedule" id="Nzv-dO-Vkl"/>
                     <connections>
                         <outlet property="calendarView" destination="gqs-pK-X72" id="JaD-ds-5WK"/>
+                        <outlet property="monthLabel" destination="VEQ-th-NO2" id="atc-LU-sSd"/>
                         <outlet property="tableView" destination="vaz-VL-ars" id="G3E-Jd-bqc"/>
                         <outlet property="tableViewDataSource" destination="V6n-nx-gg2" id="iIz-QI-kTG"/>
                         <outlet property="topView" destination="vyu-1I-ms2" id="lhm-1G-F1c"/>
