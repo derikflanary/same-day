@@ -20,6 +20,11 @@
 		EC95DEE720B49C0E0093C3B6 /* QueueManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95DEE620B49C0D0093C3B6 /* QueueManagementViewController.swift */; };
 		EC95DEEC20B49DF40093C3B6 /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95DEEB20B49DF40093C3B6 /* StoryboardInitializable.swift */; };
 		EC95DEEE20B49E4D0093C3B6 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95DEED20B49E4D0093C3B6 /* HomeTabBarController.swift */; };
+		EC9A30AC20C9AD8400A975E1 /* Marshal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9A30AB20C9AD8400A975E1 /* Marshal.framework */; };
+		ECF63F7A20C71F5F001A8523 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF63F7920C71F5F001A8523 /* Job.swift */; };
+		ECF63F7C20C89B3E001A8523 /* UserNetworkAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF63F7B20C89B3E001A8523 /* UserNetworkAccess.swift */; };
+		ECF63F7E20C89C2E001A8523 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF63F7D20C89C2E001A8523 /* Result.swift */; };
+		ECF63F8120C8A16A001A8523 /* LoadEmployee.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF63F8020C8A16A001A8523 /* LoadEmployee.swift */; };
 		ECFC3E7520B7305C005E192F /* QueueManagementDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E7420B7305C005E192F /* QueueManagementDataSource.swift */; };
 		ECFC3E7720B73098005E192F /* ReuseableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E7620B73098005E192F /* ReuseableView.swift */; };
 		ECFC3E7920B730D6005E192F /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E7820B730D6005E192F /* UITableView+Extensions.swift */; };
@@ -62,6 +67,11 @@
 		EC95DEE620B49C0D0093C3B6 /* QueueManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueManagementViewController.swift; sourceTree = "<group>"; };
 		EC95DEEB20B49DF40093C3B6 /* StoryboardInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
 		EC95DEED20B49E4D0093C3B6 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
+		EC9A30AB20C9AD8400A975E1 /* Marshal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Marshal.framework; path = Carthage/Build/iOS/Marshal.framework; sourceTree = "<group>"; };
+		ECF63F7920C71F5F001A8523 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		ECF63F7B20C89B3E001A8523 /* UserNetworkAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkAccess.swift; sourceTree = "<group>"; };
+		ECF63F7D20C89C2E001A8523 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		ECF63F8020C8A16A001A8523 /* LoadEmployee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadEmployee.swift; sourceTree = "<group>"; };
 		ECFC3E7420B7305C005E192F /* QueueManagementDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueManagementDataSource.swift; sourceTree = "<group>"; };
 		ECFC3E7620B73098005E192F /* ReuseableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseableView.swift; sourceTree = "<group>"; };
 		ECFC3E7820B730D6005E192F /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
@@ -94,6 +104,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCD10EC8A347CFD40C4B621E /* Pods_SameDay.framework in Frameworks */,
+				EC9A30AC20C9AD8400A975E1 /* Marshal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +114,7 @@
 		A2CE802A17AD1F1F874511E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EC9A30AB20C9AD8400A975E1 /* Marshal.framework */,
 				2BD9BEB5D674BAF39E4CF4FC /* Pods_SameDay.framework */,
 			);
 			name = Frameworks;
@@ -111,7 +123,6 @@
 		EC8F0A4F20B31D2D0042E486 = {
 			isa = PBXGroup;
 			children = (
-				ECFC3E9920BF6654005E192F /* Mappable.swift */,
 				EC8F0A5A20B31D2D0042E486 /* SameDay */,
 				EC8F0A5920B31D2D0042E486 /* Products */,
 				EFD5D0DCAA7121AE12A802E6 /* Pods */,
@@ -133,6 +144,7 @@
 				EC8F0A5B20B31D2D0042E486 /* AppDelegate.swift */,
 				EC95DEE920B49C260093C3B6 /* State */,
 				EC95DEE820B49C1E0093C3B6 /* UI */,
+				ECF63F7F20C8A157001A8523 /* Commands */,
 				ECFC3E8220B7380A005E192F /* Data */,
 				EC95DEEA20B49C2E0093C3B6 /* Infrastructure */,
 				EC8F0A6220B31D2E0042E486 /* Assets.xcassets */,
@@ -174,6 +186,7 @@
 		EC95DEEA20B49C2E0093C3B6 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				ECFC3E9920BF6654005E192F /* Mappable.swift */,
 				EC95DEDE20B355CC0093C3B6 /* Reactor.swift */,
 				EC95DEEB20B49DF40093C3B6 /* StoryboardInitializable.swift */,
 				EC95DEE420B4965D0093C3B6 /* UIColor+Extensions.swift */,
@@ -186,11 +199,22 @@
 			path = Infrastructure;
 			sourceTree = "<group>";
 		};
+		ECF63F7F20C8A157001A8523 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				ECF63F8020C8A16A001A8523 /* LoadEmployee.swift */,
+			);
+			path = Commands;
+			sourceTree = "<group>";
+		};
 		ECFC3E8220B7380A005E192F /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				ECFC3E8320B73816005E192F /* User.swift */,
+				ECF63F7B20C89B3E001A8523 /* UserNetworkAccess.swift */,
+				ECF63F7D20C89C2E001A8523 /* Result.swift */,
 				ECFC3E8520B73875005E192F /* Area.swift */,
+				ECF63F7920C71F5F001A8523 /* Job.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -239,6 +263,7 @@
 				EC8F0A5620B31D2D0042E486 /* Resources */,
 				04A68FDCD0A4B568C2B36B71 /* [CP] Embed Pods Frameworks */,
 				B834D91DA5758E26C70D589E /* [CP] Copy Pods Resources */,
+				EC9A30AA20C9ACEF00A975E1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -355,6 +380,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SameDay/Pods-SameDay-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		EC9A30AA20C9ACEF00A975E1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Marshal.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -376,9 +415,12 @@
 				EC95DEDF20B355CC0093C3B6 /* Reactor.swift in Sources */,
 				ECFC3E9620BDFC02005E192F /* GMSMarker+Extensions.swift in Sources */,
 				ECFC3E8C20B75F4C005E192F /* QueueState.swift in Sources */,
+				ECF63F7E20C89C2E001A8523 /* Result.swift in Sources */,
+				ECF63F8120C8A16A001A8523 /* LoadEmployee.swift in Sources */,
 				EC8F0A5C20B31D2D0042E486 /* AppDelegate.swift in Sources */,
 				EC95DEE120B3586F0093C3B6 /* AppState.swift in Sources */,
 				EC95DEEE20B49E4D0093C3B6 /* HomeTabBarController.swift in Sources */,
+				ECF63F7C20C89B3E001A8523 /* UserNetworkAccess.swift in Sources */,
 				ECFC3E8E20B8619F005E192F /* NewAreaView.swift in Sources */,
 				ECFC3E9420BDB8CE005E192F /* CustomInputAccessoryView.swift in Sources */,
 				ECFC3EBF20C0600E005E192F /* CalendarCell.swift in Sources */,
@@ -393,6 +435,7 @@
 				ECFC3E8120B737FF005E192F /* GenericEvents.swift in Sources */,
 				ECFC3E7520B7305C005E192F /* QueueManagementDataSource.swift in Sources */,
 				ECFC3E9820BF0A25005E192F /* PersonalScheduleViewController.swift in Sources */,
+				ECF63F7A20C71F5F001A8523 /* Job.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +582,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 92H4P6C5WB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SameDay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -558,6 +605,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 92H4P6C5WB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SameDay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

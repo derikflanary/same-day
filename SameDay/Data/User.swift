@@ -7,9 +7,14 @@
 //
 
 import Foundation
+import Marshal
 
-struct User {
+struct User: Unmarshaling {
     let name: String
+
+    init(object: MarshaledObject) throws {
+        name = try object.value(for: "name")
+    }
 }
 
 extension User: Equatable {
