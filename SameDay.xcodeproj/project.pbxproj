@@ -11,6 +11,8 @@
 		EC68F42620D9892A007CD5BE /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F42520D9892A007CD5BE /* Appointment.swift */; };
 		EC68F42820D99456007CD5BE /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F42720D99456007CD5BE /* Keys.swift */; };
 		EC68F42A20D9946A007CD5BE /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F42920D9946A007CD5BE /* Employee.swift */; };
+		EC68F42C20D9B114007CD5BE /* LoadUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F42B20D9B114007CD5BE /* LoadUser.swift */; };
+		EC68F42F20D9B7F1007CD5BE /* Personal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC68F42E20D9B7F1007CD5BE /* Personal.storyboard */; };
 		EC8F0A5C20B31D2D0042E486 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8F0A5B20B31D2D0042E486 /* AppDelegate.swift */; };
 		EC8F0A5E20B31D2D0042E486 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8F0A5D20B31D2D0042E486 /* MainViewController.swift */; };
 		EC8F0A6120B31D2D0042E486 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8F0A5F20B31D2D0042E486 /* Main.storyboard */; };
@@ -59,6 +61,8 @@
 		EC68F42520D9892A007CD5BE /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		EC68F42720D99456007CD5BE /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		EC68F42920D9946A007CD5BE /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		EC68F42B20D9B114007CD5BE /* LoadUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadUser.swift; sourceTree = "<group>"; };
+		EC68F42E20D9B7F1007CD5BE /* Personal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Personal.storyboard; sourceTree = "<group>"; };
 		EC8F0A5820B31D2D0042E486 /* SameDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SameDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC8F0A5B20B31D2D0042E486 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC8F0A5D20B31D2D0042E486 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +130,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EC68F42D20D9B7CF007CD5BE /* Personal */ = {
+			isa = PBXGroup;
+			children = (
+				EC68F42E20D9B7F1007CD5BE /* Personal.storyboard */,
+				ECFC3E9720BF0A25005E192F /* PersonalScheduleViewController.swift */,
+				ECFC3EC220C1F8EE005E192F /* PersonalScheduleDataSource.swift */,
+				ECFC3EBE20C0600E005E192F /* CalendarCell.swift */,
+				ECFC3EC420C1F923005E192F /* JobCell.swift */,
+			);
+			path = Personal;
+			sourceTree = "<group>";
+		};
 		EC8F0A4F20B31D2D0042E486 = {
 			isa = PBXGroup;
 			children = (
@@ -167,10 +183,7 @@
 				EC8F0A5D20B31D2D0042E486 /* MainViewController.swift */,
 				EC95DEE220B4927B0093C3B6 /* Home.storyboard */,
 				EC95DEED20B49E4D0093C3B6 /* HomeTabBarController.swift */,
-				ECFC3E9720BF0A25005E192F /* PersonalScheduleViewController.swift */,
-				ECFC3EC220C1F8EE005E192F /* PersonalScheduleDataSource.swift */,
-				ECFC3EC420C1F923005E192F /* JobCell.swift */,
-				ECFC3EBE20C0600E005E192F /* CalendarCell.swift */,
+				EC68F42D20D9B7CF007CD5BE /* Personal */,
 				ECFC3E9020B87953005E192F /* Common */,
 				ECFC3E8F20B8793A005E192F /* Queue Management */,
 			);
@@ -210,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				ECF63F8020C8A16A001A8523 /* LoadEmployee.swift */,
+				EC68F42B20D9B114007CD5BE /* LoadUser.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -322,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC8F0A6620B31D2E0042E486 /* LaunchScreen.storyboard in Resources */,
+				EC68F42F20D9B7F1007CD5BE /* Personal.storyboard in Resources */,
 				EC8F0A6320B31D2E0042E486 /* Assets.xcassets in Resources */,
 				EC8F0A6120B31D2D0042E486 /* Main.storyboard in Resources */,
 				EC95DEE320B4927B0093C3B6 /* Home.storyboard in Resources */,
@@ -448,6 +463,7 @@
 				EC68F42820D99456007CD5BE /* Keys.swift in Sources */,
 				ECFC3E9820BF0A25005E192F /* PersonalScheduleViewController.swift in Sources */,
 				ECF63F7A20C71F5F001A8523 /* Job.swift in Sources */,
+				EC68F42C20D9B114007CD5BE /* LoadUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

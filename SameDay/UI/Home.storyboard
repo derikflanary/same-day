@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -563,7 +563,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JY1-qA-iAC"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Personal Schedule" id="Nzv-dO-Vkl"/>
+                    <navigationItem key="navigationItem" title="Personal Schedule" id="Nzv-dO-Vkl">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="user" id="Blm-6O-Z72">
+                            <color key="tintColor" red="0.31372549020000001" green="0.78823529410000004" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="calendarView" destination="gqs-pK-X72" id="JaD-ds-5WK"/>
                         <outlet property="monthLabel" destination="VEQ-th-NO2" id="atc-LU-sSd"/>
@@ -577,11 +581,11 @@
             </objects>
             <point key="canvasLocation" x="1655.2" y="1155.472263868066"/>
         </scene>
-        <!--Schedule-->
+        <!--Personal Schedule-->
         <scene sceneID="VhQ-mr-UZ1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FBI-T4-jpo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Schedule" image="calendar" id="g83-sM-1ZN"/>
+                    <tabBarItem key="tabBarItem" title="Personal Schedule" image="calendar" id="g83-sM-1ZN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RNf-qT-lX7">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -606,5 +610,6 @@
         <image name="team" width="24" height="20"/>
         <image name="team-calendar" width="20" height="22"/>
         <image name="trash" width="20" height="22"/>
+        <image name="user" width="18" height="20"/>
     </resources>
 </document>

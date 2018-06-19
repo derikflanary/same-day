@@ -23,11 +23,14 @@ struct PersonalScheduleState: State {
     }
     
     var selectedDate = Date()
+    var appointments = [Appointment]()
 
     mutating func react(to event: Event) {
         switch event {
         case let event as Selected<Date>:
             selectedDate = event.item
+        case let event as Loaded<Appointment>:
+            appointments = event.items
         default:
             break
         }

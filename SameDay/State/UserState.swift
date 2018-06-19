@@ -10,10 +10,13 @@ import Foundation
 
 struct UserState: State {
 
+    var currentUser: Employee?
     var users = [User(name: "Gilg Gwilliams"), User(name: "Mary Jane")]
     
     mutating func react(to event: Event) {
         switch event {
+        case let event as LoadedUser:
+            currentUser = event.user
         case let event as Added<User>:
             users.append(event.item)
         default:
