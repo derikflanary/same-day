@@ -25,9 +25,9 @@ extension GMSMarker {
 }
 
 
-extension Array where Element == Area {
+extension Array where Element == FakeArea {
 
-    func area(for marker: GMSMarker) -> Area? {
+    func area(for marker: GMSMarker) -> FakeArea? {
         return self.filter { $0.coordinate.latitude == marker.position.latitude && $0.coordinate.longitude == marker.position.longitude }.first
     }
 

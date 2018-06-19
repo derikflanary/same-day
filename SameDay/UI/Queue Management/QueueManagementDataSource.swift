@@ -10,7 +10,7 @@ import UIKit
 
 class QueueManagementDataSource: NSObject, UITableViewDataSource {
 
-    var areas = [Area]()
+    var areas = [FakeArea]()
     var users = [User]()
 
     var unassignedUsers: [User] {

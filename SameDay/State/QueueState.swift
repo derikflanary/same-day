@@ -12,17 +12,17 @@ import GoogleMaps
 struct QueueState: State {
 
     var markers = [GMSMarker]()
-    var areas = [Area]()
+    var areas = [FakeArea]()
 
     mutating func react(to event: Event) {
         switch event {
-        case let event as Loaded<Area>:
+        case let event as Loaded<FakeArea>:
             areas = event.items
-        case let event as Added<Area>:
+        case let event as Added<FakeArea>:
             areas.append(event.item)
-        case let event as Updated<Area>:
+        case let event as Updated<FakeArea>:
             areas.replace(item: event.item)
-        case let event as Deleted<Area>:
+        case let event as Deleted<FakeArea>:
             areas.remove(item: event.item)
         default:
             break

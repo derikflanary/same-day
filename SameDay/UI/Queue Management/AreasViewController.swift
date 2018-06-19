@@ -20,7 +20,7 @@ class AreasViewController: UIViewController, Mappable {
 
     enum MapState {
         case normal
-        case move(area: Area)
+        case move(area: FakeArea)
     }
 
     @IBOutlet var newAreaView: NewAreaView!
@@ -32,7 +32,7 @@ class AreasViewController: UIViewController, Mappable {
     internal var mapView: GMSMapView?
     internal var zoomLevel: Float = 10.0
     private var placesClient: GMSPlacesClient = GMSPlacesClient.shared()
-    private var areas = [Area]()
+    private var areas = [FakeArea]()
     private var addedMarkers = [GMSMarker]()
     private var temporaryMarker: GMSMarker?
     private var selectedMarker: GMSMarker?

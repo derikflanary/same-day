@@ -23,10 +23,13 @@ struct UserNetworkAPIAccess: UserNetworkAccess {
 
     static let sharedInstance = UserNetworkAPIAccess()
     let baseURLString = "https://dishpros.quicktechapp.com"
+    let headers: HTTPHeaders = [
+        "Authorization": "Bearer d8923yur9238rh4398rh32p8eij38heruq3hep8wu4fhuiefbdsjvbndskjfbudfbq39eqy28eq"
+    ]
 
     func getUser(id: Int, completion: @escaping networkCompletion) {
 
-        Alamofire.request("\(baseURLString)/employee/\(id)/all", method: .get).responseJSON(completionHandler: completion)
+        Alamofire.request("\(baseURLString)/employee/\(id)", method: .get, headers: headers).responseJSON(completionHandler: completion)
     }
 
 }

@@ -17,7 +17,13 @@ struct LoadEmployee: Command {
 
     func execute(state: AppState, core: Core<AppState>) {
         networkAccess.getUser(id: 94) { (response) in
-            if let json = response?.result.value {
+            if let json = response?.result.value as? JSONObject {
+                do {
+                    let employee: Employee = try json.value(for: Keys.employee)
+                    print(employee)
+                } catch {
+                    print(error)
+                }
                 print(json)
             }
         }

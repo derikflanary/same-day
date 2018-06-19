@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		BCD10EC8A347CFD40C4B621E /* Pods_SameDay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BD9BEB5D674BAF39E4CF4FC /* Pods_SameDay.framework */; };
+		EC68F42620D9892A007CD5BE /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F42520D9892A007CD5BE /* Appointment.swift */; };
+		EC68F42820D99456007CD5BE /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F42720D99456007CD5BE /* Keys.swift */; };
+		EC68F42A20D9946A007CD5BE /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F42920D9946A007CD5BE /* Employee.swift */; };
 		EC8F0A5C20B31D2D0042E486 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8F0A5B20B31D2D0042E486 /* AppDelegate.swift */; };
 		EC8F0A5E20B31D2D0042E486 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8F0A5D20B31D2D0042E486 /* MainViewController.swift */; };
 		EC8F0A6120B31D2D0042E486 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8F0A5F20B31D2D0042E486 /* Main.storyboard */; };
@@ -33,7 +36,7 @@
 		ECFC3E7F20B737A1005E192F /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E7E20B737A1005E192F /* UserState.swift */; };
 		ECFC3E8120B737FF005E192F /* GenericEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8020B737FF005E192F /* GenericEvents.swift */; };
 		ECFC3E8420B73816005E192F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8320B73816005E192F /* User.swift */; };
-		ECFC3E8620B73875005E192F /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8520B73875005E192F /* Area.swift */; };
+		ECFC3E8620B73875005E192F /* FakeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8520B73875005E192F /* FakeArea.swift */; };
 		ECFC3E8820B738DC005E192F /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8720B738DC005E192F /* Array+Extensions.swift */; };
 		ECFC3E8A20B7585E005E192F /* AreasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8920B7585E005E192F /* AreasViewController.swift */; };
 		ECFC3E8C20B75F4C005E192F /* QueueState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8B20B75F4C005E192F /* QueueState.swift */; };
@@ -53,6 +56,9 @@
 /* Begin PBXFileReference section */
 		2BD9BEB5D674BAF39E4CF4FC /* Pods_SameDay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SameDay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4514DAA56C1F232177ECA4 /* Pods-SameDay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SameDay.release.xcconfig"; path = "Pods/Target Support Files/Pods-SameDay/Pods-SameDay.release.xcconfig"; sourceTree = "<group>"; };
+		EC68F42520D9892A007CD5BE /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
+		EC68F42720D99456007CD5BE /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		EC68F42920D9946A007CD5BE /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		EC8F0A5820B31D2D0042E486 /* SameDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SameDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC8F0A5B20B31D2D0042E486 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC8F0A5D20B31D2D0042E486 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -80,7 +86,7 @@
 		ECFC3E7E20B737A1005E192F /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
 		ECFC3E8020B737FF005E192F /* GenericEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericEvents.swift; sourceTree = "<group>"; };
 		ECFC3E8320B73816005E192F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		ECFC3E8520B73875005E192F /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
+		ECFC3E8520B73875005E192F /* FakeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeArea.swift; sourceTree = "<group>"; };
 		ECFC3E8720B738DC005E192F /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		ECFC3E8920B7585E005E192F /* AreasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreasViewController.swift; sourceTree = "<group>"; };
 		ECFC3E8B20B75F4C005E192F /* QueueState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueState.swift; sourceTree = "<group>"; };
@@ -187,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				ECFC3E9920BF6654005E192F /* Mappable.swift */,
+				EC68F42720D99456007CD5BE /* Keys.swift */,
 				EC95DEDE20B355CC0093C3B6 /* Reactor.swift */,
 				EC95DEEB20B49DF40093C3B6 /* StoryboardInitializable.swift */,
 				EC95DEE420B4965D0093C3B6 /* UIColor+Extensions.swift */,
@@ -211,10 +218,12 @@
 			isa = PBXGroup;
 			children = (
 				ECFC3E8320B73816005E192F /* User.swift */,
+				EC68F42920D9946A007CD5BE /* Employee.swift */,
 				ECF63F7B20C89B3E001A8523 /* UserNetworkAccess.swift */,
 				ECF63F7D20C89C2E001A8523 /* Result.swift */,
-				ECFC3E8520B73875005E192F /* Area.swift */,
+				ECFC3E8520B73875005E192F /* FakeArea.swift */,
 				ECF63F7920C71F5F001A8523 /* Job.swift */,
+				EC68F42520D9892A007CD5BE /* Appointment.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -404,9 +413,11 @@
 				EC95DEEC20B49DF40093C3B6 /* StoryboardInitializable.swift in Sources */,
 				ECFC3EC520C1F923005E192F /* JobCell.swift in Sources */,
 				ECFC3E8820B738DC005E192F /* Array+Extensions.swift in Sources */,
+				EC68F42620D9892A007CD5BE /* Appointment.swift in Sources */,
 				ECFC3E7D20B73392005E192F /* UserCell.swift in Sources */,
 				ECFC3E8A20B7585E005E192F /* AreasViewController.swift in Sources */,
 				ECFC3E7B20B73173005E192F /* CircleAvatarView.swift in Sources */,
+				EC68F42A20D9946A007CD5BE /* Employee.swift in Sources */,
 				EC8F0A5E20B31D2D0042E486 /* MainViewController.swift in Sources */,
 				ECFC3E8420B73816005E192F /* User.swift in Sources */,
 				ECFC3E9A20BF6654005E192F /* Mappable.swift in Sources */,
@@ -428,12 +439,13 @@
 				ECFC3EC320C1F8EE005E192F /* PersonalScheduleDataSource.swift in Sources */,
 				ECFC3E7920B730D6005E192F /* UITableView+Extensions.swift in Sources */,
 				ECFC3EC120C1F6D0005E192F /* PersonalScheduleState.swift in Sources */,
-				ECFC3E8620B73875005E192F /* Area.swift in Sources */,
+				ECFC3E8620B73875005E192F /* FakeArea.swift in Sources */,
 				ECFC3E7720B73098005E192F /* ReuseableView.swift in Sources */,
 				EC95DEE720B49C0E0093C3B6 /* QueueManagementViewController.swift in Sources */,
 				ECFC3E7F20B737A1005E192F /* UserState.swift in Sources */,
 				ECFC3E8120B737FF005E192F /* GenericEvents.swift in Sources */,
 				ECFC3E7520B7305C005E192F /* QueueManagementDataSource.swift in Sources */,
+				EC68F42820D99456007CD5BE /* Keys.swift in Sources */,
 				ECFC3E9820BF0A25005E192F /* PersonalScheduleViewController.swift in Sources */,
 				ECF63F7A20C71F5F001A8523 /* Job.swift in Sources */,
 			);

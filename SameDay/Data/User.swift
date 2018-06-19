@@ -15,6 +15,10 @@ struct User: Unmarshaling {
     init(object: MarshaledObject) throws {
         name = try object.value(for: "name")
     }
+
+    init(name: String) {
+        self.name = name
+    }
 }
 
 extension User: Equatable {
@@ -22,3 +26,4 @@ extension User: Equatable {
         return lhs.name == rhs.name
     }
 }
+

@@ -14,7 +14,7 @@ class AreaInfoWindow: UIView {
     var core = App.sharedCore
     var doneToolbar = CustomInputAccessory()
     var completion: (() -> Void)?
-    var area: Area? {
+    var area: FakeArea? {
         didSet {
             nameTextField.text = area?.name
         }
