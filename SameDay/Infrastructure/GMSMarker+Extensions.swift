@@ -33,10 +33,10 @@ extension Array where Element == FakeArea {
 
 }
 
-extension Array where Element == Job {
+extension Array where Element == Appointment {
 
-    func job(for marker: GMSMarker) -> Job? {
-        return self.filter { $0.coordinate.latitude == marker.position.latitude && $0.coordinate.longitude == marker.position.longitude }.first
+    func appointment(for marker: GMSMarker) -> Appointment? {
+        return self.filter { $0.invoice.account.coordinates?.latitude == marker.position.latitude && $0.invoice.account.coordinates?.longitude == marker.position.longitude }.first
     }
 
 }

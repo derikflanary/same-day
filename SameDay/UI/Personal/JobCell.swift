@@ -24,10 +24,11 @@ class JobCell: UITableViewCell, ReusableView {
         // Initialization code
     }
 
-    func configure(with job: Job, isSelected: Bool) {
-        startTimeLabel.text = job.startTime
-        endTimeLabel.text = job.endTime
-        titleLabel.text = job.title
+    func configure(with appointment: Appointment, isSelected: Bool) {
+        startTimeLabel.text = appointment.displayStartTime
+        endTimeLabel.text = appointment.displayEndTime
+        titleLabel.text = appointment.invoice.account.displayName
+        addressLabel.text = appointment.invoice.account.addressString
         selectedView.isHidden = !isSelected
     }
     

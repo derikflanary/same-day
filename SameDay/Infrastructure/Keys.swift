@@ -10,7 +10,9 @@ import Foundation
 
 struct Keys {
 
+    static let address = "address"
     static let areaId = "area_id"
+    static let appointments = "appointments"
     static let createdAt = "created_at"
     static let defaultAreaId = "default_area_id"
     static let email = "email"
@@ -21,6 +23,7 @@ struct Keys {
     static let isActive = "active"
     static let isRep = "is_rep"
     static let isTech = "is_tech"
+    static let key = "key"
     static let lastName = "last_name"
     static let name = "name"
     static let salesTax = "sales_tax"

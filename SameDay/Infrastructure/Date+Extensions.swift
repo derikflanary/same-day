@@ -73,3 +73,104 @@ public extension Date {
         return .none
     }
 }
+
+
+extension BinaryInteger {
+
+    var year: DateComponents {
+        return years
+    }
+
+    var years: DateComponents {
+        var components = DateComponents()
+        components.year = Int(self.description)!
+        return components
+    }
+
+    var day: DateComponents {
+        return days
+    }
+
+    var days: DateComponents {
+        var components = DateComponents()
+        components.day = Int(self.description)!
+        return components
+    }
+
+    var hour: DateComponents {
+        return hours
+    }
+
+    var hours: DateComponents {
+        var components = DateComponents()
+        components.hour = Int(self.description)!
+        return components
+    }
+
+    var minute: DateComponents {
+        return minutes
+    }
+
+    var minutes: DateComponents {
+        var components = DateComponents()
+        components.minute = Int(self.description)!
+        return components
+    }
+
+    var second: DateComponents {
+        return seconds
+    }
+
+    var seconds: DateComponents {
+        var components = DateComponents()
+        components.second = Int(self.description)!
+        return components
+    }
+
+}
+
+extension DateComponents {
+
+    var ago: Date {
+        return before(Date())
+    }
+
+    var fromNow: Date {
+        return after(Date())
+    }
+
+    func before(_ date: Date) -> Date {
+        return (Calendar.current as NSCalendar).date(byAdding: self.inverted(), to: date, options: [])!
+    }
+
+    func after(_ date: Date) -> Date {
+        return (Calendar.current as NSCalendar).date(byAdding: self, to: date, options: [])!
+    }
+
+    func inverted() -> DateComponents {
+        var components = (self as NSDateComponents).copy() as! DateComponents
+
+        if components.year != nil && components.year != NSDateComponentUndefined {
+            components.year = -1 * components.year!
+        }
+        if components.month != nil && components.month != NSDateComponentUndefined {
+            components.month = -1 * components.month!
+        }
+        if components.day != nil && components.day != NSDateComponentUndefined {
+            components.day = -1 * components.day!
+        }
+        if components.hour != nil && components.hour != NSDateComponentUndefined {
+            components.hour = -1 * components.hour!
+        }
+        if components.minute != nil && components.minute != NSDateComponentUndefined {
+            components.minute = -1 * components.minute!
+        }
+        if components.second != nil && components.second != NSDateComponentUndefined {
+            components.second = -1 * components.second!
+        }
+
+        return components
+    }
+
+}
+

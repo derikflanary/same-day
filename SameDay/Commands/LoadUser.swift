@@ -19,6 +19,7 @@ struct LoadUser: Command {
                 do {
                     let employee: Employee = try json.value(for: Keys.employee)
                     core.fire(event: LoadedUser(user: employee))
+                    core.fire(command: LoadAppointments())
                 } catch {
                     print(error)
                 }

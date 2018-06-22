@@ -26,14 +26,14 @@ class CalendarCell: JTAppleCell, ReusableView {
         todayView.layer.borderWidth = 2.0
     }
 
-    func configure(with date: Date, cellState: CellState, datesWithJobs: [Date], selectedDate: Date) {
+    func configure(with date: Date, cellState: CellState, datesWithAppointments: [Date], selectedDate: Date) {
         dayLabel.text = cellState.text
         weekDayLabel.text = date.dayOfWeek()
         if cellState.dateBelongsTo == .thisMonth {
             dayLabel.textColor = .blackOne
             weekDayLabel.textColor = .blackOne
         }
-        selectedView.isHidden = !datesWithJobs.contains(where: { Calendar.current.isDate($0, inSameDayAs: date)})
+        selectedView.isHidden = !datesWithAppointments.contains(where: { Calendar.current.isDate($0, inSameDayAs: date)})
 
         if Calendar.current.isDate(date, inSameDayAs: Date()) {
             dayLabel.font = UIFont.boldSystemFont(ofSize: 14)

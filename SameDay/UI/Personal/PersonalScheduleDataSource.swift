@@ -11,18 +11,18 @@ import UIKit
 
 class PersonalScheduleDataSource: NSObject, UITableViewDataSource {
 
-    var jobs = [Job]()
-    var selectedJob: Job?
+    var appointments = [Appointment]()
+    var selectedAppointment: Appointment?
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return jobs.count
+        return appointments.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell() as JobCell
-        let job = jobs[indexPath.row]
-        let isSelected = selectedJob == job
-        cell.configure(with: job, isSelected: isSelected)
+        let appointment = appointments[indexPath.row]
+        let isSelected = selectedAppointment == appointment
+        cell.configure(with: appointment, isSelected: isSelected)
         return cell
     }
 

@@ -39,6 +39,7 @@ class PersonalScheduleViewController: UIViewController, Mappable {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
+    @IBOutlet var emptyStateView: UIView!
 
 
     // MARK: - View life cycle
@@ -63,9 +64,9 @@ class PersonalScheduleViewController: UIViewController, Mappable {
     }
 
     @objc func handleRefresh() {
-        tableViewDataSource.jobs = core.state.personalScheduleState.jobsOfSelectedDate
+        tableViewDataSource.appointments = core.state.personalScheduleState.appointmentsOfSelectedDate
         tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
-        addMarkersToMap(from: core.state.personalScheduleState.jobsOfSelectedDate)
+        addMarkersToMap(from: core.state.personalScheduleState.appointmentsOfSelectedDate)
         refreshControl.endRefreshing()
     }
 
@@ -82,7 +83,8 @@ extension PersonalScheduleViewController: JTAppleCalendarViewDataSource {
         formatter.timeZone = Calendar.current.timeZone
         formatter.locale = Calendar.current.locale
 
-        let startDate = Date()
+
+        let startDate = Calendar.current.date(byAdding: .month, value: -2, to: Date())!
         let endDate = Calendar.current.date(byAdding: .year, value: 1, to: Date())!
         let parameters = ConfigurationParameters(startDate: startDate,
                                                  endDate: endDate,
@@ -104,7 +106,7 @@ extension PersonalScheduleViewController: JTAppleCalendarViewDelegate {
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
 
         let cell = calendar.dequeueReusableCalendarCell(for: indexPath) as CalendarCell
-        cell.configure(with: date, cellState: cellState, datesWithJobs: core.state.personalScheduleState.datesWithJobs, selectedDate: core.state.personalScheduleState.selectedDate)
+        cell.configure(with: date, cellState: cellState, datesWithAppointments: core.state.personalScheduleState.datesWithAppointments, selectedDate: core.state.personalScheduleState.selectedDate)
         return cell
     }
 
@@ -125,7 +127,7 @@ extension PersonalScheduleViewController: JTAppleCalendarViewDelegate {
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         core.fire(event: Selected(item: date))
         calendarView.reloadData()
-        tableViewDataSource.selectedJob = nil
+        tableViewDataSource.selectedAppointment = nil
     }
 
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
@@ -182,8 +184,8 @@ extension PersonalScheduleViewController: GMSMapViewDelegate {
     }
 
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        guard let job = core.state.personalScheduleState.jobsOfSelectedDate.job(for: marker) else { return false }
-        tableViewDataSource.selectedJob = job
+        guard let appointment = core.state.personalScheduleState.appointmentsOfSelectedDate.appointment(for: marker) else { return false }
+        tableViewDataSource.selectedAppointment = appointment
         tableView.reloadSections(IndexSet(integer: 0), with: .none)
         return false
     }
@@ -196,9 +198,10 @@ extension PersonalScheduleViewController: GMSMapViewDelegate {
 extension PersonalScheduleViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let job = tableViewDataSource.jobs[indexPath.row]
-        mapView?.animate(to: GMSCameraPosition(target: job.coordinate, zoom: 15, bearing: 0, viewingAngle: 0))
-        tableViewDataSource.selectedJob = job
+        let appointment = tableViewDataSource.appointments[indexPath.row]
+        guard let coordinate = appointment.invoice.account.coordinates else { return }
+        mapView?.animate(to: GMSCameraPosition(target: coordinate, zoom: 15, bearing: 0, viewingAngle: 0))
+        tableViewDataSource.selectedAppointment = appointment
         tableView.reloadSections(IndexSet(integer: 0), with: .none)
     }
 
@@ -209,16 +212,18 @@ extension PersonalScheduleViewController: UITableViewDelegate {
 
 private extension PersonalScheduleViewController {
 
-    func addMarkersToMap(from jobs: [Job]) {
+    func addMarkersToMap(from appointments: [Appointment]) {
+        
         for marker in addedMarkers {
             marker.map = nil
         }
         addedMarkers.removeAll()
-        let markers: [GMSMarker] = jobs.map {
-            let marker =  GMSMarker(position: $0.coordinate)
+        let markers: [GMSMarker] = appointments.compactMap {
+            guard let coordinate = $0.invoice.account.coordinates else { return nil }
+            let marker =  GMSMarker(position: coordinate)
             marker.icon = GMSMarker.markerImage(with: UIColor.secondary)
-            marker.title = $0.title
-            marker.snippet = $0.startTime
+            marker.title = $0.invoice.account.displayName
+            marker.snippet = $0.displayStartTime
             return marker
         }
         for marker in markers {
@@ -236,9 +241,14 @@ private extension PersonalScheduleViewController {
 extension PersonalScheduleViewController: Subscriber {
 
     func update(with state: AppState) {
-        tableViewDataSource.jobs = state.personalScheduleState.jobsOfSelectedDate
+        tableViewDataSource.appointments = state.personalScheduleState.appointmentsOfSelectedDate
         tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
-        addMarkersToMap(from: state.personalScheduleState.jobsOfSelectedDate)
+        addMarkersToMap(from: state.personalScheduleState.appointmentsOfSelectedDate)
+        if tableViewDataSource.appointments.isEmpty {
+            tableView.backgroundView = emptyStateView
+        } else {
+            tableView.backgroundView = nil
+        }
     }
 
 }

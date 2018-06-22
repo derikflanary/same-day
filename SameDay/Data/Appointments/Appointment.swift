@@ -8,6 +8,7 @@
 
 import Foundation
 import Marshal
+import CoreLocation
 
 struct Appointment: Unmarshaling {
 
@@ -30,7 +31,22 @@ struct Appointment: Unmarshaling {
     let dateAdded: Date
     let lastModifiedById: Int?
     let modifiedDate: Date?
-    let invoice: Invoice
+    var invoice: Invoice
+
+    var displayStartTime: String {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .none
+        return formatter.string(from: arrival)
+    }
+
+    var displayEndTime: String {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .none
+        return formatter.string(from: duration.hours.after(arrival))
+    }
+
 
     init(object: MarshaledObject) throws {
         id = try object.value(for: Keys.id)
@@ -57,16 +73,16 @@ struct Invoice: Unmarshaling {
     let id: Int
     let employeeId: Int
     let accountId: Int
-    let leadEmployeeId: Int
-    let claimId: String
+    let leadEmployeeId: Int?
+    let claimId: String?
     let saleDate: Date
     let installDate: Date
     let invoiceType: String
     let status: String
     let satelliteProvider: String
     let numberTvs: Int
-    let promotionId: Int
-    let kitId: Int
+    let promotionId: Int?
+    let kitId: Int?
     let receivers: Int
     let programmingQuote: String
     let processed: Bool
@@ -75,7 +91,7 @@ struct Invoice: Unmarshaling {
     let syncTime: Date
     let createdAt: Date
     let updatedAt: Date?
-    let account: Account
+    var account: Account
 
     init(object: MarshaledObject) throws {
         id = try object.value(for: Keys.id)
@@ -121,6 +137,15 @@ struct Account: Unmarshaling {
     let syncTime: Date
     let createdAt: Date
     let updatedAt: Date?
+    var coordinates: CLLocationCoordinate2D?
+
+    var displayName: String {
+        return "\(firstName) \(lastName)"
+    }
+
+    var addressString: String {
+        return "\(street), \(city), \(state) \(zip)"
+    }
 
     init(object: MarshaledObject) throws {
         id = try object.value(for: Keys.id)
@@ -140,4 +165,13 @@ struct Account: Unmarshaling {
         updatedAt = try object.value(for: Keys.updatedAt)
     }
     
+}
+
+
+extension Appointment: Equatable {
+
+    static func == (lhs: Appointment, rhs: Appointment) -> Bool {
+        return lhs.id == rhs.id
+    }
+
 }
