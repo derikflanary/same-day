@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		BCD10EC8A347CFD40C4B621E /* Pods_SameDay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BD9BEB5D674BAF39E4CF4FC /* Pods_SameDay.framework */; };
+		EC0F530320E2F18C005D1C1D /* LoadAreas.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F530220E2F18C005D1C1D /* LoadAreas.swift */; };
 		EC68F42620D9892A007CD5BE /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F42520D9892A007CD5BE /* Appointment.swift */; };
 		EC68F42820D99456007CD5BE /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F42720D99456007CD5BE /* Keys.swift */; };
 		EC68F42A20D9946A007CD5BE /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F42920D9946A007CD5BE /* Employee.swift */; };
 		EC68F42C20D9B114007CD5BE /* LoadUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F42B20D9B114007CD5BE /* LoadUser.swift */; };
 		EC68F42F20D9B7F1007CD5BE /* Personal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC68F42E20D9B7F1007CD5BE /* Personal.storyboard */; };
-		EC68F43120DB0060007CD5BE /* LoadAppointments.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F43020DB0060007CD5BE /* LoadAppointments.swift */; };
+		EC68F43120DB0060007CD5BE /* LoadAppointmentsForCurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F43020DB0060007CD5BE /* LoadAppointmentsForCurrentUser.swift */; };
 		EC68F43320DB008B007CD5BE /* AppointmentNetworkAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F43220DB008B007CD5BE /* AppointmentNetworkAccess.swift */; };
 		EC68F43720DD3EDB007CD5BE /* LoadUnassignedAppointments.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F43620DD3EDB007CD5BE /* LoadUnassignedAppointments.swift */; };
 		EC68F43920DD4A7E007CD5BE /* GeocodeAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F43820DD4A7E007CD5BE /* GeocodeAddress.swift */; };
@@ -62,12 +63,13 @@
 /* Begin PBXFileReference section */
 		2BD9BEB5D674BAF39E4CF4FC /* Pods_SameDay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SameDay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4514DAA56C1F232177ECA4 /* Pods-SameDay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SameDay.release.xcconfig"; path = "Pods/Target Support Files/Pods-SameDay/Pods-SameDay.release.xcconfig"; sourceTree = "<group>"; };
+		EC0F530220E2F18C005D1C1D /* LoadAreas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadAreas.swift; sourceTree = "<group>"; };
 		EC68F42520D9892A007CD5BE /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		EC68F42720D99456007CD5BE /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		EC68F42920D9946A007CD5BE /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		EC68F42B20D9B114007CD5BE /* LoadUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadUser.swift; sourceTree = "<group>"; };
 		EC68F42E20D9B7F1007CD5BE /* Personal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Personal.storyboard; sourceTree = "<group>"; };
-		EC68F43020DB0060007CD5BE /* LoadAppointments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadAppointments.swift; sourceTree = "<group>"; };
+		EC68F43020DB0060007CD5BE /* LoadAppointmentsForCurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadAppointmentsForCurrentUser.swift; sourceTree = "<group>"; };
 		EC68F43220DB008B007CD5BE /* AppointmentNetworkAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentNetworkAccess.swift; sourceTree = "<group>"; };
 		EC68F43620DD3EDB007CD5BE /* LoadUnassignedAppointments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadUnassignedAppointments.swift; sourceTree = "<group>"; };
 		EC68F43820DD4A7E007CD5BE /* GeocodeAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeAddress.swift; sourceTree = "<group>"; };
@@ -252,7 +254,8 @@
 			children = (
 				ECF63F8020C8A16A001A8523 /* LoadEmployee.swift */,
 				EC68F42B20D9B114007CD5BE /* LoadUser.swift */,
-				EC68F43020DB0060007CD5BE /* LoadAppointments.swift */,
+				EC68F43020DB0060007CD5BE /* LoadAppointmentsForCurrentUser.swift */,
+				EC0F530220E2F18C005D1C1D /* LoadAreas.swift */,
 				EC68F43620DD3EDB007CD5BE /* LoadUnassignedAppointments.swift */,
 				EC68F43820DD4A7E007CD5BE /* GeocodeAddress.swift */,
 			);
@@ -456,7 +459,7 @@
 				EC95DEEC20B49DF40093C3B6 /* StoryboardInitializable.swift in Sources */,
 				ECFC3EC520C1F923005E192F /* JobCell.swift in Sources */,
 				ECFC3E8820B738DC005E192F /* Array+Extensions.swift in Sources */,
-				EC68F43120DB0060007CD5BE /* LoadAppointments.swift in Sources */,
+				EC68F43120DB0060007CD5BE /* LoadAppointmentsForCurrentUser.swift in Sources */,
 				EC68F42620D9892A007CD5BE /* Appointment.swift in Sources */,
 				ECFC3E7D20B73392005E192F /* UserCell.swift in Sources */,
 				EC68F43320DB008B007CD5BE /* AppointmentNetworkAccess.swift in Sources */,
@@ -467,6 +470,7 @@
 				EC8F0A5E20B31D2D0042E486 /* MainViewController.swift in Sources */,
 				ECFC3E8420B73816005E192F /* User.swift in Sources */,
 				ECFC3E9A20BF6654005E192F /* Mappable.swift in Sources */,
+				EC0F530320E2F18C005D1C1D /* LoadAreas.swift in Sources */,
 				ECFC3EC720C1FBC9005E192F /* Date+Extensions.swift in Sources */,
 				EC95DEE520B4965D0093C3B6 /* UIColor+Extensions.swift in Sources */,
 				EC95DEDF20B355CC0093C3B6 /* Reactor.swift in Sources */,

@@ -29,19 +29,5 @@ struct GeocodeAddress: Command {
                 print(error)
             }
         }
-//        networkAccess.geocode(address: appointment.invoice.account.addressString) { response in
-//            if let json = response?.result.value as? JSONObject {
-//                do {
-//                    let longitude: Double = try json.value(for: "results.geometry.location.lng")
-//                    let latitude: Double = try json.value(for: "results.geometry.location.lat")
-//                    let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-//                    var updatedAppointment = self.appointment
-//                    updatedAppointment.invoice.account.coordinates = coordinates
-//                    core.fire(event: Updated(item: updatedAppointment))
-//                } catch {
-//                    print(error)
-//                }
-//            }
-//        }
     }
 }

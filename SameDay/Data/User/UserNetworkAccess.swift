@@ -12,6 +12,7 @@ import Alamofire
 
 protocol UserNetworkAccess {
     func getUser(id: Int, completion: @escaping (_ objectJSON: DataResponse<Any>?) -> Void)
+    func getAreas(completion: @escaping (_ objectJSON: DataResponse<Any>?) -> Void)
 }
 
 
@@ -28,8 +29,11 @@ struct UserNetworkAPIAccess: UserNetworkAccess {
     ]
 
     func getUser(id: Int, completion: @escaping networkCompletion) {
-
         Alamofire.request("\(baseURLString)/employee/\(id)", method: .get, headers: headers).responseJSON(completionHandler: completion)
+    }
+
+    func getAreas(completion: @escaping (DataResponse<Any>?) -> Void) {
+        Alamofire.request("\(baseURLString)/areas", method: .get, headers: headers).responseJSON(completionHandler: completion)
     }
 
 }

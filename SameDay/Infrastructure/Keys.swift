@@ -12,6 +12,7 @@ struct Keys {
 
     static let address = "address"
     static let areaId = "area_id"
+    static let areas = "areas"
     static let appointments = "appointments"
     static let createdAt = "created_at"
     static let defaultAreaId = "default_area_id"

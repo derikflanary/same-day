@@ -13,6 +13,8 @@ struct QueueState: State {
 
     var markers = [GMSMarker]()
     var areas = [FakeArea]()
+    var realAreas = [Area]()
+    
 
     mutating func react(to event: Event) {
         switch event {
@@ -24,6 +26,10 @@ struct QueueState: State {
             areas.replace(item: event.item)
         case let event as Deleted<FakeArea>:
             areas.remove(item: event.item)
+        case let event as Loaded<Area>:
+            realAreas = event.items
+        case let event as LoadedUnassignedAppointments:
+            realAreas.replace(item: event.area)
         default:
             break
         }

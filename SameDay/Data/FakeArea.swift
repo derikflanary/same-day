@@ -37,6 +37,7 @@ struct Area: Unmarshaling {
     let createdAt: Date
     let updatedAt: Date?
     let zipCodes: [ZipCode]
+    var unassignedAppointments = [Appointment]()
 
     init(object: MarshaledObject) throws {
         id = try object.value(for: Keys.id)
@@ -47,8 +48,18 @@ struct Area: Unmarshaling {
         createdAt = try object.value(for: Keys.createdAt)
         updatedAt = try object.value(for: Keys.updatedAt)
         zipCodes = try object.value(for: Keys.zipcodes)
+        unassignedAppointments = []
     }
 }
+
+extension Area: Equatable {
+
+    static func == (lhs: Area, rhs: Area) -> Bool {
+        return lhs.id == rhs.id
+    }
+
+}
+
 
 struct ZipCode: Unmarshaling {
 

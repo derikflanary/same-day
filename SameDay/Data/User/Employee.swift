@@ -11,11 +11,17 @@ import Marshal
 
 struct Employee: Unmarshaling {
 
+    enum TitleType: String {
+        case admin = "Admin"
+        case manager = "Manager"
+        case employee = "Employee"
+    }
+
     let id: Int
     let firstName: String
     let lastName: String
     let username: String?
-    let type: String
+    let type: TitleType
     let email: String
     let isRep: Bool
     let isTech: Bool
