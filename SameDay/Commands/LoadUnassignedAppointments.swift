@@ -12,21 +12,23 @@ import Marshal
 struct LoadUnassignedAppointmentsForArea: Command {
 
     private var networkAccess: AppointmentNetworkAccess = AppointmentNetworkAPIAccess.sharedInstance
-    let areaId: Int
+    let area: Area
     var startDate: Date?
 
 
-    init(areaId: Int, startDate: Date?) {
-        self.areaId = areaId
+    init(area: Area, startDate: Date?) {
+        self.area = area
         self.startDate = startDate
     }
 
     func execute(state: AppState, core: Core<AppState>) {
-        networkAccess.getUnassignedAppointments(for: areaId) { response in
+        networkAccess.getUnassignedAppointments(for: area.id) { response in
             if let json = response?.result.value as? JSONObject {
                 do {
                     let appointments: [Appointment] = try json.value(for: Keys.appointments)
-                    core.fire(event: Loaded(items: appointments))
+                    var updatedArea = self.area
+                    updatedArea.unassignedAppointments = appointments
+                    core.fire(event: Updated(item: updatedArea))
                 } catch {
                     print(error)
                 }
@@ -35,3 +37,4 @@ struct LoadUnassignedAppointmentsForArea: Command {
     }
 
 }
+

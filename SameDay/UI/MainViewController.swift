@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         core.add(subscriber: self)
+        core.fire(command: LoadAreas())
         core.fire(command: LoadUser())
     }
 

@@ -565,8 +565,15 @@
                         <viewLayoutGuide key="safeArea" id="JY1-qA-iAC"/>
                     </view>
                     <navigationItem key="navigationItem" title="Personal Schedule" id="Nzv-dO-Vkl">
+                        <barButtonItem key="backBarButtonItem" title=" " id="615-El-RRt"/>
                         <barButtonItem key="leftBarButtonItem" title="Item" image="user" id="Blm-6O-Z72">
                             <color key="tintColor" red="0.31372549020000001" green="0.78823529410000004" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="list" id="FdY-Bw-qBK">
+                            <color key="tintColor" red="0.31372549020000001" green="0.78823529410000004" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="nJj-27-igP" kind="show" id="inv-Rv-syO"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -602,6 +609,14 @@
             </objects>
             <point key="canvasLocation" x="1655.2" y="1155.472263868066"/>
         </scene>
+        <!--Unassigned-->
+        <scene sceneID="0HI-xa-HkW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Unassigned" id="nJj-27-igP" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jB3-hv-akk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2440" y="993"/>
+        </scene>
         <!--Personal Schedule-->
         <scene sceneID="VhQ-mr-UZ1">
             <objects>
@@ -626,6 +641,7 @@
         <image name="calendar" width="20" height="22"/>
         <image name="cancel" width="22" height="22"/>
         <image name="edit" width="20" height="20"/>
+        <image name="list" width="15" height="14"/>
         <image name="map" width="24" height="22"/>
         <image name="save" width="20" height="20"/>
         <image name="team" width="24" height="20"/>

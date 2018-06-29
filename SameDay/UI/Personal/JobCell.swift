@@ -21,7 +21,6 @@ class JobCell: UITableViewCell, ReusableView {
         super.awakeFromNib()
         selectedView.layer.cornerRadius = selectedView.frame.height / 2
         selectedView.clipsToBounds = true
-        // Initialization code
     }
 
     func configure(with appointment: Appointment, isSelected: Bool) {

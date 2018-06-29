@@ -28,8 +28,8 @@ struct QueueState: State {
             areas.remove(item: event.item)
         case let event as Loaded<Area>:
             realAreas = event.items
-        case let event as LoadedUnassignedAppointments:
-            realAreas.replace(item: event.area)
+        case let event as Updated<Area>:
+            realAreas.replace(item: event.item)
         default:
             break
         }

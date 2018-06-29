@@ -31,34 +31,3 @@ struct LoadAppointmentsForCurrentUser: Command {
     }
 
 }
-
-struct LoadUnassignedAppointments: Command {
-
-    private var networkAccess: AppointmentNetworkAccess = AppointmentNetworkAPIAccess.sharedInstance
-    let area: Area
-
-    init(for area: Area) {
-        self.area = area
-    }
-
-    func execute(state: AppState, core: Core<AppState>) {
-        networkAccess.getUnassignedAppointments(for: area.id) { response in
-            if let json = response?.result.value as? JSONObject {
-                do {
-                    let appointments: [Appointment] = try json.value(for: Keys.appointments)
-                    var updatedArea = self.area
-                    updatedArea.unassignedAppointments = appointments
-                    core.fire(event: LoadedUnassignedAppointments(appointments: appointments, area: self.area))
-                } catch {
-                    print(error)
-                }
-            }
-        }
-    }
-
-}
-
-struct LoadedUnassignedAppointments: Event {
-    let appointments: [Appointment]
-    var area: Area
-}

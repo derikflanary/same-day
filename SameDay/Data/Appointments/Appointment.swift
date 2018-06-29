@@ -14,6 +14,7 @@ struct Appointment: Unmarshaling {
 
     enum Result: String {
         case open = "Open"
+        case rescheduled = "Rescheduled"
     }
 
     let id: Int
@@ -22,7 +23,7 @@ struct Appointment: Unmarshaling {
     let startTime: Int
     let endTime: Int
     let duration: Int
-    let employeeId: Int
+    let employeeId: Int?
     let arrival: Date
     let departure: Date
     let eta: Date
@@ -40,12 +41,27 @@ struct Appointment: Unmarshaling {
         return formatter.string(from: arrival)
     }
 
+    var displayStartDateAndTime: String {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .medium
+        return formatter.string(from: arrival)
+    }
+
     var displayEndTime: String {
         let formatter = DateFormatter()
         formatter.timeStyle = .short
         formatter.dateStyle = .none
         return formatter.string(from: duration.hours.after(arrival))
     }
+
+    var displayEndDateAndTime: String {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .medium
+        return formatter.string(from: duration.hours.after(arrival))
+    }
+
 
 
     init(object: MarshaledObject) throws {
@@ -84,7 +100,7 @@ struct Invoice: Unmarshaling {
     let promotionId: Int?
     let kitId: Int?
     let receivers: Int
-    let programmingQuote: String
+    let programmingQuote: String?
     let processed: Bool
     let submitted: Bool
     let paid: Bool
@@ -140,11 +156,11 @@ struct Account: Unmarshaling {
     var coordinates: CLLocationCoordinate2D?
 
     var displayName: String {
-        return "\(firstName) \(lastName)"
+        return "\(firstName) \(lastName)".lowercased().uppercased()
     }
 
     var addressString: String {
-        return "\(street), \(city), \(state) \(zip)"
+        return "\(street), \(city), \(state) \(zip)".lowercased().uppercased()
     }
 
     init(object: MarshaledObject) throws {

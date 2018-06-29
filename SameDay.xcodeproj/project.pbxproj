@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		BCD10EC8A347CFD40C4B621E /* Pods_SameDay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BD9BEB5D674BAF39E4CF4FC /* Pods_SameDay.framework */; };
 		EC0F530320E2F18C005D1C1D /* LoadAreas.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F530220E2F18C005D1C1D /* LoadAreas.swift */; };
+		EC0F530B20E696D7005D1C1D /* UnassignedJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F530A20E696D7005D1C1D /* UnassignedJobsViewController.swift */; };
+		EC0F530D20E69771005D1C1D /* Unassigned.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0F530C20E69771005D1C1D /* Unassigned.storyboard */; };
 		EC68F42620D9892A007CD5BE /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F42520D9892A007CD5BE /* Appointment.swift */; };
 		EC68F42820D99456007CD5BE /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F42720D99456007CD5BE /* Keys.swift */; };
 		EC68F42A20D9946A007CD5BE /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F42920D9946A007CD5BE /* Employee.swift */; };
@@ -31,6 +33,10 @@
 		EC95DEEC20B49DF40093C3B6 /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95DEEB20B49DF40093C3B6 /* StoryboardInitializable.swift */; };
 		EC95DEEE20B49E4D0093C3B6 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95DEED20B49E4D0093C3B6 /* HomeTabBarController.swift */; };
 		EC9A30AC20C9AD8400A975E1 /* Marshal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9A30AB20C9AD8400A975E1 /* Marshal.framework */; };
+		ECB3812A20E6A15E00DB7B88 /* UnassignedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB3812920E6A15E00DB7B88 /* UnassignedDataSource.swift */; };
+		ECB3812D20E6B53E00DB7B88 /* AppointmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB3812B20E6B53E00DB7B88 /* AppointmentCell.swift */; };
+		ECB3812E20E6B53E00DB7B88 /* AppointmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECB3812C20E6B53E00DB7B88 /* AppointmentCell.xib */; };
+		ECB3813020E6BA4300DB7B88 /* AppointmentFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB3812F20E6BA4300DB7B88 /* AppointmentFlowLayout.swift */; };
 		ECF63F7A20C71F5F001A8523 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF63F7920C71F5F001A8523 /* Job.swift */; };
 		ECF63F7C20C89B3E001A8523 /* UserNetworkAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF63F7B20C89B3E001A8523 /* UserNetworkAccess.swift */; };
 		ECF63F7E20C89C2E001A8523 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF63F7D20C89C2E001A8523 /* Result.swift */; };
@@ -64,6 +70,8 @@
 		2BD9BEB5D674BAF39E4CF4FC /* Pods_SameDay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SameDay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4514DAA56C1F232177ECA4 /* Pods-SameDay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SameDay.release.xcconfig"; path = "Pods/Target Support Files/Pods-SameDay/Pods-SameDay.release.xcconfig"; sourceTree = "<group>"; };
 		EC0F530220E2F18C005D1C1D /* LoadAreas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadAreas.swift; sourceTree = "<group>"; };
+		EC0F530A20E696D7005D1C1D /* UnassignedJobsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnassignedJobsViewController.swift; sourceTree = "<group>"; };
+		EC0F530C20E69771005D1C1D /* Unassigned.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Unassigned.storyboard; sourceTree = "<group>"; };
 		EC68F42520D9892A007CD5BE /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		EC68F42720D99456007CD5BE /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		EC68F42920D9946A007CD5BE /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
@@ -88,6 +96,10 @@
 		EC95DEEB20B49DF40093C3B6 /* StoryboardInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
 		EC95DEED20B49E4D0093C3B6 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		EC9A30AB20C9AD8400A975E1 /* Marshal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Marshal.framework; path = Carthage/Build/iOS/Marshal.framework; sourceTree = "<group>"; };
+		ECB3812920E6A15E00DB7B88 /* UnassignedDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnassignedDataSource.swift; sourceTree = "<group>"; };
+		ECB3812B20E6B53E00DB7B88 /* AppointmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentCell.swift; sourceTree = "<group>"; };
+		ECB3812C20E6B53E00DB7B88 /* AppointmentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppointmentCell.xib; sourceTree = "<group>"; };
+		ECB3812F20E6BA4300DB7B88 /* AppointmentFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentFlowLayout.swift; sourceTree = "<group>"; };
 		ECF63F7920C71F5F001A8523 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		ECF63F7B20C89B3E001A8523 /* UserNetworkAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkAccess.swift; sourceTree = "<group>"; };
 		ECF63F7D20C89C2E001A8523 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -148,6 +160,12 @@
 				ECFC3EC220C1F8EE005E192F /* PersonalScheduleDataSource.swift */,
 				ECFC3EBE20C0600E005E192F /* CalendarCell.swift */,
 				ECFC3EC420C1F923005E192F /* JobCell.swift */,
+				EC0F530C20E69771005D1C1D /* Unassigned.storyboard */,
+				EC0F530A20E696D7005D1C1D /* UnassignedJobsViewController.swift */,
+				ECB3812920E6A15E00DB7B88 /* UnassignedDataSource.swift */,
+				ECB3812F20E6BA4300DB7B88 /* AppointmentFlowLayout.swift */,
+				ECB3812B20E6B53E00DB7B88 /* AppointmentCell.swift */,
+				ECB3812C20E6B53E00DB7B88 /* AppointmentCell.xib */,
 			);
 			path = Personal;
 			sourceTree = "<group>";
@@ -367,6 +385,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC8F0A6620B31D2E0042E486 /* LaunchScreen.storyboard in Resources */,
+				ECB3812E20E6B53E00DB7B88 /* AppointmentCell.xib in Resources */,
+				EC0F530D20E69771005D1C1D /* Unassigned.storyboard in Resources */,
 				EC68F42F20D9B7F1007CD5BE /* Personal.storyboard in Resources */,
 				EC8F0A6320B31D2E0042E486 /* Assets.xcassets in Resources */,
 				EC8F0A6120B31D2D0042E486 /* Main.storyboard in Resources */,
@@ -462,7 +482,9 @@
 				EC68F43120DB0060007CD5BE /* LoadAppointmentsForCurrentUser.swift in Sources */,
 				EC68F42620D9892A007CD5BE /* Appointment.swift in Sources */,
 				ECFC3E7D20B73392005E192F /* UserCell.swift in Sources */,
+				ECB3812A20E6A15E00DB7B88 /* UnassignedDataSource.swift in Sources */,
 				EC68F43320DB008B007CD5BE /* AppointmentNetworkAccess.swift in Sources */,
+				ECB3813020E6BA4300DB7B88 /* AppointmentFlowLayout.swift in Sources */,
 				EC68F43920DD4A7E007CD5BE /* GeocodeAddress.swift in Sources */,
 				ECFC3E8A20B7585E005E192F /* AreasViewController.swift in Sources */,
 				ECFC3E7B20B73173005E192F /* CircleAvatarView.swift in Sources */,
@@ -470,6 +492,7 @@
 				EC8F0A5E20B31D2D0042E486 /* MainViewController.swift in Sources */,
 				ECFC3E8420B73816005E192F /* User.swift in Sources */,
 				ECFC3E9A20BF6654005E192F /* Mappable.swift in Sources */,
+				EC0F530B20E696D7005D1C1D /* UnassignedJobsViewController.swift in Sources */,
 				EC0F530320E2F18C005D1C1D /* LoadAreas.swift in Sources */,
 				ECFC3EC720C1FBC9005E192F /* Date+Extensions.swift in Sources */,
 				EC95DEE520B4965D0093C3B6 /* UIColor+Extensions.swift in Sources */,
@@ -484,6 +507,7 @@
 				ECF63F7C20C89B3E001A8523 /* UserNetworkAccess.swift in Sources */,
 				ECFC3E8E20B8619F005E192F /* NewAreaView.swift in Sources */,
 				ECFC3E9420BDB8CE005E192F /* CustomInputAccessoryView.swift in Sources */,
+				ECB3812D20E6B53E00DB7B88 /* AppointmentCell.swift in Sources */,
 				ECFC3EBF20C0600E005E192F /* CalendarCell.swift in Sources */,
 				ECFC3E9220BDB2D6005E192F /* AreaInfoWindow.swift in Sources */,
 				ECFC3EC320C1F8EE005E192F /* PersonalScheduleDataSource.swift in Sources */,

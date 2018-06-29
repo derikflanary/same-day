@@ -36,7 +36,7 @@ struct Area: Unmarshaling {
     let syncTime: Date
     let createdAt: Date
     let updatedAt: Date?
-    let zipCodes: [ZipCode]
+    let zipCodes: [ZipCode]?
     var unassignedAppointments = [Appointment]()
 
     init(object: MarshaledObject) throws {

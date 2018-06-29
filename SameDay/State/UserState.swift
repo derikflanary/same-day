@@ -12,6 +12,11 @@ struct UserState: State {
 
     var currentUser: Employee?
     var users = [User(name: "Gilg Gwilliams"), User(name: "Mary Jane")]
+    var areas = [Area]()
+    var currentArea: Area? {
+        guard let defaultAreaId = currentUser?.defaultAreaId else { return nil }
+        return areas.filter { $0.id == defaultAreaId }.first
+    }
     
     mutating func react(to event: Event) {
         switch event {
@@ -19,6 +24,8 @@ struct UserState: State {
             currentUser = event.user
         case let event as Added<User>:
             users.append(event.item)
+        case let event as Loaded<Area>:
+            areas = event.items
         default:
             break
         }
