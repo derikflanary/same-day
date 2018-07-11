@@ -1,0 +1,18 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "2.0.2",
+  "iOS" : [
+    {
+      "name" : "QuickLayout",
+      "hash" : "5c3bbb92d32a07a28a9b8c94309fa8a15cbf02370a625f1248c2c56086eee162"
+    }
+  ]
+}

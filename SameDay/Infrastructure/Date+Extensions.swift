@@ -17,6 +17,12 @@ extension Date {
         return dateFormatter.string(from: self).capitalized
     }
 
+    func weekDayMonthDayString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE, MMM d"
+        return formatter.string(from: self)
+    }
+
 }
 
 extension Date: ValueType {

@@ -1,0 +1,18 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "0.5.4",
+  "iOS" : [
+    {
+      "name" : "SwiftEntryKit",
+      "hash" : "0b42c3de7efba744c6779853dfc102268cfd3e5f04212675e3bfe158418dddd1"
+    }
+  ]
+}

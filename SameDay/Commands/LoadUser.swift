@@ -14,12 +14,15 @@ struct LoadUser: Command {
     private var networkAccess: UserNetworkAccess = UserNetworkAPIAccess.sharedInstance
 
     func execute(state: AppState, core: Core<AppState>) {
-        networkAccess.getUser(id: 94) { (response) in
+        networkAccess.getUser(id: 1421) { (response) in
             if let json = response?.result.value as? JSONObject {
                 do {
                     let employee: Employee = try json.value(for: Keys.employee)
                     core.fire(event: LoadedUser(user: employee))
                     core.fire(command: LoadAppointmentsForCurrentUser())
+                    if employee.type == .manager {
+                        core.fire(command: LoadManagerEmployees(employee: employee))
+                    }
                 } catch {
                     print(error)
                 }

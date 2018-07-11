@@ -31,6 +31,14 @@ struct Employee: Unmarshaling {
     let createdAt: Date
     let updatedAt: Date?
     let pivot: Pivot? = nil
+    var employees = [Employee]()
+
+    var displayName: String {
+        var fullname = "\(firstName) \(lastName)"
+        fullname = fullname.lowercased()
+        fullname = fullname.capitalized
+        return fullname
+    }
 
     init(object: MarshaledObject) throws {
         id = try object.value(for: Keys.id)

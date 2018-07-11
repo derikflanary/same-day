@@ -22,6 +22,8 @@ struct UserState: State {
         switch event {
         case let event as LoadedUser:
             currentUser = event.user
+        case let event as Updated<Employee>:
+            currentUser = event.item
         case let event as Added<User>:
             users.append(event.item)
         case let event as Loaded<Area>:

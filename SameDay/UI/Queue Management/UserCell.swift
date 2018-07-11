@@ -22,4 +22,9 @@ class UserCell: UITableViewCell, ReusableView {
         avatarView.update(user.name, avatarURL: nil)
     }
 
+    func configure(with employee: Employee) {
+        nameLabel.text = employee.displayName
+        avatarView.update(employee.displayName, avatarURL: nil)
+    }
+
 }
