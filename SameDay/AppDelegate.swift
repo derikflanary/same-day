@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.window?.tintColor = UIColor.theme
         GMSServices.provideAPIKey("AIzaSyAq3VuWNyJb8mqAdid3GGfa61JeAU4_Kkw")
         GMSPlacesClient.provideAPIKey("AIzaSyAq3VuWNyJb8mqAdid3GGfa61JeAU4_Kkw")

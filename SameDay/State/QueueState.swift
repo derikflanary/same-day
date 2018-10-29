@@ -18,16 +18,16 @@ struct QueueState: State {
 
     mutating func react(to event: Event) {
         switch event {
-        case let event as Loaded<FakeArea>:
-            areas = event.items
+        case let event as Loaded<[FakeArea]>:
+            areas = event.object
         case let event as Added<FakeArea>:
             areas.append(event.item)
         case let event as Updated<FakeArea>:
             areas.replace(item: event.item)
         case let event as Deleted<FakeArea>:
             areas.remove(item: event.item)
-        case let event as Loaded<Area>:
-            realAreas = event.items
+        case let event as Loaded<[Area]>:
+            realAreas = event.object
         case let event as Updated<Area>:
             realAreas.replace(item: event.item)
         default:

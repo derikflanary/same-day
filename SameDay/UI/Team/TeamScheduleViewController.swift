@@ -19,11 +19,11 @@ class TeamScheduleViewController: UIViewController {
     @IBOutlet weak var dateButton: UIButton!
 
     override func viewDidLoad() {
-        datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: view.frame.width - 20, height: 100))
+        datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: view.frame.width - 20, height: 50))
         datePicker.date = Date()
         dateButton.setTitle(datePicker.date.weekDayMonthDayString(), for: .normal)
         datePicker.datePickerMode = .date
-        datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: UIControlEvents.valueChanged)
+        datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: UIControl.Event.valueChanged)
     }
 
     override func viewWillAppear(_ animated: Bool) {

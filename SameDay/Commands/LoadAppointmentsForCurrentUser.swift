@@ -19,7 +19,7 @@ struct LoadAppointmentsForCurrentUser: Command {
             if let json = response?.result.value as? JSONObject {
                 do {
                     let appointments: [Appointment] = try json.value(for: "employee.open_appointments")
-                    core.fire(event: Loaded(items: appointments))
+                    core.fire(event: Loaded(object: appointments))
                     for appointment in appointments {
                         core.fire(command: GeocodeAddress(appointment: appointment))
                     }

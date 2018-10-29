@@ -26,8 +26,8 @@ struct UserState: State {
             currentUser = event.item
         case let event as Added<User>:
             users.append(event.item)
-        case let event as Loaded<Area>:
-            areas = event.items
+        case let event as Loaded<[Area]>:
+            areas = event.object
         default:
             break
         }

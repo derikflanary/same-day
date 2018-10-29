@@ -80,7 +80,7 @@ class QueueManagementDataSource: NSObject, UITableViewDataSource {
             areas[destinationIndexPath.section - 1].users.insert(userToMove, at: destinationIndexPath.row)
         }
 
-        App.sharedCore.fire(event: Loaded(items: areas))
+        App.sharedCore.fire(event: Loaded(object: areas))
     }
 
 }

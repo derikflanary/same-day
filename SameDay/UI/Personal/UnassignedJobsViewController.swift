@@ -16,7 +16,7 @@ class UnassignedJobsViewController: UIViewController {
 
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(handleRefresh), for: UIControlEvents.valueChanged)
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: UIControl.Event.valueChanged)
         return refreshControl
     }()
 

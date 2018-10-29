@@ -8,16 +8,6 @@
 
 import Foundation
 
-//
-//  GenericEvents.swift
-//  foos
-//
-//  Created by Derik Flanary on 1/12/17.
-//  Copyright © 2017 Derik Flanary. All rights reserved.
-//
-
-import Foundation
-
 struct Created<T>: Event {
     let item: T
 }
@@ -30,10 +20,6 @@ struct Deselected<T>: Event { }
 
 struct Updated<T>: Event {
     var item: T
-}
-
-struct Loaded<T>: Event {
-    var items: [T]
 }
 
 struct Added<T>: Event {

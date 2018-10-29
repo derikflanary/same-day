@@ -19,7 +19,7 @@ struct LoadAreas: Command {
                 do {
                     var areas: [Area] = try json.value(for: Keys.areas)
                     areas = areas.filter { $0.isActive }
-                    core.fire(event: Loaded(items: areas))
+                    core.fire(event: Loaded(object: areas))
                 } catch {
                     print(error)
                 }

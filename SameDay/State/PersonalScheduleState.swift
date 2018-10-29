@@ -27,8 +27,8 @@ struct PersonalScheduleState: State {
         switch event {
         case let event as Selected<Date>:
             selectedDate = event.item
-        case let event as Loaded<Appointment>:
-            appointments = event.items
+        case let event as Loaded<[Appointment]>:
+            appointments = event.object
         case let event as Updated<Appointment>:
             appointments.replace(item: event.item)
         default:

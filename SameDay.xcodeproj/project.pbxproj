@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,11 @@
 		EC0F530320E2F18C005D1C1D /* LoadAreas.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F530220E2F18C005D1C1D /* LoadAreas.swift */; };
 		EC0F530B20E696D7005D1C1D /* UnassignedJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F530A20E696D7005D1C1D /* UnassignedJobsViewController.swift */; };
 		EC0F530D20E69771005D1C1D /* Unassigned.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0F530C20E69771005D1C1D /* Unassigned.storyboard */; };
+		EC226E03218767080027F614 /* Alamofire+Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E00218767070027F614 /* Alamofire+Reactor.swift */; };
+		EC226E04218767080027F614 /* Alamofire+Marshal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E01218767080027F614 /* Alamofire+Marshal.swift */; };
+		EC226E05218767080027F614 /* Alamofire+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E02218767080027F614 /* Alamofire+URL.swift */; };
+		EC226E072187672B0027F614 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E062187672B0027F614 /* NetworkManager.swift */; };
+		EC226E0A21876C6D0027F614 /* AppointmentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E0921876C6D0027F614 /* AppointmentRouter.swift */; };
 		EC5D589320EC3846002C6AF7 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589220EC3846002C6AF7 /* UIViewController+Extensions.swift */; };
 		EC5D589620EE8748002C6AF7 /* TeamScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589520EE8748002C6AF7 /* TeamScheduleViewController.swift */; };
 		EC5D589820EE90CA002C6AF7 /* TeamScheduleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589720EE90CA002C6AF7 /* TeamScheduleDataSource.swift */; };
@@ -76,6 +81,11 @@
 		EC0F530220E2F18C005D1C1D /* LoadAreas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadAreas.swift; sourceTree = "<group>"; };
 		EC0F530A20E696D7005D1C1D /* UnassignedJobsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnassignedJobsViewController.swift; sourceTree = "<group>"; };
 		EC0F530C20E69771005D1C1D /* Unassigned.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Unassigned.storyboard; sourceTree = "<group>"; };
+		EC226E00218767070027F614 /* Alamofire+Reactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+Reactor.swift"; sourceTree = "<group>"; };
+		EC226E01218767080027F614 /* Alamofire+Marshal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+Marshal.swift"; sourceTree = "<group>"; };
+		EC226E02218767080027F614 /* Alamofire+URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+URL.swift"; sourceTree = "<group>"; };
+		EC226E062187672B0027F614 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		EC226E0921876C6D0027F614 /* AppointmentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentRouter.swift; sourceTree = "<group>"; };
 		EC5D588720EC33F8002C6AF7 /* SwiftEntryKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftEntryKit.framework.dSYM; path = Carthage/Build/iOS/SwiftEntryKit.framework.dSYM; sourceTree = "<group>"; };
 		EC5D588920EC33FB002C6AF7 /* QuickLayout.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = QuickLayout.framework.dSYM; path = Carthage/Build/iOS/QuickLayout.framework.dSYM; sourceTree = "<group>"; };
 		EC5D589220EC3846002C6AF7 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -164,6 +174,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EC226DFF218766E50027F614 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EC226E01218767080027F614 /* Alamofire+Marshal.swift */,
+				EC226E00218767070027F614 /* Alamofire+Reactor.swift */,
+				EC226E02218767080027F614 /* Alamofire+URL.swift */,
+				EC226E062187672B0027F614 /* NetworkManager.swift */,
+				EC226E08218768B90027F614 /* Routers */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		EC226E08218768B90027F614 /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				EC226E0921876C6D0027F614 /* AppointmentRouter.swift */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
 		EC5D589420EE8734002C6AF7 /* Team */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +266,7 @@
 				EC95DEE920B49C260093C3B6 /* State */,
 				EC95DEE820B49C1E0093C3B6 /* UI */,
 				ECF63F7F20C8A157001A8523 /* Commands */,
+				EC226DFF218766E50027F614 /* Network */,
 				ECFC3E8220B7380A005E192F /* Data */,
 				EC95DEEA20B49C2E0093C3B6 /* Infrastructure */,
 				EC8F0A6220B31D2E0042E486 /* Assets.xcassets */,
@@ -382,11 +413,12 @@
 				TargetAttributes = {
 					EC8F0A5720B31D2D0042E486 = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
 			buildConfigurationList = EC8F0A5320B31D2D0042E486 /* Build configuration list for PBXProject "SameDay" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -520,7 +552,10 @@
 				ECFC3E9A20BF6654005E192F /* Mappable.swift in Sources */,
 				EC5D589620EE8748002C6AF7 /* TeamScheduleViewController.swift in Sources */,
 				EC0F530B20E696D7005D1C1D /* UnassignedJobsViewController.swift in Sources */,
+				EC226E0A21876C6D0027F614 /* AppointmentRouter.swift in Sources */,
+				EC226E05218767080027F614 /* Alamofire+URL.swift in Sources */,
 				EC0F530320E2F18C005D1C1D /* LoadAreas.swift in Sources */,
+				EC226E03218767080027F614 /* Alamofire+Reactor.swift in Sources */,
 				ECFC3EC720C1FBC9005E192F /* Date+Extensions.swift in Sources */,
 				EC5D589820EE90CA002C6AF7 /* TeamScheduleDataSource.swift in Sources */,
 				EC95DEE520B4965D0093C3B6 /* UIColor+Extensions.swift in Sources */,
@@ -552,8 +587,10 @@
 				EC68F42820D99456007CD5BE /* Keys.swift in Sources */,
 				EC5D589320EC3846002C6AF7 /* UIViewController+Extensions.swift in Sources */,
 				ECFC3E9820BF0A25005E192F /* PersonalScheduleViewController.swift in Sources */,
+				EC226E072187672B0027F614 /* NetworkManager.swift in Sources */,
 				ECF63F7A20C71F5F001A8523 /* Job.swift in Sources */,
 				EC68F42C20D9B114007CD5BE /* LoadUser.swift in Sources */,
+				EC226E04218767080027F614 /* Alamofire+Marshal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -713,7 +750,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.appjester.SameDay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -738,7 +775,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.appjester.SameDay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

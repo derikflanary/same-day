@@ -23,7 +23,7 @@ class PersonalScheduleViewController: UIViewController, Mappable {
 
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(handleRefresh), for: UIControlEvents.valueChanged)
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: UIControl.Event.valueChanged)
         return refreshControl
     }()
 
@@ -179,7 +179,7 @@ extension PersonalScheduleViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didLongPressInfoWindowOf marker: GMSMarker) {
         guard let mapsURL = URL(string:"comgooglemaps://"), let directionsURL = URL(string: "comgooglemaps://?saddr=&daddr=\(Float(marker.position.latitude)),\(Float(marker.position.longitude))&directionsmode=driving") else { return }
         if UIApplication.shared.canOpenURL(mapsURL) {
-            UIApplication.shared.open(directionsURL, options: [:], completionHandler: nil)
+            UIApplication.shared.open(directionsURL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
         }
     }
 
@@ -253,3 +253,8 @@ extension PersonalScheduleViewController: Subscriber {
 
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+}

@@ -34,10 +34,10 @@ private extension MainViewController {
         guard currentViewController != viewController else { return false }
 
         if let controller = currentViewController {
-            controller.removeFromParentViewController()
+            controller.removeFromParent()
             controller.view.removeFromSuperview()
         }
-        addChildViewController(viewController)
+        addChild(viewController)
         view.addSubview(viewController.view)
 
         currentViewController = viewController
