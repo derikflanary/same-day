@@ -13,7 +13,12 @@ class LoginViewController: UIViewController, StoryboardInitializable {
     static var storyboardName = "Login"
     static var viewControllerIdentifier = "LoginViewController"
 
+    var core = App.sharedCore
     var tapGestureRecognizer = UITapGestureRecognizer()
+
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +28,11 @@ class LoginViewController: UIViewController, StoryboardInitializable {
 
     @objc func viewTapped() {
         view.endEditing(true)
+    }
+    
+    @IBAction func submitButtonTapped() {
+        guard let username = usernameTextField.text, let password = passwordTextField.text else { return }
+        core.fire(command: Authenticate(username: username, password: password))
     }
     
 }

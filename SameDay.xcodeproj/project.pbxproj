@@ -19,6 +19,7 @@
 		EC226E0D21876EA10027F614 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC226E0C21876EA10027F614 /* Login.storyboard */; };
 		EC226E0F218771100027F614 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E0E218771100027F614 /* RoundedButton.swift */; };
 		EC226E11218771A50027F614 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E10218771A50027F614 /* LoginViewController.swift */; };
+		EC226E15218783140027F614 /* Authenticate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E14218783140027F614 /* Authenticate.swift */; };
 		EC5D589320EC3846002C6AF7 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589220EC3846002C6AF7 /* UIViewController+Extensions.swift */; };
 		EC5D589620EE8748002C6AF7 /* TeamScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589520EE8748002C6AF7 /* TeamScheduleViewController.swift */; };
 		EC5D589820EE90CA002C6AF7 /* TeamScheduleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589720EE90CA002C6AF7 /* TeamScheduleDataSource.swift */; };
@@ -92,6 +93,7 @@
 		EC226E0C21876EA10027F614 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		EC226E0E218771100027F614 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		EC226E10218771A50027F614 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EC226E14218783140027F614 /* Authenticate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticate.swift; sourceTree = "<group>"; };
 		EC5D588720EC33F8002C6AF7 /* SwiftEntryKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftEntryKit.framework.dSYM; path = Carthage/Build/iOS/SwiftEntryKit.framework.dSYM; sourceTree = "<group>"; };
 		EC5D588920EC33FB002C6AF7 /* QuickLayout.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = QuickLayout.framework.dSYM; path = Carthage/Build/iOS/QuickLayout.framework.dSYM; sourceTree = "<group>"; };
 		EC5D589220EC3846002C6AF7 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 				EC68F43620DD3EDB007CD5BE /* LoadUnassignedAppointments.swift */,
 				ECBF78D520F6585F0091228E /* LoadManagerEmployees.swift */,
 				EC68F43820DD4A7E007CD5BE /* GeocodeAddress.swift */,
+				EC226E14218783140027F614 /* Authenticate.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				ECFC3E7D20B73392005E192F /* UserCell.swift in Sources */,
 				ECB3812A20E6A15E00DB7B88 /* UnassignedDataSource.swift in Sources */,
 				EC68F43320DB008B007CD5BE /* AppointmentNetworkAccess.swift in Sources */,
+				EC226E15218783140027F614 /* Authenticate.swift in Sources */,
 				ECB3813020E6BA4300DB7B88 /* AppointmentFlowLayout.swift in Sources */,
 				EC68F43920DD4A7E007CD5BE /* GeocodeAddress.swift in Sources */,
 				ECFC3E8A20B7585E005E192F /* AreasViewController.swift in Sources */,

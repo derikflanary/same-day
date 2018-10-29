@@ -34,7 +34,7 @@
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" textContentType="username"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="username"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbm-Ud-rH1">
                                         <rect key="frame" x="0.0" y="81.5" width="335" height="1"/>
@@ -77,6 +77,9 @@
                                 <state key="normal" title="SUBMIT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="submitButtonTapped" destination="Z3R-qu-V6c" eventType="touchUpInside" id="qyE-Qy-pJb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.28235294117647058" green="0.5490196078431373" blue="0.69411764705882351" alpha="1" colorSpace="calibratedRGB"/>
@@ -90,6 +93,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PNj-VD-VeE"/>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="yvb-hH-t7p" id="kZk-iJ-M7y"/>
+                        <outlet property="usernameTextField" destination="MaL-9A-k2d" id="J0M-85-Pyc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2f9-bR-Nne" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
