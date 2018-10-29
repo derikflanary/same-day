@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     var core = App.sharedCore
     fileprivate(set) var currentViewController: UIViewController?
     fileprivate var homeViewController = HomeTabBarController.initializeFromStoryboard()
+    fileprivate var loginViewController = LoginViewController.initializeFromStoryboard()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,10 @@ private extension MainViewController {
 
     func showHomeViewController() {
         _ = showViewController(homeViewController)
+    }
+
+    func showLoginViewController() {
+        _ = showViewController(loginViewController)
     }
 
     func showViewController(_ viewController: UIViewController) -> Bool {
@@ -50,7 +55,8 @@ private extension MainViewController {
 extension MainViewController: Subscriber {
 
     func update(with state: AppState) {
-        showHomeViewController()
+        showLoginViewController()
+//        showHomeViewController()
     }
 
 }
