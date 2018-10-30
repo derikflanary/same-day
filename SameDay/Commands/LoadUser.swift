@@ -9,18 +9,18 @@
 import Foundation
 import Marshal
 
-struct LoadUser: Command {
+struct LoadUser: SameDayAPICommand {
 
-    private var networkAccess: UserNetworkAccess = UserNetworkAPIAccess.sharedInstance
     var userId: String
 
     init(userId: String) {
         self.userId = userId
     }
 
-    func execute(state: AppState, core: Core<AppState>) {
-        networkAccess.getUser(id: userId) { (response) in
-            if let json = response?.result.value as? JSONObject {
+    func execute(network: API, state: AppState, core: Core<AppState>) {
+        let urlRequest = Router.User.getUser(userId: userId)
+        network.sessionManager.request(urlRequest).responseMarshaled { response in
+            if let json = response.result.value as? JSONObject {
                 do {
                     let employee: Employee = try json.value(for: Keys.employee)
                     core.fire(event: LoadedUser(user: employee))

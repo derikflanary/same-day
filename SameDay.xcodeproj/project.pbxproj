@@ -28,6 +28,8 @@
 		EC226E242188E9220027F614 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E232188E9220027F614 /* Keychain.swift */; };
 		EC226E262188EC0A0027F614 /* OnSuccessfulLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E252188EC0A0027F614 /* OnSuccessfulLogin.swift */; };
 		EC226E2A2188F0EF0027F614 /* Logout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E292188F0EF0027F614 /* Logout.swift */; };
+		EC226E2C218908330027F614 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E2B218908330027F614 /* UserRouter.swift */; };
+		EC226E2E218908420027F614 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E2D218908420027F614 /* Router.swift */; };
 		EC5D589320EC3846002C6AF7 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589220EC3846002C6AF7 /* UIViewController+Extensions.swift */; };
 		EC5D589620EE8748002C6AF7 /* TeamScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589520EE8748002C6AF7 /* TeamScheduleViewController.swift */; };
 		EC5D589820EE90CA002C6AF7 /* TeamScheduleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589720EE90CA002C6AF7 /* TeamScheduleDataSource.swift */; };
@@ -111,6 +113,8 @@
 		EC226E232188E9220027F614 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		EC226E252188EC0A0027F614 /* OnSuccessfulLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnSuccessfulLogin.swift; sourceTree = "<group>"; };
 		EC226E292188F0EF0027F614 /* Logout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logout.swift; sourceTree = "<group>"; };
+		EC226E2B218908330027F614 /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
+		EC226E2D218908420027F614 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		EC5D588720EC33F8002C6AF7 /* SwiftEntryKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftEntryKit.framework.dSYM; path = Carthage/Build/iOS/SwiftEntryKit.framework.dSYM; sourceTree = "<group>"; };
 		EC5D588920EC33FB002C6AF7 /* QuickLayout.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = QuickLayout.framework.dSYM; path = Carthage/Build/iOS/QuickLayout.framework.dSYM; sourceTree = "<group>"; };
 		EC5D589220EC3846002C6AF7 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -219,6 +223,8 @@
 			isa = PBXGroup;
 			children = (
 				EC226E0921876C6D0027F614 /* AppointmentRouter.swift */,
+				EC226E2D218908420027F614 /* Router.swift */,
+				EC226E2B218908330027F614 /* UserRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -638,12 +644,14 @@
 				ECFC3EC120C1F6D0005E192F /* PersonalScheduleState.swift in Sources */,
 				ECFC3E8620B73875005E192F /* FakeArea.swift in Sources */,
 				EC226E192187F8E70027F614 /* LoginState.swift in Sources */,
+				EC226E2E218908420027F614 /* Router.swift in Sources */,
 				ECFC3E7720B73098005E192F /* ReuseableView.swift in Sources */,
 				EC226E222188DCE90027F614 /* OAuth2Token.swift in Sources */,
 				EC95DEE720B49C0E0093C3B6 /* QueueManagementViewController.swift in Sources */,
 				ECFC3E7F20B737A1005E192F /* UserState.swift in Sources */,
 				ECFC3E8120B737FF005E192F /* GenericEvents.swift in Sources */,
 				EC68F43720DD3EDB007CD5BE /* LoadUnassignedAppointments.swift in Sources */,
+				EC226E2C218908330027F614 /* UserRouter.swift in Sources */,
 				ECFC3E7520B7305C005E192F /* QueueManagementDataSource.swift in Sources */,
 				EC68F42820D99456007CD5BE /* Keys.swift in Sources */,
 				EC5D589320EC3846002C6AF7 /* UIViewController+Extensions.swift in Sources */,

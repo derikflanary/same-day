@@ -10,7 +10,13 @@ import Foundation
 
 struct UserState: State {
 
-    var currentUserId: String?
+    var currentUserId: String? {
+        do {
+            return try fetchCurrentUserId()
+        } catch {
+            return nil
+        }
+    }
     var currentUser: Employee?
     var users = [User(name: "Gilg Gwilliams"), User(name: "Mary Jane")]
     var areas = [Area]()
@@ -18,11 +24,15 @@ struct UserState: State {
         guard let defaultAreaId = currentUser?.defaultAreaId else { return nil }
         return areas.filter { $0.id == defaultAreaId }.first
     }
+
+    public func fetchCurrentUserId() throws -> String? {
+        guard let token = try OAuth2Token() else { return nil }
+        return token.userId
+    }
+
     
     mutating func react(to event: Event) {
         switch event {
-        case let event as AuthenticationSucceeded:
-            currentUserId = event.userId
         case let event as LoadedUser:
             currentUser = event.user
         case let event as Updated<Employee>:

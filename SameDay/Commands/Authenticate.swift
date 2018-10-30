@@ -35,7 +35,7 @@ struct Authenticate: Command {
                     try authToken.lock()
 
                     let userId: String = try json.value(for: Keys.userid)
-                    core.fire(event: AuthenticationSucceeded(userId: userId))
+                    core.fire(event: AuthenticationSucceeded())
                     core.fire(command: OnSuccessfulLogin(for: userId))
                 } catch {
                     print(error)
@@ -55,12 +55,13 @@ struct Authenticate: Command {
 struct AuthenticateToken: Command {
 
     func execute(state: AppState, core: Core<AppState>) {
-        do {
-            if let accessToken = try state.accessToken() {
-                print(accessToken)
-                core.fire(event: LoggedIn())
+        if let _ = state.accessToken {
+            core.fire(event: LoggedIn())
+            if let userId = state.userState.currentUserId {
+                core.fire(command: LoadUser(userId: userId))
+                core.fire(command: LoadAppointments(for: userId))
             }
-        } catch {
+        } else {
             core.fire(event: LoggedOut())
         }
     }

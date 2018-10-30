@@ -18,7 +18,8 @@ struct NetworkConfig {
 
     init() {
         let environment = Environment.prod
-        self.sameDay = API(environment: SameDayAPIEnvironment(environment: environment))
+        let accessToken = App.sharedCore.state.accessToken
+        self.sameDay = API(environment: SameDayAPIEnvironment(environment: environment, bearerToken: accessToken))
     }
 
 }

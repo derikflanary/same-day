@@ -22,8 +22,9 @@ class SameDayAPIEnvironment: ProtectedAPIEnvironment, MockAPIEnvironment {
         return bearerToken == nil
     }
 
-    init(environment: Environment) {
+    init(environment: Environment, bearerToken: String?) {
         self.baseURL = URL(string: environment.apiURLBase)
+        self.bearerToken = bearerToken
         switch environment {
         case .prod:
             self.forceRefresh = true
@@ -32,16 +33,8 @@ class SameDayAPIEnvironment: ProtectedAPIEnvironment, MockAPIEnvironment {
     }
 
     func refresh(completion: ((Bool) -> Void)?) {
-        isRefreshing = true
-//        FirebaseActual.access.getUserToken { [weak self] token, error in
-//            if let error = error {
-//                log.error("status=refresh-failure error=\(error)")
-//            }
-//            guard let `self` = self else { return }
-//            self.bearerToken = token
-//            self.isRefreshing = false
-//            completion?(token != nil)
-//        }
+        bearerToken = App.sharedCore.state.accessToken
+        completion?(bearerToken != nil)
     }
 
 }

@@ -11,23 +11,19 @@ import Alamofire
 import Marshal
 
 
-struct LoadEmployee: Command {
+struct LoadEmployee: SameDayAPICommand {
 
-    private var networkAccess: UserNetworkAccess = UserNetworkAPIAccess.sharedInstance
+    let userId: String
 
-    func execute(state: AppState, core: Core<AppState>) {
-        networkAccess.getUser(id: "94") { (response) in
-            if let json = response?.result.value as? JSONObject {
-                do {
-                    let employee: Employee = try json.value(for: Keys.employee)
-                    print(employee)
-                } catch {
-                    print(error)
-                }
-                print(json)
-            }
-        }
+    init(userId: String) {
+        self.userId = userId
     }
+
+    func execute(network: API, state: AppState, core: Core<AppState>) {
+        let urlRequest = Router.User.getUser(userId: userId)
+        network.request(urlRequest, responseAs: Employee.self, with: core)
+    }
+
 }
 
 

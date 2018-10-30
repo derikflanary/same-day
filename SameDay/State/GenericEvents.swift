@@ -40,9 +40,7 @@ struct AuthenticationFailed: Event {
     let message: String
 }
 
-struct AuthenticationSucceeded: Event {
-    let userId: String
-}
+struct AuthenticationSucceeded: Event { }
 
 struct LoggedIn: Event { }
 

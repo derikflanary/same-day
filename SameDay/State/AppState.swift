@@ -21,7 +21,15 @@ struct AppState: State {
     var personalScheduleState = PersonalScheduleState()
     var loginState = LoginState()
 
-    public func accessToken() throws -> String? {
+    var accessToken: String? {
+        do {
+            return try fetchAccessToken()
+        } catch {
+            return nil
+        }
+    }
+
+    private func fetchAccessToken() throws -> String? {
         guard let token = try OAuth2Token() else { return nil }
         if Date().compare(token.expiresAt) == .orderedAscending {
             return token.accessToken

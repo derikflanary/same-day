@@ -11,7 +11,6 @@ import Alamofire
 
 
 protocol UserNetworkAccess {
-    func getUser(id: String, completion: @escaping (_ objectJSON: DataResponse<Any>?) -> Void)
     func getAreas(completion: @escaping (_ objectJSON: DataResponse<Any>?) -> Void)
     func getEmployeesUnderManager(id: Int, completion: @escaping (DataResponse<Any>?) -> Void)
 }
