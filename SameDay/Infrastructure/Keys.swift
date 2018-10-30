@@ -10,6 +10,9 @@ import Foundation
 
 struct Keys {
 
+    static let authToken = "authtoken"
+    static let userid = "userid"
+
     static let address = "address"
     static let areaId = "area_id"
     static let areas = "areas"

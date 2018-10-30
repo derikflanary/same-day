@@ -10,6 +10,7 @@ import Foundation
 
 struct UserState: State {
 
+    var currentUserId: String?
     var currentUser: Employee?
     var users = [User(name: "Gilg Gwilliams"), User(name: "Mary Jane")]
     var areas = [Area]()
@@ -20,6 +21,8 @@ struct UserState: State {
     
     mutating func react(to event: Event) {
         switch event {
+        case let event as AuthenticationSucceeded:
+            currentUserId = event.userId
         case let event as LoadedUser:
             currentUser = event.user
         case let event as Updated<Employee>:

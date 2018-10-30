@@ -14,7 +14,7 @@ enum Router { }
 extension Router {
 
     enum Appointment: URLRequestConvertible {
-        case getAppointments(userId: String)
+        case getAppointments(userId: Int)
 
         var method: HTTPMethod {
             switch self {

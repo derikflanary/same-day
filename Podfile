@@ -8,6 +8,7 @@ use_frameworks!
 pod 'Alamofire'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
-pod 'JTAppleCalendar', '~> 7.0'
+pod 'JTAppleCalendar'
+pod 'SwiftKeychainWrapper'
 
 end

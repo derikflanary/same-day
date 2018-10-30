@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import Marshal
+import SwiftKeychainWrapper
 
 struct Authenticate: Command {
 
@@ -30,8 +31,18 @@ struct Authenticate: Command {
         Alamofire.request("https://samedayapi.azurewebsites.net/Authorize", headers: headers).responseJSON { response in
             if let json = response.result.value as? JSONObject {
                 print(json)
-                core.fire(event: AuthenticationSucceeded())
-            } else if let error = response.error {
+                do {
+                    let authToken: String = try json.value(for: Keys.authToken)
+                    let saveSuccessful: Bool = KeychainWrapper.standard.set(authToken, forKey: Keys.authToken)
+                    let userId: String = try json.value(for: Keys.userid)
+                    
+                    core.fire(event: AuthenticationSucceeded(userId: userId))
+                } catch {
+                    print(error)
+                    core.fire(event: AuthenticationFailed(message: "Looks like something broke on our end. We will try to get it fixed as soon as possible."))
+
+                }
+            } else if response.error != nil {
                 core.fire(event: AuthenticationFailed(message: "Your username or password is incorrect."))
             }
         }

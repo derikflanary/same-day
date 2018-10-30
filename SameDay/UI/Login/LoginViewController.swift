@@ -19,18 +19,25 @@ class LoginViewController: UIViewController, StoryboardInitializable {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var submitButton: RoundedButton!
-
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var logoCenterYConstraint: NSLayoutConstraint!
+    @IBOutlet weak var logoTopConstraint: NSLayoutConstraint!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
         view.addGestureRecognizer(tapGestureRecognizer)
-        submitButton.isEnabled = false
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         core.add(subscriber: self)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        animateInViews()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -59,6 +66,21 @@ class LoginViewController: UIViewController, StoryboardInitializable {
 }
 
 private extension LoginViewController {
+
+    func animateInViews() {
+        stackView.transform = CGAffineTransform(translationX: 0, y: 200)
+        submitButton.transform = CGAffineTransform(translationX: 0, y: 200)
+        let animator = UIViewPropertyAnimator(duration: 2.0, dampingRatio: 0.8) {
+            self.logoCenterYConstraint.isActive = false
+            self.logoTopConstraint.isActive = true
+            self.view.layoutIfNeeded()
+            self.stackView.transform = .identity
+            self.stackView.alpha = 1.0
+            self.submitButton.isEnabled = false
+            self.submitButton.transform = .identity
+        }
+        animator.startAnimation()
+    }
 
     func updateSubmitButton() {
         if let username = usernameTextField.text, username != "", let password = passwordTextField.text, password != "" {

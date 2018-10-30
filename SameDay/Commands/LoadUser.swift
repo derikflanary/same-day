@@ -12,9 +12,14 @@ import Marshal
 struct LoadUser: Command {
 
     private var networkAccess: UserNetworkAccess = UserNetworkAPIAccess.sharedInstance
+    var userId: Int
+
+    init(userId: Int) {
+        self.userId = userId
+    }
 
     func execute(state: AppState, core: Core<AppState>) {
-        networkAccess.getUser(id: 1421) { (response) in
+        networkAccess.getUser(id: userId) { (response) in
             if let json = response?.result.value as? JSONObject {
                 do {
                     let employee: Employee = try json.value(for: Keys.employee)

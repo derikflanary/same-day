@@ -9,14 +9,13 @@
 import Foundation
 import Marshal
 
-struct LoadAppointmentsForCurrentUser: Command {
+struct LoadAppointmentsForCurrentUser: SameDayAPICommand {
 
-    private var networkAccess: AppointmentNetworkAccess = AppointmentNetworkAPIAccess.sharedInstance
-
-    func execute(state: AppState, core: Core<AppState>) {
+    func execute(network: API, state: AppState, core: Core<AppState>) {
         guard let currentUserId = state.userState.currentUser?.id else { return }
-        networkAccess.getAppointments(for: currentUserId) { response in
-            if let json = response?.result.value as? JSONObject {
+        let urlRequest = Router.Appointment.getAppointments(userId: currentUserId)
+        network.sessionManager.request(urlRequest).responseMarshaled { response in
+            if let json = response.value {
                 do {
                     let appointments: [Appointment] = try json.value(for: "employee.open_appointments")
                     core.fire(event: Loaded(object: appointments))
