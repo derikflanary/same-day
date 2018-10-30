@@ -19,8 +19,10 @@ struct AppState: State {
     var userState = UserState()
     var queueState = QueueState()
     var personalScheduleState = PersonalScheduleState()
+    var loginState = LoginState()
 
     mutating func react(to event: Event) {
+        loginState.react(to: event)
         userState.react(to: event)
         queueState.react(to: event)
         personalScheduleState.react(to: event)

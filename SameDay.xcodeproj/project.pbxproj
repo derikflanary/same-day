@@ -20,6 +20,8 @@
 		EC226E0F218771100027F614 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E0E218771100027F614 /* RoundedButton.swift */; };
 		EC226E11218771A50027F614 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E10218771A50027F614 /* LoginViewController.swift */; };
 		EC226E15218783140027F614 /* Authenticate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E14218783140027F614 /* Authenticate.swift */; };
+		EC226E172187F53E0027F614 /* Shakeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E162187F53E0027F614 /* Shakeable.swift */; };
+		EC226E192187F8E70027F614 /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E182187F8E70027F614 /* LoginState.swift */; };
 		EC5D589320EC3846002C6AF7 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589220EC3846002C6AF7 /* UIViewController+Extensions.swift */; };
 		EC5D589620EE8748002C6AF7 /* TeamScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589520EE8748002C6AF7 /* TeamScheduleViewController.swift */; };
 		EC5D589820EE90CA002C6AF7 /* TeamScheduleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589720EE90CA002C6AF7 /* TeamScheduleDataSource.swift */; };
@@ -94,6 +96,8 @@
 		EC226E0E218771100027F614 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		EC226E10218771A50027F614 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EC226E14218783140027F614 /* Authenticate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticate.swift; sourceTree = "<group>"; };
+		EC226E162187F53E0027F614 /* Shakeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shakeable.swift; sourceTree = "<group>"; };
+		EC226E182187F8E70027F614 /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
 		EC5D588720EC33F8002C6AF7 /* SwiftEntryKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftEntryKit.framework.dSYM; path = Carthage/Build/iOS/SwiftEntryKit.framework.dSYM; sourceTree = "<group>"; };
 		EC5D588920EC33FB002C6AF7 /* QuickLayout.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = QuickLayout.framework.dSYM; path = Carthage/Build/iOS/QuickLayout.framework.dSYM; sourceTree = "<group>"; };
 		EC5D589220EC3846002C6AF7 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -313,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				EC95DEE020B3586F0093C3B6 /* AppState.swift */,
+				EC226E182187F8E70027F614 /* LoginState.swift */,
 				ECFC3E7E20B737A1005E192F /* UserState.swift */,
 				ECFC3E8B20B75F4C005E192F /* QueueState.swift */,
 				ECFC3EC020C1F6D0005E192F /* PersonalScheduleState.swift */,
@@ -384,6 +389,7 @@
 				EC226E0E218771100027F614 /* RoundedButton.swift */,
 				ECFC3E7A20B73173005E192F /* CircleAvatarView.swift */,
 				ECFC3E9320BDB8CE005E192F /* CustomInputAccessoryView.swift */,
+				EC226E162187F53E0027F614 /* Shakeable.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -588,6 +594,7 @@
 				ECF63F7E20C89C2E001A8523 /* Result.swift in Sources */,
 				ECF63F8120C8A16A001A8523 /* LoadEmployee.swift in Sources */,
 				EC8F0A5C20B31D2D0042E486 /* AppDelegate.swift in Sources */,
+				EC226E172187F53E0027F614 /* Shakeable.swift in Sources */,
 				EC95DEE120B3586F0093C3B6 /* AppState.swift in Sources */,
 				EC95DEEE20B49E4D0093C3B6 /* HomeTabBarController.swift in Sources */,
 				ECF63F7C20C89B3E001A8523 /* UserNetworkAccess.swift in Sources */,
@@ -601,6 +608,7 @@
 				ECFC3E7920B730D6005E192F /* UITableView+Extensions.swift in Sources */,
 				ECFC3EC120C1F6D0005E192F /* PersonalScheduleState.swift in Sources */,
 				ECFC3E8620B73875005E192F /* FakeArea.swift in Sources */,
+				EC226E192187F8E70027F614 /* LoginState.swift in Sources */,
 				ECFC3E7720B73098005E192F /* ReuseableView.swift in Sources */,
 				EC95DEE720B49C0E0093C3B6 /* QueueManagementViewController.swift in Sources */,
 				ECFC3E7F20B737A1005E192F /* UserState.swift in Sources */,

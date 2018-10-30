@@ -35,6 +35,9 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="username"/>
+                                        <connections>
+                                            <action selector="usernameDidChange" destination="Z3R-qu-V6c" eventType="editingChanged" id="PUH-Sv-rTU"/>
+                                        </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbm-Ud-rH1">
                                         <rect key="frame" x="0.0" y="81.5" width="335" height="1"/>
@@ -57,6 +60,9 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <connections>
+                                            <action selector="passwordDidChange" destination="Z3R-qu-V6c" eventType="editingChanged" id="8uj-Pf-2gV"/>
+                                        </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHL-UC-gTY">
                                         <rect key="frame" x="0.0" y="172" width="335" height="1"/>
@@ -95,6 +101,7 @@
                     </view>
                     <connections>
                         <outlet property="passwordTextField" destination="yvb-hH-t7p" id="kZk-iJ-M7y"/>
+                        <outlet property="submitButton" destination="aEd-Tt-cGQ" id="W8c-E4-7Ha"/>
                         <outlet property="usernameTextField" destination="MaL-9A-k2d" id="J0M-85-Pyc"/>
                     </connections>
                 </viewController>

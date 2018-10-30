@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable open class RoundedButton: UIButton {
+@IBDesignable open class RoundedButton: UIButton, Shakeable {
 
     enum RoundedEdgeType: CGFloat {
         case simple = 8
@@ -16,6 +16,8 @@ import UIKit
         case full = 2
         case none = 0
     }
+
+    var loadingIndicator = UIActivityIndicatorView(style: .white)
 
     var roundedEdgeType: RoundedEdgeType = .simple {
         didSet {
@@ -29,6 +31,18 @@ import UIKit
                 self.transform = self.isHighlighted ? CGAffineTransform(scaleX: 1.02, y: 1.02) : .identity
                 self.alpha = self.isHighlighted ? 0.7 : 1.0
             }
+        }
+    }
+
+    @IBInspectable open var hasBordersOnSelection: Bool = false {
+        didSet {
+            updateBorders()
+        }
+    }
+
+    @IBInspectable open var isLoading: Bool = false {
+        didSet {
+            updateLoadingState()
         }
     }
 
@@ -58,13 +72,17 @@ import UIKit
         }
     }
 
+    open override func awakeFromNib() {
+        super.awakeFromNib()
+        addLoadingIndicator()
+    }
+
     override open func didMoveToSuperview() {
         super.didMoveToSuperview()
         updateEdges()
         addShadow()
         tintColor = .clear
     }
-
 
     private func updateEdges() {
         switch roundedEdgeType {
@@ -77,6 +95,7 @@ import UIKit
     }
 
     private func updateBorders() {
+        guard hasBordersOnSelection else { return }
         if isSelected {
             layer.borderWidth = 3.0
             layer.borderColor = UIColor.secondary.cgColor
@@ -102,6 +121,27 @@ import UIKit
         layer.shadowOpacity = 0.0
         layer.shadowRadius = 0.0
         layer.masksToBounds = true
+    }
+
+    private func addLoadingIndicator() {
+        loadingIndicator.hidesWhenStopped = true
+        addSubview(loadingIndicator)
+        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+        loadingIndicator.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        loadingIndicator.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+    }
+
+    func updateLoadingState() {
+        if isLoading {
+            loadingIndicator.startAnimating()
+            isEnabled = false
+            isHighlighted = false
+            setTitleColor(.clear, for: .normal)
+        } else {
+            loadingIndicator.stopAnimating()
+            isEnabled = true
+            setTitleColor(.white, for: .normal)
+        }
     }
 
 }

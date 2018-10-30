@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import Marshal
 
 struct Authenticate: Command {
 
@@ -27,7 +28,12 @@ struct Authenticate: Command {
             headers[authorizationHeader.key] = authorizationHeader.value
         }
         Alamofire.request("https://samedayapi.azurewebsites.net/Authorize", headers: headers).responseJSON { response in
-            print(response)
+            if let json = response.result.value as? JSONObject {
+                print(json)
+                core.fire(event: AuthenticationSucceeded())
+            } else if let error = response.error {
+                core.fire(event: AuthenticationFailed(message: error.localizedDescription))
+            }
         }
 
     }

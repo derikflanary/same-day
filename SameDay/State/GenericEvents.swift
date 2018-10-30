@@ -36,3 +36,9 @@ struct Reset<T>: Event {
 
 struct ErrorDisplayed: Event { }
 
+struct AuthenticationFailed: Event {
+    let message: String
+}
+
+struct AuthenticationSucceeded: Event { }
+
