@@ -24,6 +24,9 @@
 		EC226E192187F8E70027F614 /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E182187F8E70027F614 /* LoginState.swift */; };
 		EC226E1D2188C7E80027F614 /* SameDayAPIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E1C2188C7E80027F614 /* SameDayAPIEnvironment.swift */; };
 		EC226E1F2188C8590027F614 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E1E2188C8590027F614 /* NetworkConfig.swift */; };
+		EC226E222188DCE90027F614 /* OAuth2Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E212188DCE90027F614 /* OAuth2Token.swift */; };
+		EC226E242188E9220027F614 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E232188E9220027F614 /* Keychain.swift */; };
+		EC226E262188EC0A0027F614 /* OnSuccessfulLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E252188EC0A0027F614 /* OnSuccessfulLogin.swift */; };
 		EC5D589320EC3846002C6AF7 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589220EC3846002C6AF7 /* UIViewController+Extensions.swift */; };
 		EC5D589620EE8748002C6AF7 /* TeamScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589520EE8748002C6AF7 /* TeamScheduleViewController.swift */; };
 		EC5D589820EE90CA002C6AF7 /* TeamScheduleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589720EE90CA002C6AF7 /* TeamScheduleDataSource.swift */; };
@@ -103,6 +106,9 @@
 		EC226E1C2188C7E80027F614 /* SameDayAPIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SameDayAPIEnvironment.swift; sourceTree = "<group>"; };
 		EC226E1E2188C8590027F614 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		EC226E202188D2D80027F614 /* SameDay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SameDay.entitlements; sourceTree = "<group>"; };
+		EC226E212188DCE90027F614 /* OAuth2Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2Token.swift; sourceTree = "<group>"; };
+		EC226E232188E9220027F614 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		EC226E252188EC0A0027F614 /* OnSuccessfulLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnSuccessfulLogin.swift; sourceTree = "<group>"; };
 		EC5D588720EC33F8002C6AF7 /* SwiftEntryKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftEntryKit.framework.dSYM; path = Carthage/Build/iOS/SwiftEntryKit.framework.dSYM; sourceTree = "<group>"; };
 		EC5D588920EC33FB002C6AF7 /* QuickLayout.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = QuickLayout.framework.dSYM; path = Carthage/Build/iOS/QuickLayout.framework.dSYM; sourceTree = "<group>"; };
 		EC5D589220EC3846002C6AF7 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -200,6 +206,8 @@
 				EC226E062187672B0027F614 /* NetworkManager.swift */,
 				EC226E1C2188C7E80027F614 /* SameDayAPIEnvironment.swift */,
 				EC226E1E2188C8590027F614 /* NetworkConfig.swift */,
+				EC226E212188DCE90027F614 /* OAuth2Token.swift */,
+				EC226E232188E9220027F614 /* Keychain.swift */,
 				EC226E08218768B90027F614 /* Routers */,
 			);
 			path = Network;
@@ -363,6 +371,7 @@
 				ECBF78D520F6585F0091228E /* LoadManagerEmployees.swift */,
 				EC68F43820DD4A7E007CD5BE /* GeocodeAddress.swift */,
 				EC226E14218783140027F614 /* Authenticate.swift */,
+				EC226E252188EC0A0027F614 /* OnSuccessfulLogin.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -502,13 +511,11 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-SameDay/Pods-SameDay-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -581,6 +588,7 @@
 				ECFC3E8820B738DC005E192F /* Array+Extensions.swift in Sources */,
 				EC68F43120DB0060007CD5BE /* LoadAppointmentsForCurrentUser.swift in Sources */,
 				EC68F42620D9892A007CD5BE /* Appointment.swift in Sources */,
+				EC226E242188E9220027F614 /* Keychain.swift in Sources */,
 				ECFC3E7D20B73392005E192F /* UserCell.swift in Sources */,
 				ECB3812A20E6A15E00DB7B88 /* UnassignedDataSource.swift in Sources */,
 				EC68F43320DB008B007CD5BE /* AppointmentNetworkAccess.swift in Sources */,
@@ -627,6 +635,7 @@
 				ECFC3E8620B73875005E192F /* FakeArea.swift in Sources */,
 				EC226E192187F8E70027F614 /* LoginState.swift in Sources */,
 				ECFC3E7720B73098005E192F /* ReuseableView.swift in Sources */,
+				EC226E222188DCE90027F614 /* OAuth2Token.swift in Sources */,
 				EC95DEE720B49C0E0093C3B6 /* QueueManagementViewController.swift in Sources */,
 				ECFC3E7F20B737A1005E192F /* UserState.swift in Sources */,
 				ECFC3E8120B737FF005E192F /* GenericEvents.swift in Sources */,
@@ -638,6 +647,7 @@
 				EC226E072187672B0027F614 /* NetworkManager.swift in Sources */,
 				ECF63F7A20C71F5F001A8523 /* Job.swift in Sources */,
 				EC226E0F218771100027F614 /* RoundedButton.swift in Sources */,
+				EC226E262188EC0A0027F614 /* OnSuccessfulLogin.swift in Sources */,
 				EC68F42C20D9B114007CD5BE /* LoadUser.swift in Sources */,
 				EC226E04218767080027F614 /* Alamofire+Marshal.swift in Sources */,
 			);

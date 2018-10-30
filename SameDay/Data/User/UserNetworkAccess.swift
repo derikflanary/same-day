@@ -11,7 +11,7 @@ import Alamofire
 
 
 protocol UserNetworkAccess {
-    func getUser(id: Int, completion: @escaping (_ objectJSON: DataResponse<Any>?) -> Void)
+    func getUser(id: String, completion: @escaping (_ objectJSON: DataResponse<Any>?) -> Void)
     func getAreas(completion: @escaping (_ objectJSON: DataResponse<Any>?) -> Void)
     func getEmployeesUnderManager(id: Int, completion: @escaping (DataResponse<Any>?) -> Void)
 }
@@ -29,7 +29,7 @@ struct UserNetworkAPIAccess: UserNetworkAccess {
         "Authorization": "Bearer d8923yur9238rh4398rh32p8eij38heruq3hep8wu4fhuiefbdsjvbndskjfbudfbq39eqy28eq"
     ]
 
-    func getUser(id: Int, completion: @escaping networkCompletion) {
+    func getUser(id: String, completion: @escaping networkCompletion) {
         Alamofire.request("\(baseURLString)/employee/\(id)", method: .get, headers: headers).responseJSON(completionHandler: completion)
     }
 

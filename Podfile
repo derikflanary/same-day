@@ -9,6 +9,5 @@ pod 'Alamofire'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
 pod 'JTAppleCalendar'
-pod 'SwiftKeychainWrapper'
 
 end

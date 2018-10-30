@@ -12,9 +12,9 @@ import Marshal
 struct LoadUser: Command {
 
     private var networkAccess: UserNetworkAccess = UserNetworkAPIAccess.sharedInstance
-    var userId: Int
+    var userId: String
 
-    init(userId: Int) {
+    init(userId: String) {
         self.userId = userId
     }
 
@@ -24,7 +24,6 @@ struct LoadUser: Command {
                 do {
                     let employee: Employee = try json.value(for: Keys.employee)
                     core.fire(event: LoadedUser(user: employee))
-                    core.fire(command: LoadAppointmentsForCurrentUser())
                     if employee.type == .manager {
                         core.fire(command: LoadManagerEmployees(employee: employee))
                     }
