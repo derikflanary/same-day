@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Marshal
 
 class LoginViewController: UIViewController, StoryboardInitializable {
 
@@ -29,6 +30,12 @@ class LoginViewController: UIViewController, StoryboardInitializable {
         super.viewDidLoad()
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
         view.addGestureRecognizer(tapGestureRecognizer)
+        do {
+            let a: MarshaledObject = try Keychain().valueForKey("cby016@gmail.com")
+            print(a)
+        } catch {
+            print(error)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

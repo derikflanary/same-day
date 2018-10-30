@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import Marshal
+import SwiftKeychainWrapper
 
 struct Authenticate: Command {
 
@@ -37,6 +38,7 @@ struct Authenticate: Command {
                     let userId: String = try json.value(for: Keys.userid)
                     core.fire(event: AuthenticationSucceeded())
                     core.fire(command: OnSuccessfulLogin(for: userId))
+                    self.addToKeychain()
                 } catch {
                     print(error)
                     core.fire(event: AuthenticationFailed(message: "Looks like something broke on our end. We will try to get it fixed as soon as possible."))
@@ -49,21 +51,10 @@ struct Authenticate: Command {
 
     }
 
-}
-
-
-struct AuthenticateToken: Command {
-
-    func execute(state: AppState, core: Core<AppState>) {
-        if let _ = state.accessToken {
-            core.fire(event: LoggedIn())
-            if let userId = state.userState.currentUserId {
-                core.fire(command: LoadUser(userId: userId))
-                core.fire(command: LoadAppointments(for: userId))
-            }
-        } else {
-            core.fire(event: LoggedOut())
-        }
+    func addToKeychain() {
+        let account = username
+        KeychainWrapper.standard.set(account, forKey: Keys.account)
+        KeychainWrapper.standard.set(password, forKey: account)
     }
-    
+
 }

@@ -30,6 +30,8 @@
 		EC226E2A2188F0EF0027F614 /* Logout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E292188F0EF0027F614 /* Logout.swift */; };
 		EC226E2C218908330027F614 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E2B218908330027F614 /* UserRouter.swift */; };
 		EC226E2E218908420027F614 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E2D218908420027F614 /* Router.swift */; };
+		EC226E3021891F820027F614 /* FetchCredentialsFromKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E2F21891F820027F614 /* FetchCredentialsFromKeychain.swift */; };
+		EC226E3221891FA10027F614 /* AuthenticateToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E3121891FA10027F614 /* AuthenticateToken.swift */; };
 		EC5D589320EC3846002C6AF7 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589220EC3846002C6AF7 /* UIViewController+Extensions.swift */; };
 		EC5D589620EE8748002C6AF7 /* TeamScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589520EE8748002C6AF7 /* TeamScheduleViewController.swift */; };
 		EC5D589820EE90CA002C6AF7 /* TeamScheduleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589720EE90CA002C6AF7 /* TeamScheduleDataSource.swift */; };
@@ -115,6 +117,8 @@
 		EC226E292188F0EF0027F614 /* Logout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logout.swift; sourceTree = "<group>"; };
 		EC226E2B218908330027F614 /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
 		EC226E2D218908420027F614 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		EC226E2F21891F820027F614 /* FetchCredentialsFromKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCredentialsFromKeychain.swift; sourceTree = "<group>"; };
+		EC226E3121891FA10027F614 /* AuthenticateToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateToken.swift; sourceTree = "<group>"; };
 		EC5D588720EC33F8002C6AF7 /* SwiftEntryKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftEntryKit.framework.dSYM; path = Carthage/Build/iOS/SwiftEntryKit.framework.dSYM; sourceTree = "<group>"; };
 		EC5D588920EC33FB002C6AF7 /* QuickLayout.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = QuickLayout.framework.dSYM; path = Carthage/Build/iOS/QuickLayout.framework.dSYM; sourceTree = "<group>"; };
 		EC5D589220EC3846002C6AF7 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -379,6 +383,8 @@
 				ECBF78D520F6585F0091228E /* LoadManagerEmployees.swift */,
 				EC68F43820DD4A7E007CD5BE /* GeocodeAddress.swift */,
 				EC226E14218783140027F614 /* Authenticate.swift */,
+				EC226E3121891FA10027F614 /* AuthenticateToken.swift */,
+				EC226E2F21891F820027F614 /* FetchCredentialsFromKeychain.swift */,
 				EC226E252188EC0A0027F614 /* OnSuccessfulLogin.swift */,
 				EC226E292188F0EF0027F614 /* Logout.swift */,
 			);
@@ -520,11 +526,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-SameDay/Pods-SameDay-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -594,6 +602,7 @@
 			files = (
 				EC95DEEC20B49DF40093C3B6 /* StoryboardInitializable.swift in Sources */,
 				ECFC3EC520C1F923005E192F /* JobCell.swift in Sources */,
+				EC226E3221891FA10027F614 /* AuthenticateToken.swift in Sources */,
 				ECFC3E8820B738DC005E192F /* Array+Extensions.swift in Sources */,
 				EC68F43120DB0060007CD5BE /* LoadAppointmentsForCurrentUser.swift in Sources */,
 				EC68F42620D9892A007CD5BE /* Appointment.swift in Sources */,
@@ -602,6 +611,7 @@
 				ECB3812A20E6A15E00DB7B88 /* UnassignedDataSource.swift in Sources */,
 				EC68F43320DB008B007CD5BE /* AppointmentNetworkAccess.swift in Sources */,
 				EC226E15218783140027F614 /* Authenticate.swift in Sources */,
+				EC226E3021891F820027F614 /* FetchCredentialsFromKeychain.swift in Sources */,
 				EC226E1D2188C7E80027F614 /* SameDayAPIEnvironment.swift in Sources */,
 				ECB3813020E6BA4300DB7B88 /* AppointmentFlowLayout.swift in Sources */,
 				EC68F43920DD4A7E007CD5BE /* GeocodeAddress.swift in Sources */,
