@@ -11,14 +11,16 @@ import Foundation
 struct LoginState: State {
 
     var errorMessage: String?
-    var authenticationSucceeded = false
+    var isLoggedIn = false
 
     mutating func react(to event: Event) {
         switch event {
         case let event as AuthenticationFailed:
             errorMessage = event.message
         case _ as AuthenticationSucceeded:
-            authenticationSucceeded = true
+            isLoggedIn = true
+        case _ as ErrorDisplayed:
+            errorMessage = nil
         default:
             break
         }

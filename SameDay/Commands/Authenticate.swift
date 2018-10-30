@@ -32,7 +32,7 @@ struct Authenticate: Command {
                 print(json)
                 core.fire(event: AuthenticationSucceeded())
             } else if let error = response.error {
-                core.fire(event: AuthenticationFailed(message: error.localizedDescription))
+                core.fire(event: AuthenticationFailed(message: "Your username or password is incorrect."))
             }
         }
 

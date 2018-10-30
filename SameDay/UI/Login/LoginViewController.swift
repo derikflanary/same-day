@@ -75,11 +75,12 @@ private extension LoginViewController {
 extension LoginViewController: Subscriber {
 
     func update(with state: AppState) {
-        if state.loginState.authenticationSucceeded {
+        if state.loginState.isLoggedIn {
             submitButton.isLoading = false
         }
         if let message = state.loginState.errorMessage {
             submitButton.isLoading = false
+            submitButton.shake()
             showAlert(title: "Authentication failed", message: message, image: nil, completion: nil)
         }
     }
