@@ -44,3 +44,7 @@ struct AuthenticationSucceeded: Event {
     let userId: String
 }
 
+struct LoggedIn: Event { }
+
+struct LoggedOut: Event { }
+

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftKeychainWrapper
 import Marshal
 
 struct OAuth2Token: Codable {
@@ -33,7 +32,7 @@ struct OAuth2Token: Codable {
         self.expiresAt = Date(timeIntervalSinceNow: expiresIn)
     }
 
-    init?(key: String) throws {
+    init?() throws {
         guard let dictionary: MarshaledObject = try Keychain().optionalForKey(OAuth2Token.oAuth2TokenKey) else { return nil }
 
         self.accessToken = try dictionary.value(for: OAuth2Token.accessTokenKey)
@@ -48,8 +47,8 @@ struct OAuth2Token: Codable {
         try Keychain().set(tokenValues, forKey: OAuth2Token.oAuth2TokenKey)
     }
 
-    static func delete(_ key: String, keychain: Keychain) {
-        keychain.deleteValue(forKey: OAuth2Token.oAuth2TokenKey)
+    static func delete() {
+        Keychain().deleteValue(forKey: OAuth2Token.oAuth2TokenKey)
     }
 
 //    static func expireAccessToken(with key: String, keychain: Keychain) {

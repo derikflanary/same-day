@@ -21,6 +21,15 @@ struct AppState: State {
     var personalScheduleState = PersonalScheduleState()
     var loginState = LoginState()
 
+    public func accessToken() throws -> String? {
+        guard let token = try OAuth2Token() else { return nil }
+        if Date().compare(token.expiresAt) == .orderedAscending {
+            return token.accessToken
+        } else {
+            return nil
+        }
+    }
+
     mutating func react(to event: Event) {
         loginState.react(to: event)
         userState.react(to: event)

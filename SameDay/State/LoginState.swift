@@ -15,6 +15,10 @@ struct LoginState: State {
 
     mutating func react(to event: Event) {
         switch event {
+        case _ as LoggedIn:
+            isLoggedIn = true
+        case _ as LoggedOut:
+            isLoggedIn = false
         case let event as AuthenticationFailed:
             errorMessage = event.message
         case _ as AuthenticationSucceeded:

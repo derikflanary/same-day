@@ -27,6 +27,7 @@
 		EC226E222188DCE90027F614 /* OAuth2Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E212188DCE90027F614 /* OAuth2Token.swift */; };
 		EC226E242188E9220027F614 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E232188E9220027F614 /* Keychain.swift */; };
 		EC226E262188EC0A0027F614 /* OnSuccessfulLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E252188EC0A0027F614 /* OnSuccessfulLogin.swift */; };
+		EC226E2A2188F0EF0027F614 /* Logout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E292188F0EF0027F614 /* Logout.swift */; };
 		EC5D589320EC3846002C6AF7 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589220EC3846002C6AF7 /* UIViewController+Extensions.swift */; };
 		EC5D589620EE8748002C6AF7 /* TeamScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589520EE8748002C6AF7 /* TeamScheduleViewController.swift */; };
 		EC5D589820EE90CA002C6AF7 /* TeamScheduleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589720EE90CA002C6AF7 /* TeamScheduleDataSource.swift */; };
@@ -109,6 +110,7 @@
 		EC226E212188DCE90027F614 /* OAuth2Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2Token.swift; sourceTree = "<group>"; };
 		EC226E232188E9220027F614 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		EC226E252188EC0A0027F614 /* OnSuccessfulLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnSuccessfulLogin.swift; sourceTree = "<group>"; };
+		EC226E292188F0EF0027F614 /* Logout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logout.swift; sourceTree = "<group>"; };
 		EC5D588720EC33F8002C6AF7 /* SwiftEntryKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftEntryKit.framework.dSYM; path = Carthage/Build/iOS/SwiftEntryKit.framework.dSYM; sourceTree = "<group>"; };
 		EC5D588920EC33FB002C6AF7 /* QuickLayout.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = QuickLayout.framework.dSYM; path = Carthage/Build/iOS/QuickLayout.framework.dSYM; sourceTree = "<group>"; };
 		EC5D589220EC3846002C6AF7 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				EC68F43820DD4A7E007CD5BE /* GeocodeAddress.swift */,
 				EC226E14218783140027F614 /* Authenticate.swift */,
 				EC226E252188EC0A0027F614 /* OnSuccessfulLogin.swift */,
+				EC226E292188F0EF0027F614 /* Logout.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				EC226E1D2188C7E80027F614 /* SameDayAPIEnvironment.swift in Sources */,
 				ECB3813020E6BA4300DB7B88 /* AppointmentFlowLayout.swift in Sources */,
 				EC68F43920DD4A7E007CD5BE /* GeocodeAddress.swift in Sources */,
+				EC226E2A2188F0EF0027F614 /* Logout.swift in Sources */,
 				ECFC3E8A20B7585E005E192F /* AreasViewController.swift in Sources */,
 				ECFC3E7B20B73173005E192F /* CircleAvatarView.swift in Sources */,
 				EC68F42A20D9946A007CD5BE /* Employee.swift in Sources */,

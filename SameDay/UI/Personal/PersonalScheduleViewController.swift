@@ -70,6 +70,9 @@ class PersonalScheduleViewController: UIViewController, Mappable {
         refreshControl.endRefreshing()
     }
 
+    @IBAction func profileTapped(_ sender: Any) {
+        core.fire(command: Logout())
+    }
 }
 
 

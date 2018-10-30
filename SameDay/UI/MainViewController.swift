@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        core.fire(command: AuthenticateToken())
         core.add(subscriber: self)
     }
 

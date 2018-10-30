@@ -9,7 +9,6 @@
 import Foundation
 import Alamofire
 import Marshal
-import SwiftKeychainWrapper
 
 struct Authenticate: Command {
 
@@ -50,4 +49,20 @@ struct Authenticate: Command {
 
     }
 
+}
+
+
+struct AuthenticateToken: Command {
+
+    func execute(state: AppState, core: Core<AppState>) {
+        do {
+            if let accessToken = try state.accessToken() {
+                print(accessToken)
+                core.fire(event: LoggedIn())
+            }
+        } catch {
+            core.fire(event: LoggedOut())
+        }
+    }
+    
 }
