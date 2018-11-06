@@ -46,3 +46,8 @@ struct LoggedIn: Event { }
 
 struct LoggedOut: Event { }
 
+struct RequireBiometricAuthentication: Event { }
+
+struct BiometricAuthenticationSucceeded: Event { }
+
+

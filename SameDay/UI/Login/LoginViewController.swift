@@ -30,12 +30,7 @@ class LoginViewController: UIViewController, StoryboardInitializable {
         super.viewDidLoad()
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
         view.addGestureRecognizer(tapGestureRecognizer)
-        do {
-            let a: MarshaledObject = try Keychain().valueForKey("cby016@gmail.com")
-            print(a)
-        } catch {
-            print(error)
-        }
+        BiometricAuthenticator.sharedInstance.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +40,9 @@ class LoginViewController: UIViewController, StoryboardInitializable {
 
     override func viewDidAppear(_ animated: Bool) {
         animateInViews()
+        if shouldUseBiometricAuth {
+            BiometricAuthenticator.sharedInstance.authenticateUser()
+        }
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -72,6 +70,9 @@ class LoginViewController: UIViewController, StoryboardInitializable {
     
 }
 
+
+// MARK: - Private functions
+
 private extension LoginViewController {
 
     func animateInViews() {
@@ -96,6 +97,33 @@ private extension LoginViewController {
             submitButton.isEnabled = false
         }
     }
+}
+
+
+// MARK: - Biometric authentication delegate
+
+extension LoginViewController: BiometricAuthenticatorDelegate {
+
+    var shouldUseBiometricAuth: Bool {
+        guard let biometryEnabled = BiometricAuthenticator.sharedInstance.biometryIsEnabled else { return false }
+        return biometryEnabled
+    }
+
+    func biometricAuthenticationSucceeded() {
+        core.fire(event: BiometricAuthenticationSucceeded())
+        if let (account, password) = BiometricAuthenticator.sharedInstance.fetchUserNameAndPassword() {
+            usernameTextField.text = account
+            passwordTextField.text = password
+            core.fire(command: Authenticate(username: account, password: password))
+        } else {
+            print("auth failed")
+        }
+    }
+
+    func cancelAuthAndLogout() {
+        
+    }
+
 }
 
 

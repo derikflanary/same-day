@@ -19,20 +19,26 @@ class HomeTabBarController: UITabBarController, StoryboardInitializable {
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        guard let biometryEnabled = BiometricAuthenticator.sharedInstance.biometryIsEnabled,
+            let biometryType = BiometricAuthenticator.sharedInstance.biometryType,
+            let biometryRequested = BiometricAuthenticator.sharedInstance.biometryUsageRequested,
+            !biometryEnabled,
+            !biometryRequested else { return }
+        let alert = UIAlertController(title: biometryType.biometryTypeString, message: "Would you like to enable for future authenticaton?", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Yes", style: .default) { (_) in
+            BiometricAuthenticator.sharedInstance.biometryIsEnabled = true
+        }
+        let cancel = UIAlertAction(title: "No thanks", style: .cancel, handler: nil)
+        alert.addAction(cancel)
+        alert.addAction(ok)
+        show(alert, sender: self)
+        BiometricAuthenticator.sharedInstance.biometryUsageRequested = true
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BCD10EC8A347CFD40C4B621E /* Pods_SameDay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BD9BEB5D674BAF39E4CF4FC /* Pods_SameDay.framework */; };
+		EC0CE384219214B300990087 /* BiometricAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE383219214B300990087 /* BiometricAuthenticator.swift */; };
 		EC0F530320E2F18C005D1C1D /* LoadAreas.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F530220E2F18C005D1C1D /* LoadAreas.swift */; };
 		EC0F530B20E696D7005D1C1D /* UnassignedJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F530A20E696D7005D1C1D /* UnassignedJobsViewController.swift */; };
 		EC0F530D20E69771005D1C1D /* Unassigned.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0F530C20E69771005D1C1D /* Unassigned.storyboard */; };
@@ -94,6 +95,7 @@
 /* Begin PBXFileReference section */
 		2BD9BEB5D674BAF39E4CF4FC /* Pods_SameDay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SameDay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4514DAA56C1F232177ECA4 /* Pods-SameDay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SameDay.release.xcconfig"; path = "Pods/Target Support Files/Pods-SameDay/Pods-SameDay.release.xcconfig"; sourceTree = "<group>"; };
+		EC0CE383219214B300990087 /* BiometricAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthenticator.swift; sourceTree = "<group>"; };
 		EC0F530220E2F18C005D1C1D /* LoadAreas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadAreas.swift; sourceTree = "<group>"; };
 		EC0F530A20E696D7005D1C1D /* UnassignedJobsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnassignedJobsViewController.swift; sourceTree = "<group>"; };
 		EC0F530C20E69771005D1C1D /* Unassigned.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Unassigned.storyboard; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				ECFC3E9920BF6654005E192F /* Mappable.swift */,
+				EC0CE383219214B300990087 /* BiometricAuthenticator.swift */,
 				EC68F42720D99456007CD5BE /* Keys.swift */,
 				EC95DEDE20B355CC0093C3B6 /* Reactor.swift */,
 				EC95DEEB20B49DF40093C3B6 /* StoryboardInitializable.swift */,
@@ -626,6 +629,7 @@
 				EC0F530B20E696D7005D1C1D /* UnassignedJobsViewController.swift in Sources */,
 				EC226E0A21876C6D0027F614 /* AppointmentRouter.swift in Sources */,
 				EC226E05218767080027F614 /* Alamofire+URL.swift in Sources */,
+				EC0CE384219214B300990087 /* BiometricAuthenticator.swift in Sources */,
 				EC0F530320E2F18C005D1C1D /* LoadAreas.swift in Sources */,
 				EC226E03218767080027F614 /* Alamofire+Reactor.swift in Sources */,
 				ECFC3EC720C1FBC9005E192F /* Date+Extensions.swift in Sources */,
