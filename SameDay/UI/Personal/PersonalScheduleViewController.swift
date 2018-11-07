@@ -71,8 +71,9 @@ class PersonalScheduleViewController: UIViewController, Mappable {
     }
 
     @IBAction func profileTapped(_ sender: Any) {
-        core.fire(command: Logout())
+
     }
+    
 }
 
 

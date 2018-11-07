@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		BCD10EC8A347CFD40C4B621E /* Pods_SameDay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BD9BEB5D674BAF39E4CF4FC /* Pods_SameDay.framework */; };
 		EC0CE384219214B300990087 /* BiometricAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE383219214B300990087 /* BiometricAuthenticator.swift */; };
+		EC0CE3882193928600990087 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE3872193928600990087 /* SettingsViewController.swift */; };
+		EC0CE38A219392AC00990087 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0CE389219392AC00990087 /* Settings.storyboard */; };
+		EC0CE38C2193936F00990087 /* BiometricsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE38B2193936F00990087 /* BiometricsCell.swift */; };
+		EC0CE38E2193944E00990087 /* SettingsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE38D2193944E00990087 /* SettingsDataSource.swift */; };
+		EC0CE3902193956000990087 /* LogOutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE38F2193956000990087 /* LogOutCell.swift */; };
 		EC0F530320E2F18C005D1C1D /* LoadAreas.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F530220E2F18C005D1C1D /* LoadAreas.swift */; };
 		EC0F530B20E696D7005D1C1D /* UnassignedJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F530A20E696D7005D1C1D /* UnassignedJobsViewController.swift */; };
 		EC0F530D20E69771005D1C1D /* Unassigned.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0F530C20E69771005D1C1D /* Unassigned.storyboard */; };
@@ -96,6 +101,11 @@
 		2BD9BEB5D674BAF39E4CF4FC /* Pods_SameDay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SameDay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4514DAA56C1F232177ECA4 /* Pods-SameDay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SameDay.release.xcconfig"; path = "Pods/Target Support Files/Pods-SameDay/Pods-SameDay.release.xcconfig"; sourceTree = "<group>"; };
 		EC0CE383219214B300990087 /* BiometricAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthenticator.swift; sourceTree = "<group>"; };
+		EC0CE3872193928600990087 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		EC0CE389219392AC00990087 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		EC0CE38B2193936F00990087 /* BiometricsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricsCell.swift; sourceTree = "<group>"; };
+		EC0CE38D2193944E00990087 /* SettingsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDataSource.swift; sourceTree = "<group>"; };
+		EC0CE38F2193956000990087 /* LogOutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutCell.swift; sourceTree = "<group>"; };
 		EC0F530220E2F18C005D1C1D /* LoadAreas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadAreas.swift; sourceTree = "<group>"; };
 		EC0F530A20E696D7005D1C1D /* UnassignedJobsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnassignedJobsViewController.swift; sourceTree = "<group>"; };
 		EC0F530C20E69771005D1C1D /* Unassigned.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Unassigned.storyboard; sourceTree = "<group>"; };
@@ -334,6 +344,11 @@
 				EC8F0A5D20B31D2D0042E486 /* MainViewController.swift */,
 				EC95DEE220B4927B0093C3B6 /* Home.storyboard */,
 				EC95DEED20B49E4D0093C3B6 /* HomeTabBarController.swift */,
+				EC0CE3872193928600990087 /* SettingsViewController.swift */,
+				EC0CE38D2193944E00990087 /* SettingsDataSource.swift */,
+				EC0CE389219392AC00990087 /* Settings.storyboard */,
+				EC0CE38B2193936F00990087 /* BiometricsCell.swift */,
+				EC0CE38F2193956000990087 /* LogOutCell.swift */,
 				EC226E0B21876E8C0027F614 /* Login */,
 				EC5D589420EE8734002C6AF7 /* Team */,
 				EC68F42D20D9B7CF007CD5BE /* Personal */,
@@ -512,6 +527,7 @@
 				EC0F530D20E69771005D1C1D /* Unassigned.storyboard in Resources */,
 				EC68F42F20D9B7F1007CD5BE /* Personal.storyboard in Resources */,
 				EC8F0A6320B31D2E0042E486 /* Assets.xcassets in Resources */,
+				EC0CE38A219392AC00990087 /* Settings.storyboard in Resources */,
 				EC8F0A6120B31D2D0042E486 /* Main.storyboard in Resources */,
 				EC95DEE320B4927B0093C3B6 /* Home.storyboard in Resources */,
 			);
@@ -604,6 +620,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC95DEEC20B49DF40093C3B6 /* StoryboardInitializable.swift in Sources */,
+				EC0CE3902193956000990087 /* LogOutCell.swift in Sources */,
 				ECFC3EC520C1F923005E192F /* JobCell.swift in Sources */,
 				EC226E3221891FA10027F614 /* AuthenticateToken.swift in Sources */,
 				ECFC3E8820B738DC005E192F /* Array+Extensions.swift in Sources */,
@@ -628,6 +645,7 @@
 				EC5D589620EE8748002C6AF7 /* TeamScheduleViewController.swift in Sources */,
 				EC0F530B20E696D7005D1C1D /* UnassignedJobsViewController.swift in Sources */,
 				EC226E0A21876C6D0027F614 /* AppointmentRouter.swift in Sources */,
+				EC0CE3882193928600990087 /* SettingsViewController.swift in Sources */,
 				EC226E05218767080027F614 /* Alamofire+URL.swift in Sources */,
 				EC0CE384219214B300990087 /* BiometricAuthenticator.swift in Sources */,
 				EC0F530320E2F18C005D1C1D /* LoadAreas.swift in Sources */,
@@ -657,9 +675,11 @@
 				ECFC3E7920B730D6005E192F /* UITableView+Extensions.swift in Sources */,
 				ECFC3EC120C1F6D0005E192F /* PersonalScheduleState.swift in Sources */,
 				ECFC3E8620B73875005E192F /* FakeArea.swift in Sources */,
+				EC0CE38C2193936F00990087 /* BiometricsCell.swift in Sources */,
 				EC226E192187F8E70027F614 /* LoginState.swift in Sources */,
 				EC226E2E218908420027F614 /* Router.swift in Sources */,
 				ECFC3E7720B73098005E192F /* ReuseableView.swift in Sources */,
+				EC0CE38E2193944E00990087 /* SettingsDataSource.swift in Sources */,
 				EC226E222188DCE90027F614 /* OAuth2Token.swift in Sources */,
 				EC95DEE720B49C0E0093C3B6 /* QueueManagementViewController.swift in Sources */,
 				ECFC3E7F20B737A1005E192F /* UserState.swift in Sources */,
