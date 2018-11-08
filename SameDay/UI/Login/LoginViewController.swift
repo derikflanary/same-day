@@ -24,13 +24,17 @@ class LoginViewController: UIViewController, StoryboardInitializable {
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var logoCenterYConstraint: NSLayoutConstraint!
     @IBOutlet weak var logoTopConstraint: NSLayoutConstraint!
-    
+    @IBOutlet weak var biometricsLoginButton: UIButton!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
         view.addGestureRecognizer(tapGestureRecognizer)
         BiometricAuthenticator.sharedInstance.delegate = self
+        guard let biometryType = BiometricAuthenticator.sharedInstance.biometryType else { return }
+        let buttonTitle = "Sign in with \(biometryType.biometryTypeString)"
+        biometricsLoginButton.setTitle(buttonTitle, for: .normal)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -39,10 +43,9 @@ class LoginViewController: UIViewController, StoryboardInitializable {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        animateInViews()
-        if shouldUseBiometricAuth {
-            BiometricAuthenticator.sharedInstance.authenticateUser()
-        }
+        guard let usernameText = usernameTextField.text else { return }
+        let duration = usernameText != "" ? 0 : 2.0
+        animateInViews(with: duration)
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -60,6 +63,12 @@ class LoginViewController: UIViewController, StoryboardInitializable {
         submitButton.isLoading = !submitButton.isLoading
     }
     
+    @IBAction func biometricLoginButtonTapped() {
+        if shouldUseBiometricAuth {
+            BiometricAuthenticator.sharedInstance.authenticateUser()
+        }
+    }
+
     @IBAction func usernameDidChange() {
         updateSubmitButton()
     }
@@ -75,10 +84,12 @@ class LoginViewController: UIViewController, StoryboardInitializable {
 
 private extension LoginViewController {
 
-    func animateInViews() {
-        stackView.transform = CGAffineTransform(translationX: 0, y: 200)
-        submitButton.transform = CGAffineTransform(translationX: 0, y: 200)
-        let animator = UIViewPropertyAnimator(duration: 2.0, dampingRatio: 0.8) {
+    func animateInViews(with duration: TimeInterval) {
+        if duration > 0 {
+            stackView.transform = CGAffineTransform(translationX: 0, y: 200)
+            submitButton.transform = CGAffineTransform(translationX: 0, y: 200)
+        }
+        let animator = UIViewPropertyAnimator(duration: duration, dampingRatio: 0.8) {
             self.logoCenterYConstraint.isActive = false
             self.logoTopConstraint.isActive = true
             self.view.layoutIfNeeded()
@@ -112,8 +123,10 @@ extension LoginViewController: BiometricAuthenticatorDelegate {
     func biometricAuthenticationSucceeded() {
         core.fire(event: BiometricAuthenticationSucceeded())
         if let (account, password) = BiometricAuthenticator.sharedInstance.fetchUserNameAndPassword() {
-            usernameTextField.text = account
-            passwordTextField.text = password
+            DispatchQueue.main.async {
+                self.usernameTextField.text = account
+                self.passwordTextField.text = password
+            }
             core.fire(command: Authenticate(username: account, password: password))
         } else {
             print("auth failed")
@@ -140,6 +153,7 @@ extension LoginViewController: Subscriber {
             submitButton.shake()
             showAlert(title: "Authentication failed", message: message, image: nil, completion: nil)
         }
+        biometricsLoginButton.isHidden == !shouldUseBiometricAuth
     }
 
 }

@@ -13,9 +13,9 @@ import Marshal
 
 struct LoadEmployee: SameDayAPICommand {
 
-    let userId: String
+    let userId: Int
 
-    init(userId: String) {
+    init(userId: Int) {
         self.userId = userId
     }
 

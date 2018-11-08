@@ -10,7 +10,7 @@ import Foundation
 
 struct UserState: State {
 
-    var currentUserId: String? {
+    var currentUserId: Int? {
         do {
             return try fetchCurrentUserId()
         } catch {
@@ -25,7 +25,7 @@ struct UserState: State {
         return areas.filter { $0.id == defaultAreaId }.first
     }
 
-    public func fetchCurrentUserId() throws -> String? {
+    public func fetchCurrentUserId() throws -> Int? {
         guard let token = try OAuth2Token() else { return nil }
         return token.userId
     }

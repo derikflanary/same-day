@@ -12,7 +12,7 @@ import Alamofire
 extension Router {
 
     enum Appointment: URLRequestConvertible {
-        case getAllAppointments(userId: String)
+        case getAllAppointments(userId: Int)
         case getAppointmentsForArea(areaId: String)
 
         var method: HTTPMethod {

@@ -11,9 +11,9 @@ import Marshal
 
 struct LoadAppointments: SameDayAPICommand {
 
-    let userId: String
+    let userId: Int
 
-    init(for userId: String) {
+    init(for userId: Int) {
         self.userId = userId
     }
 

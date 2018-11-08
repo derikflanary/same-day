@@ -506,7 +506,7 @@
 						LastSwiftMigration = 1000;
 						SystemCapabilities = {
 							com.apple.SafariKeychain = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -856,7 +856,6 @@
 			baseConfigurationReference = FE5BC21D9ACEF9E9CD9BD2A3 /* Pods-SameDay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SameDay/SameDay.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F44Y79ZDLF;
@@ -882,7 +881,6 @@
 			baseConfigurationReference = 8C4514DAA56C1F232177ECA4 /* Pods-SameDay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SameDay/SameDay.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F44Y79ZDLF;

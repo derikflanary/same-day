@@ -20,9 +20,9 @@ class HomeTabBarController: UITabBarController, StoryboardInitializable {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        guard let biometryEnabled = BiometricAuthenticator.sharedInstance.biometryIsEnabled,
-            let biometryType = BiometricAuthenticator.sharedInstance.biometryType,
-            let biometryRequested = BiometricAuthenticator.sharedInstance.biometryUsageRequested,
+        let biometryEnabled = BiometricAuthenticator.sharedInstance.biometryIsEnabled ?? false
+        let biometryRequested = BiometricAuthenticator.sharedInstance.biometryUsageRequested ?? false
+        guard let biometryType = BiometricAuthenticator.sharedInstance.biometryType,
             !biometryEnabled,
             !biometryRequested else { return }
         let alert = UIAlertController(title: biometryType.biometryTypeString, message: "Would you like to enable for future authenticaton?", preferredStyle: .alert)

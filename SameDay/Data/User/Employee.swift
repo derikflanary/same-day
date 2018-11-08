@@ -27,9 +27,6 @@ struct Employee: Unmarshaling {
     let isTech: Bool
     let isActive: Bool
     let defaultAreaId: Int?
-    let syncTime: Date
-    let createdAt: Date
-    let updatedAt: Date?
     let pivot: Pivot? = nil
     var employees = [Employee]()
 
@@ -51,9 +48,6 @@ struct Employee: Unmarshaling {
         isTech = try object.value(for: Keys.isTech)
         isActive = try object.value(for: Keys.isActive)
         defaultAreaId = try object.value(for: Keys.defaultAreaId)
-        syncTime = try object.value(for: Keys.syncTime)
-        createdAt = try object.value(for: Keys.createdAt)
-        updatedAt = try object.value(for: Keys.updatedAt)
     }
 
 }

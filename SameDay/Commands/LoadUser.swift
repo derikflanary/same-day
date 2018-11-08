@@ -11,9 +11,9 @@ import Marshal
 
 struct LoadUser: SameDayAPICommand {
 
-    var userId: String
+    var userId: Int
 
-    init(userId: String) {
+    init(userId: Int) {
         self.userId = userId
     }
 
@@ -22,7 +22,8 @@ struct LoadUser: SameDayAPICommand {
         network.sessionManager.request(urlRequest).responseMarshaled { response in
             if let json = response.result.value as? JSONObject {
                 do {
-                    let employee: Employee = try json.value(for: Keys.employee)
+                    print(json)
+                    let employee: Employee = try Employee(object: json)
                     core.fire(event: LoadedUser(user: employee))
                     if employee.type == .manager {
                         core.fire(command: LoadManagerEmployees(employee: employee))

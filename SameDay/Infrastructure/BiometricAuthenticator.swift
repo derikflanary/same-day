@@ -51,7 +51,7 @@ class BiometricAuthenticator {
 
     // MARK: - Private Variables
 
-    private var policy = LAPolicy.deviceOwnerAuthentication // Use face/touch Auth if possible and passcode if not.
+    private var policy: LAPolicy = .deviceOwnerAuthenticationWithBiometrics // Use face/touch Auth if possible and passcode if not.
     private var hasSucceeded = false
     private var isCurrentlyEvaluatingPolicy = false
     private var _biometryTypeError: BiometricAuthError?

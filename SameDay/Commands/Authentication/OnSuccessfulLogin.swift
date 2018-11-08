@@ -10,9 +10,9 @@ import Foundation
 
 struct OnSuccessfulLogin: Command {
 
-    let currentUserId: String
+    let currentUserId: Int
 
-    init(for currentUserId: String) {
+    init(for currentUserId: Int) {
         self.currentUserId = currentUserId
     }
 

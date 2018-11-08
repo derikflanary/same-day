@@ -12,7 +12,7 @@ import Alamofire
 extension Router {
 
     enum User: URLRequestConvertible {
-        case getUser(userId: String)
+        case getUser(userId: Int)
 
         var method: HTTPMethod {
             switch self {
@@ -24,7 +24,7 @@ extension Router {
         var path: String {
             switch self {
             case .getUser(let userId):
-                return "/employee/\(userId)/all"
+                return "/employee/\(userId)/All"
             }
         }
 
