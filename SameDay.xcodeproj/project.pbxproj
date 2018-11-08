@@ -14,6 +14,8 @@
 		EC0CE38C2193936F00990087 /* BiometricsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE38B2193936F00990087 /* BiometricsCell.swift */; };
 		EC0CE38E2193944E00990087 /* SettingsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE38D2193944E00990087 /* SettingsDataSource.swift */; };
 		EC0CE3902193956000990087 /* LogOutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE38F2193956000990087 /* LogOutCell.swift */; };
+		EC0CE3922194C37800990087 /* AreaRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE3912194C37800990087 /* AreaRouter.swift */; };
+		EC0CE3942194C4AA00990087 /* LoadEmployeeForArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE3932194C4AA00990087 /* LoadEmployeeForArea.swift */; };
 		EC0F530320E2F18C005D1C1D /* LoadAreas.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F530220E2F18C005D1C1D /* LoadAreas.swift */; };
 		EC0F530B20E696D7005D1C1D /* UnassignedJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F530A20E696D7005D1C1D /* UnassignedJobsViewController.swift */; };
 		EC0F530D20E69771005D1C1D /* Unassigned.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0F530C20E69771005D1C1D /* Unassigned.storyboard */; };
@@ -46,7 +48,7 @@
 		EC68F42A20D9946A007CD5BE /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F42920D9946A007CD5BE /* Employee.swift */; };
 		EC68F42C20D9B114007CD5BE /* LoadUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F42B20D9B114007CD5BE /* LoadUser.swift */; };
 		EC68F42F20D9B7F1007CD5BE /* Personal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC68F42E20D9B7F1007CD5BE /* Personal.storyboard */; };
-		EC68F43120DB0060007CD5BE /* LoadAppointmentsForCurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F43020DB0060007CD5BE /* LoadAppointmentsForCurrentUser.swift */; };
+		EC68F43120DB0060007CD5BE /* LoadAppointments.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F43020DB0060007CD5BE /* LoadAppointments.swift */; };
 		EC68F43320DB008B007CD5BE /* AppointmentNetworkAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F43220DB008B007CD5BE /* AppointmentNetworkAccess.swift */; };
 		EC68F43720DD3EDB007CD5BE /* LoadUnassignedAppointments.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F43620DD3EDB007CD5BE /* LoadUnassignedAppointments.swift */; };
 		EC68F43920DD4A7E007CD5BE /* GeocodeAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68F43820DD4A7E007CD5BE /* GeocodeAddress.swift */; };
@@ -106,6 +108,8 @@
 		EC0CE38B2193936F00990087 /* BiometricsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricsCell.swift; sourceTree = "<group>"; };
 		EC0CE38D2193944E00990087 /* SettingsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDataSource.swift; sourceTree = "<group>"; };
 		EC0CE38F2193956000990087 /* LogOutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutCell.swift; sourceTree = "<group>"; };
+		EC0CE3912194C37800990087 /* AreaRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaRouter.swift; sourceTree = "<group>"; };
+		EC0CE3932194C4AA00990087 /* LoadEmployeeForArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadEmployeeForArea.swift; sourceTree = "<group>"; };
 		EC0F530220E2F18C005D1C1D /* LoadAreas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadAreas.swift; sourceTree = "<group>"; };
 		EC0F530A20E696D7005D1C1D /* UnassignedJobsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnassignedJobsViewController.swift; sourceTree = "<group>"; };
 		EC0F530C20E69771005D1C1D /* Unassigned.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Unassigned.storyboard; sourceTree = "<group>"; };
@@ -141,7 +145,7 @@
 		EC68F42920D9946A007CD5BE /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		EC68F42B20D9B114007CD5BE /* LoadUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadUser.swift; sourceTree = "<group>"; };
 		EC68F42E20D9B7F1007CD5BE /* Personal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Personal.storyboard; sourceTree = "<group>"; };
-		EC68F43020DB0060007CD5BE /* LoadAppointmentsForCurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadAppointmentsForCurrentUser.swift; sourceTree = "<group>"; };
+		EC68F43020DB0060007CD5BE /* LoadAppointments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadAppointments.swift; sourceTree = "<group>"; };
 		EC68F43220DB008B007CD5BE /* AppointmentNetworkAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentNetworkAccess.swift; sourceTree = "<group>"; };
 		EC68F43620DD3EDB007CD5BE /* LoadUnassignedAppointments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadUnassignedAppointments.swift; sourceTree = "<group>"; };
 		EC68F43820DD4A7E007CD5BE /* GeocodeAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeAddress.swift; sourceTree = "<group>"; };
@@ -219,6 +223,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EC0CE3952194C68C00990087 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				EC226E14218783140027F614 /* Authenticate.swift */,
+				EC226E3121891FA10027F614 /* AuthenticateToken.swift */,
+				EC226E2F21891F820027F614 /* FetchCredentialsFromKeychain.swift */,
+				EC226E252188EC0A0027F614 /* OnSuccessfulLogin.swift */,
+				EC226E292188F0EF0027F614 /* Logout.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 		EC226DFF218766E50027F614 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,8 +254,9 @@
 		EC226E08218768B90027F614 /* Routers */ = {
 			isa = PBXGroup;
 			children = (
-				EC226E0921876C6D0027F614 /* AppointmentRouter.swift */,
 				EC226E2D218908420027F614 /* Router.swift */,
+				EC226E0921876C6D0027F614 /* AppointmentRouter.swift */,
+				EC0CE3912194C37800990087 /* AreaRouter.swift */,
 				EC226E2B218908330027F614 /* UserRouter.swift */,
 			);
 			path = Routers;
@@ -395,16 +412,13 @@
 			children = (
 				ECF63F8020C8A16A001A8523 /* LoadEmployee.swift */,
 				EC68F42B20D9B114007CD5BE /* LoadUser.swift */,
-				EC68F43020DB0060007CD5BE /* LoadAppointmentsForCurrentUser.swift */,
+				EC68F43020DB0060007CD5BE /* LoadAppointments.swift */,
 				EC0F530220E2F18C005D1C1D /* LoadAreas.swift */,
+				EC0CE3932194C4AA00990087 /* LoadEmployeeForArea.swift */,
 				EC68F43620DD3EDB007CD5BE /* LoadUnassignedAppointments.swift */,
 				ECBF78D520F6585F0091228E /* LoadManagerEmployees.swift */,
 				EC68F43820DD4A7E007CD5BE /* GeocodeAddress.swift */,
-				EC226E14218783140027F614 /* Authenticate.swift */,
-				EC226E3121891FA10027F614 /* AuthenticateToken.swift */,
-				EC226E2F21891F820027F614 /* FetchCredentialsFromKeychain.swift */,
-				EC226E252188EC0A0027F614 /* OnSuccessfulLogin.swift */,
-				EC226E292188F0EF0027F614 /* Logout.swift */,
+				EC0CE3952194C68C00990087 /* Authentication */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -624,12 +638,13 @@
 				ECFC3EC520C1F923005E192F /* JobCell.swift in Sources */,
 				EC226E3221891FA10027F614 /* AuthenticateToken.swift in Sources */,
 				ECFC3E8820B738DC005E192F /* Array+Extensions.swift in Sources */,
-				EC68F43120DB0060007CD5BE /* LoadAppointmentsForCurrentUser.swift in Sources */,
+				EC68F43120DB0060007CD5BE /* LoadAppointments.swift in Sources */,
 				EC68F42620D9892A007CD5BE /* Appointment.swift in Sources */,
 				EC226E242188E9220027F614 /* Keychain.swift in Sources */,
 				ECFC3E7D20B73392005E192F /* UserCell.swift in Sources */,
 				ECB3812A20E6A15E00DB7B88 /* UnassignedDataSource.swift in Sources */,
 				EC68F43320DB008B007CD5BE /* AppointmentNetworkAccess.swift in Sources */,
+				EC0CE3922194C37800990087 /* AreaRouter.swift in Sources */,
 				EC226E15218783140027F614 /* Authenticate.swift in Sources */,
 				EC226E3021891F820027F614 /* FetchCredentialsFromKeychain.swift in Sources */,
 				EC226E1D2188C7E80027F614 /* SameDayAPIEnvironment.swift in Sources */,
@@ -673,6 +688,7 @@
 				ECFC3E9220BDB2D6005E192F /* AreaInfoWindow.swift in Sources */,
 				ECFC3EC320C1F8EE005E192F /* PersonalScheduleDataSource.swift in Sources */,
 				ECFC3E7920B730D6005E192F /* UITableView+Extensions.swift in Sources */,
+				EC0CE3942194C4AA00990087 /* LoadEmployeeForArea.swift in Sources */,
 				ECFC3EC120C1F6D0005E192F /* PersonalScheduleState.swift in Sources */,
 				ECFC3E8620B73875005E192F /* FakeArea.swift in Sources */,
 				EC0CE38C2193936F00990087 /* BiometricsCell.swift in Sources */,

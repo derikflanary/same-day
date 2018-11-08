@@ -1,8 +1,8 @@
 //
-//  AppointmentRouter.swift
+//  AreaRouter.swift
 //  SameDay
 //
-//  Created by Derik Flanary on 10/29/18.
+//  Created by Derik Flanary on 11/8/18.
 //  Copyright © 2018 AppJester. All rights reserved.
 //
 
@@ -11,23 +11,20 @@ import Alamofire
 
 extension Router {
 
-    enum Appointment: URLRequestConvertible {
-        case getAllAppointments(userId: String)
-        case getAppointmentsForArea(areaId: String)
+    enum Area: URLRequestConvertible {
+        case getEmployeesForArea(areaId: String)
 
         var method: HTTPMethod {
             switch self {
-            case .getAllAppointments, .getAppointmentsForArea:
+            case .getEmployeesForArea:
                 return .get
             }
         }
 
         var path: String {
             switch self {
-            case .getAllAppointments(let userId):
-                return "/Appointments/Open/\(userId)"
-            case .getAppointmentsForArea(let areaId):
-                return "/Area/\(areaId)/OpenAppointments"
+            case .getEmployeesForArea(let areaId):
+                return "/Area/\(areaId)/Employees"
             }
         }
 
@@ -38,12 +35,13 @@ extension Router {
             urlRequest.httpMethod = method.rawValue
 
             switch self {
-            case .getAllAppointments, .getAppointmentsForArea:
+            case .getEmployeesForArea:
                 break
             }
             return urlRequest
         }
-        
+
     }
 
 }
+

@@ -18,7 +18,7 @@ struct LoadAppointments: SameDayAPICommand {
     }
 
     func execute(network: API, state: AppState, core: Core<AppState>) {
-        let urlRequest = Router.Appointment.getAppointments(userId: userId)
+        let urlRequest = Router.Appointment.getAllAppointments(userId: userId)
         network.sessionManager.request(urlRequest).responseMarshaled { response in
             if let json = response.value {
                 do {
