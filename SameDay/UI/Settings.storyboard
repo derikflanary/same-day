@@ -91,7 +91,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pl9-a6-na9"/>
                     </view>
-                    <navigationItem key="navigationItem" id="afs-4R-DeF"/>
+                    <navigationItem key="navigationItem" id="afs-4R-DeF">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="cancel" id="FVe-nV-Ueh">
+                            <connections>
+                                <action selector="dismissTapped:" destination="HbA-4B-PhX" id="SZO-ez-5f0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="datasource" destination="1XC-PQ-Xaq" id="6Xm-l4-IWP"/>
                         <outlet property="tableView" destination="FLD-zq-h2w" id="Ik3-yC-ka5"/>
@@ -121,4 +127,7 @@
             <point key="canvasLocation" x="-450.39999999999998" y="-207.34632683658174"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cancel" width="22" height="22"/>
+    </resources>
 </document>

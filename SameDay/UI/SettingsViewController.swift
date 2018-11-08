@@ -27,6 +27,10 @@ class SettingsViewController: UIViewController {
         core.remove(subscriber: self)
     }
     
+    @IBAction func dismissTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 
