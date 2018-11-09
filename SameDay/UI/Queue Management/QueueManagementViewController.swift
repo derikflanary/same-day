@@ -24,7 +24,7 @@ class QueueManagementViewController: UIViewController {
         super.viewWillAppear(animated)
         core.add(subscriber: self)
         dataSource.users = core.state.userState.users
-        dataSource.areas = core.state.queueState.areas
+        dataSource.areas = core.state.queueState.fakeAreas
         tableView.reloadData()
     }
 

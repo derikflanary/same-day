@@ -16,6 +16,8 @@
 		EC0CE3902193956000990087 /* LogOutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE38F2193956000990087 /* LogOutCell.swift */; };
 		EC0CE3922194C37800990087 /* AreaRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE3912194C37800990087 /* AreaRouter.swift */; };
 		EC0CE3942194C4AA00990087 /* LoadEmployeeForArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CE3932194C4AA00990087 /* LoadEmployeeForArea.swift */; };
+		EC0CE3972195F9ED00990087 /* TeamSchedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0CE3962195F9ED00990087 /* TeamSchedule.storyboard */; };
+		EC0CE3992195FA3D00990087 /* QueueManagement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0CE3982195FA3D00990087 /* QueueManagement.storyboard */; };
 		EC0F530320E2F18C005D1C1D /* LoadAreas.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F530220E2F18C005D1C1D /* LoadAreas.swift */; };
 		EC0F530B20E696D7005D1C1D /* UnassignedJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F530A20E696D7005D1C1D /* UnassignedJobsViewController.swift */; };
 		EC0F530D20E69771005D1C1D /* Unassigned.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0F530C20E69771005D1C1D /* Unassigned.storyboard */; };
@@ -110,6 +112,8 @@
 		EC0CE38F2193956000990087 /* LogOutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutCell.swift; sourceTree = "<group>"; };
 		EC0CE3912194C37800990087 /* AreaRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaRouter.swift; sourceTree = "<group>"; };
 		EC0CE3932194C4AA00990087 /* LoadEmployeeForArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadEmployeeForArea.swift; sourceTree = "<group>"; };
+		EC0CE3962195F9ED00990087 /* TeamSchedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TeamSchedule.storyboard; sourceTree = "<group>"; };
+		EC0CE3982195FA3D00990087 /* QueueManagement.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QueueManagement.storyboard; sourceTree = "<group>"; };
 		EC0F530220E2F18C005D1C1D /* LoadAreas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadAreas.swift; sourceTree = "<group>"; };
 		EC0F530A20E696D7005D1C1D /* UnassignedJobsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnassignedJobsViewController.swift; sourceTree = "<group>"; };
 		EC0F530C20E69771005D1C1D /* Unassigned.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Unassigned.storyboard; sourceTree = "<group>"; };
@@ -276,6 +280,7 @@
 			children = (
 				EC5D589520EE8748002C6AF7 /* TeamScheduleViewController.swift */,
 				EC5D589720EE90CA002C6AF7 /* TeamScheduleDataSource.swift */,
+				EC0CE3962195F9ED00990087 /* TeamSchedule.storyboard */,
 			);
 			path = Team;
 			sourceTree = "<group>";
@@ -439,6 +444,7 @@
 			children = (
 				EC95DEE620B49C0D0093C3B6 /* QueueManagementViewController.swift */,
 				ECFC3E7420B7305C005E192F /* QueueManagementDataSource.swift */,
+				EC0CE3982195FA3D00990087 /* QueueManagement.storyboard */,
 				ECFC3E8920B7585E005E192F /* AreasViewController.swift */,
 				ECFC3E8D20B8619F005E192F /* NewAreaView.swift */,
 				ECFC3E9120BDB2D6005E192F /* AreaInfoWindow.swift */,
@@ -535,6 +541,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC0CE3972195F9ED00990087 /* TeamSchedule.storyboard in Resources */,
 				EC226E0D21876EA10027F614 /* Login.storyboard in Resources */,
 				EC8F0A6620B31D2E0042E486 /* LaunchScreen.storyboard in Resources */,
 				ECB3812E20E6B53E00DB7B88 /* AppointmentCell.xib in Resources */,
@@ -542,6 +549,7 @@
 				EC68F42F20D9B7F1007CD5BE /* Personal.storyboard in Resources */,
 				EC8F0A6320B31D2E0042E486 /* Assets.xcassets in Resources */,
 				EC0CE38A219392AC00990087 /* Settings.storyboard in Resources */,
+				EC0CE3992195FA3D00990087 /* QueueManagement.storyboard in Resources */,
 				EC8F0A6120B31D2D0042E486 /* Main.storyboard in Resources */,
 				EC95DEE320B4927B0093C3B6 /* Home.storyboard in Resources */,
 			);

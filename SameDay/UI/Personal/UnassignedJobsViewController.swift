@@ -83,7 +83,7 @@ private extension UnassignedJobsViewController {
 extension UnassignedJobsViewController: Subscriber {
 
     func update(with state: AppState) {
-        let currentArea = state.queueState.realAreas.filter { $0.id == state.userState.currentUser?.defaultAreaId! }.first
+        let currentArea = state.queueState.areas.filter { $0.id == state.userState.currentUser?.defaultAreaId! }.first
         dataSource.appointments = currentArea?.unassignedAppointments ?? []
         collectionView.reloadData()
     }

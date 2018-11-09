@@ -222,7 +222,7 @@ private extension AreasViewController {
 extension AreasViewController: Subscriber {
 
     func update(with state: AppState) {
-        areas = state.queueState.areas
+        areas = state.queueState.fakeAreas
         addMarkersToMap()
     }
     

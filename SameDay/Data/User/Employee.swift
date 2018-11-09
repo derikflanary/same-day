@@ -29,6 +29,7 @@ struct Employee: Unmarshaling {
     let defaultAreaId: Int?
     let pivot: Pivot? = nil
     var employees = [Employee]()
+    var areas = [Area]()
 
     var displayName: String {
         var fullname = "\(firstName) \(lastName)"
@@ -48,6 +49,7 @@ struct Employee: Unmarshaling {
         isTech = try object.value(for: Keys.isTech)
         isActive = try object.value(for: Keys.isActive)
         defaultAreaId = try object.value(for: Keys.defaultAreaId)
+        areas = try object.value(for: Keys.areas)
     }
 
 }
