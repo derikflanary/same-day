@@ -32,22 +32,12 @@ struct Area: Unmarshaling {
     let id: Int
     let name: String
     let isActive: Bool
-    let salesTax: String?
-    let syncTime: Date
-    let createdAt: Date
-    let updatedAt: Date?
-    let zipCodes: [ZipCode]?
     var unassignedAppointments = [Appointment]()
 
     init(object: MarshaledObject) throws {
         id = try object.value(for: Keys.id)
         name = try object.value(for: Keys.name)
         isActive = try object.value(for: Keys.isActive)
-        salesTax = try object.value(for: Keys.salesTax)
-        syncTime = try object.value(for: Keys.syncTime)
-        createdAt = try object.value(for: Keys.createdAt)
-        updatedAt = try object.value(for: Keys.updatedAt)
-        zipCodes = try object.value(for: Keys.zipcodes)
         unassignedAppointments = []
     }
 }

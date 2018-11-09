@@ -104,9 +104,6 @@ struct Invoice: Unmarshaling {
     let processed: Bool
     let submitted: Bool
     let paid: Bool
-    let syncTime: Date
-    let createdAt: Date
-    let updatedAt: Date?
     var account: Account
 
     init(object: MarshaledObject) throws {
@@ -128,9 +125,6 @@ struct Invoice: Unmarshaling {
         processed = try object.value(for: Keys.processed)
         submitted = try object.value(for: Keys.submitted)
         paid = try object.value(for: Keys.paid)
-        syncTime = try object.value(for: Keys.syncTime)
-        createdAt = try object.value(for: Keys.createdAt)
-        updatedAt = try object.value(for: Keys.updatedAt)
         account = try object.value(for: Keys.account)
     }
 
@@ -150,9 +144,6 @@ struct Account: Unmarshaling {
     let zip: String
     let email: String
     let status: String?
-    let syncTime: Date
-    let createdAt: Date
-    let updatedAt: Date?
     var coordinates: CLLocationCoordinate2D?
 
     var displayName: String {
@@ -176,9 +167,6 @@ struct Account: Unmarshaling {
         zip = try object.value(for: Keys.zip)
         email = try object.value(for: Keys.email)
         status = try object.value(for: Keys.status)
-        syncTime = try object.value(for: Keys.syncTime)
-        createdAt = try object.value(for: Keys.createdAt)
-        updatedAt = try object.value(for: Keys.updatedAt)
     }
     
 }

@@ -9,21 +9,20 @@
 import Foundation
 import Marshal
 
-struct LoadUnassignedAppointmentsForArea: Command {
+struct LoadUnassignedAppointmentsForArea: SameDayAPICommand {
 
-    private var networkAccess: AppointmentNetworkAccess = AppointmentNetworkAPIAccess.sharedInstance
     let area: Area
     var startDate: Date?
-
 
     init(area: Area, startDate: Date?) {
         self.area = area
         self.startDate = startDate
     }
 
-    func execute(state: AppState, core: Core<AppState>) {
-        networkAccess.getUnassignedAppointments(for: area.id) { response in
-            if let json = response?.result.value as? JSONObject {
+    func execute(network: API, state: AppState, core: Core<AppState>) {
+        let urlRequest = Router.Appointment.getAppointmentsForArea(areaId: area.id)
+        network.sessionManager.request(urlRequest).responseMarshaled { response in
+            if let json = response.value {
                 do {
                     let appointments: [Appointment] = try json.value(for: Keys.appointments)
                     var updatedArea = self.area

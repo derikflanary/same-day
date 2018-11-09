@@ -34,7 +34,6 @@ struct Keys {
     static let lastName = "lastname"
     static let name = "name"
     static let salesTax = "sales_tax"
-    static let syncTime = "sync_time"
     static let type = "type"
     static let username = "username"
     static let updatedAt = "updatedat"

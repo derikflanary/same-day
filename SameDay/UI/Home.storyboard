@@ -19,8 +19,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="ogA-MK-7hs" kind="relationship" relationship="viewControllers" id="kDu-Ej-YoL"/>
                         <segue destination="ePE-0Z-P6B" kind="relationship" relationship="viewControllers" id="HM8-n0-1Sd"/>
+                        <segue destination="ogA-MK-7hs" kind="relationship" relationship="viewControllers" id="bzT-RZ-gRD"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PKs-Ie-hfp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -31,7 +31,7 @@
         <scene sceneID="Pbt-cA-We4">
             <objects>
                 <viewControllerPlaceholder storyboardName="Unassigned" id="ogA-MK-7hs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Job Queue" image="list" id="9fy-Ph-OZs"/>
+                    <tabBarItem key="tabBarItem" title="Jobs" image="map" id="9fy-Ph-OZs"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SIE-Bq-CUM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -50,6 +50,6 @@
     </scenes>
     <resources>
         <image name="calendar" width="20" height="22"/>
-        <image name="list" width="15" height="14"/>
+        <image name="map" width="24" height="22"/>
     </resources>
 </document>

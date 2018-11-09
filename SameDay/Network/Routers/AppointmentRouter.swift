@@ -13,7 +13,7 @@ extension Router {
 
     enum Appointment: URLRequestConvertible {
         case getAllAppointments(userId: Int)
-        case getAppointmentsForArea(areaId: String)
+        case getAppointmentsForArea(areaId: Int)
 
         var method: HTTPMethod {
             switch self {

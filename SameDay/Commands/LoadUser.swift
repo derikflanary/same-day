@@ -22,9 +22,11 @@ struct LoadUser: SameDayAPICommand {
         network.sessionManager.request(urlRequest).responseMarshaled { response in
             if let json = response.result.value as? JSONObject {
                 do {
-                    print(json)
                     let employee: Employee = try Employee(object: json)
                     core.fire(event: LoadedUser(user: employee))
+                    for area in employee.areas {
+                        core.fire(command: LoadUnassignedAppointmentsForArea(area: area, startDate: nil))
+                    }
                     if employee.type == .manager {
                         core.fire(command: LoadManagerEmployees(employee: employee))
                     }
