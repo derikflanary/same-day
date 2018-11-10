@@ -203,7 +203,7 @@ extension PersonalScheduleViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let appointment = tableViewDataSource.appointments[indexPath.row]
-        guard let coordinate = appointment.invoice.account.coordinates else { return }
+        guard let coordinate = appointment.invoice?.account.coordinates else { return }
         mapView?.animate(to: GMSCameraPosition(target: coordinate, zoom: 15, bearing: 0, viewingAngle: 0))
         tableViewDataSource.selectedAppointment = appointment
         tableView.reloadSections(IndexSet(integer: 0), with: .none)
@@ -223,10 +223,10 @@ private extension PersonalScheduleViewController {
         }
         addedMarkers.removeAll()
         let markers: [GMSMarker] = appointments.compactMap {
-            guard let coordinate = $0.invoice.account.coordinates else { return nil }
+            guard let coordinate = $0.invoice?.account.coordinates else { return nil }
             let marker =  GMSMarker(position: coordinate)
             marker.icon = GMSMarker.markerImage(with: UIColor.secondary)
-            marker.title = $0.invoice.account.displayName
+            marker.title = $0.invoice?.account.displayName ?? $0.areaName
             marker.snippet = $0.displayStartTime
             return marker
         }

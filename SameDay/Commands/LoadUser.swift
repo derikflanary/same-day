@@ -24,6 +24,7 @@ struct LoadUser: SameDayAPICommand {
                 do {
                     let employee: Employee = try Employee(object: json)
                     core.fire(event: LoadedUser(user: employee))
+                    core.fire(event: Loaded(object: employee.areas))
                     for area in employee.areas {
                         core.fire(command: LoadUnassignedAppointmentsForArea(area: area, startDate: nil))
                     }

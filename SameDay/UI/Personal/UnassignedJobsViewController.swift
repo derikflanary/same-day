@@ -22,6 +22,7 @@ class UnassignedJobsViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var dataSource: UnassignedDataSource!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,9 +84,13 @@ private extension UnassignedJobsViewController {
 extension UnassignedJobsViewController: Subscriber {
 
     func update(with state: AppState) {
-        let currentArea = state.queueState.areas.filter { $0.id == state.userState.currentUser?.defaultAreaId! }.first
-        dataSource.appointments = currentArea?.unassignedAppointments ?? []
+        dataSource.appointments = state.queueState.potentialUnassignedAppointments
         collectionView.reloadData()
+        if state.queueState.allAreasLoaded {
+            loadingIndicator.stopAnimating()
+        } else {
+            loadingIndicator.startAnimating()
+        }
     }
 
 }

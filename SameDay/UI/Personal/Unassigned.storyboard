@@ -33,13 +33,19 @@
                                     <outlet property="delegate" destination="utP-cG-Xbl" id="Hsj-gd-Sdk"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="TKz-UC-2a7">
+                                <rect key="frame" x="169" y="322.5" width="37" height="37"/>
+                                <color key="color" red="0.31372549020000001" green="0.78823529410000004" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="TKz-UC-2a7" firstAttribute="centerX" secondItem="Ev1-56-sAI" secondAttribute="centerX" id="1hk-cq-gcF"/>
                             <constraint firstItem="lSl-mJ-JYk" firstAttribute="top" secondItem="Ev1-56-sAI" secondAttribute="top" id="6Tb-f7-Peb"/>
                             <constraint firstItem="lSl-mJ-JYk" firstAttribute="bottom" secondItem="Ev1-56-sAI" secondAttribute="bottom" id="K6D-Vc-gzJ"/>
                             <constraint firstItem="lSl-mJ-JYk" firstAttribute="trailing" secondItem="Ev1-56-sAI" secondAttribute="trailing" id="NH9-q8-f6R"/>
                             <constraint firstItem="lSl-mJ-JYk" firstAttribute="leading" secondItem="Ev1-56-sAI" secondAttribute="leading" id="Wal-cn-nwd"/>
+                            <constraint firstItem="TKz-UC-2a7" firstAttribute="centerY" secondItem="Ev1-56-sAI" secondAttribute="centerY" id="t6d-hw-P7t"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ev1-56-sAI"/>
                     </view>
@@ -47,16 +53,11 @@
                     <connections>
                         <outlet property="collectionView" destination="lSl-mJ-JYk" id="4tX-we-57m"/>
                         <outlet property="dataSource" destination="oki-hO-UGI" id="ajy-LC-Tgu"/>
+                        <outlet property="loadingIndicator" destination="TKz-UC-2a7" id="LRT-Mf-AB2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53D-4i-Xbq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="oki-hO-UGI" customClass="UnassignedDataSource" customModule="SameDay" customModuleProvider="target"/>
-                <view contentMode="scaleToFill" id="JnV-KP-DGQ">
-                    <rect key="frame" x="0.0" y="0.0" width="370" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <viewLayoutGuide key="safeArea" id="GOa-hB-z8r"/>
-                </view>
             </objects>
             <point key="canvasLocation" x="1548" y="-223.53823088455775"/>
         </scene>

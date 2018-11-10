@@ -24,8 +24,9 @@ struct LoadUnassignedAppointmentsForArea: SameDayAPICommand {
         network.sessionManager.request(urlRequest).responseMarshaled { response in
             if let json = response.value {
                 do {
-                    let appointments: [Appointment] = try json.value(for: Keys.appointments)
+                    let appointments: [Appointment] = try json.value(for: Keys.items)
                     var updatedArea = self.area
+                    updatedArea.isLoaded = true
                     updatedArea.unassignedAppointments = appointments
                     core.fire(event: Updated(item: updatedArea))
                 } catch {

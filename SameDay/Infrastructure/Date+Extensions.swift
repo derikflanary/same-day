@@ -180,3 +180,12 @@ extension DateComponents {
 
 }
 
+
+extension String {
+
+    func date() -> Date? {
+        return Date.ISO8601YearMonthDayFormatter.date(from: self)
+    }
+    
+}
+

@@ -33,6 +33,7 @@ struct Area: Unmarshaling {
     let name: String
     let isActive: Bool
     var unassignedAppointments = [Appointment]()
+    var isLoaded = false
 
     init(object: MarshaledObject) throws {
         id = try object.value(for: Keys.id)

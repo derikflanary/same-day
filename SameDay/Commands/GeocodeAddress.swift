@@ -20,10 +20,11 @@ struct GeocodeAddress: Command {
     }
 
     func execute(state: AppState, core: Core<AppState>) {
-        CLGeocoder().geocodeAddressString(appointment.invoice.account.addressString) { placemarks, error in
+        guard let address = appointment.invoice?.account.addressString else { return }
+        CLGeocoder().geocodeAddressString(address) { placemarks, error in
             if let placemark = placemarks?.first {
                 var updatedAppointment = self.appointment
-                updatedAppointment.invoice.account.coordinates = placemark.location?.coordinate
+                updatedAppointment.invoice?.account.coordinates = placemark.location?.coordinate
                 core.fire(event: Updated(item: updatedAppointment))
             } else if let error = error {
                 print(error)

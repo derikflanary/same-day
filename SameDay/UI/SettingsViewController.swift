@@ -54,7 +54,7 @@ extension SettingsViewController: UITableViewDelegate {
 extension SettingsViewController: Subscriber {
 
     func update(with state: AppState) {
-
+        title = state.userState.currentUser?.displayName
     }
 
 }

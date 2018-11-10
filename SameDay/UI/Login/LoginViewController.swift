@@ -77,6 +77,17 @@ class LoginViewController: UIViewController, StoryboardInitializable {
         updateSubmitButton()
     }
     
+    @IBAction func usernameReturnTapped(_ sender: Any) {
+        passwordTextField.becomeFirstResponder()
+    }
+
+
+    @IBAction func passwordReturnTapped(_ sender: Any) {
+        guard submitButton.isEnabled else { return }
+        passwordTextField.resignFirstResponder()
+        submitButtonTapped()
+    }
+
 }
 
 

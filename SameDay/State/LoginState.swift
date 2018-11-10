@@ -14,6 +14,7 @@ struct LoginState: State {
     var isLoggedIn = false
 
     mutating func react(to event: Event) {
+        errorMessage = nil
         switch event {
         case _ as LoggedIn:
             isLoggedIn = true

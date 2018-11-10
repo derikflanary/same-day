@@ -229,7 +229,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Personal Schedule" id="7C9-su-1ma">
                         <barButtonItem key="backBarButtonItem" title=" " id="RGI-7v-x3m"/>
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="user" id="bjv-ZR-NAc">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="user" id="bjv-ZR-NAc">
                             <color key="tintColor" red="0.31372549020000001" green="0.78823529410000004" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="profileTapped:" destination="hva-h7-Anc" id="UiV-X4-Cdy"/>

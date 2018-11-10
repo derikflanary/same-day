@@ -17,45 +17,51 @@ struct Appointment: Unmarshaling {
         case rescheduled = "Rescheduled"
     }
 
-    let id: Int
-    let invoiceId: Int
+    let addedByEmployeeId: Int
     let date: Date
-    let startTime: Int
-    let endTime: Int
+    let areaId: Int
+    let areaName: String
+    var arrival: Date? = nil
+    let dateAdded: Date?
+    var departure: Date? = nil
     let duration: Int
     let employeeId: Int?
-    let arrival: Date
-    let departure: Date
-    let eta: Date
-    let result: Result
-    let addedByEmployeeId: Int
-    let dateAdded: Date
+    let endTime: Int
+    var eta: Date? = nil
+    let id: Int
+    let invoiceId: Int
     let lastModifiedById: Int?
     let modifiedDate: Date?
-    var invoice: Invoice
+    let result: Result
+    let startTime: Int
+    var invoice: Invoice?
 
-    var displayStartTime: String {
+    var displayStartTime: String? {
+        guard let arrival = arrival else { return nil }
         let formatter = DateFormatter()
         formatter.timeStyle = .short
         formatter.dateStyle = .none
         return formatter.string(from: arrival)
     }
 
-    var displayStartDateAndTime: String {
+    var displayStartDateAndTime: String? {
+        guard let arrival = arrival else { return nil }
         let formatter = DateFormatter()
         formatter.timeStyle = .short
         formatter.dateStyle = .medium
         return formatter.string(from: arrival)
     }
 
-    var displayEndTime: String {
+    var displayEndTime: String? {
+        guard let arrival = arrival else { return nil }
         let formatter = DateFormatter()
         formatter.timeStyle = .short
         formatter.dateStyle = .none
         return formatter.string(from: duration.hours.after(arrival))
     }
 
-    var displayEndDateAndTime: String {
+    var displayEndDateAndTime: String? {
+        guard let arrival = arrival else { return nil }
         let formatter = DateFormatter()
         formatter.timeStyle = .short
         formatter.dateStyle = .medium
@@ -65,21 +71,35 @@ struct Appointment: Unmarshaling {
 
 
     init(object: MarshaledObject) throws {
+        addedByEmployeeId = try object.value(for: Keys.addedByEmployeeId)
+        var dateString: String = try object.value(for: Keys.date)
+        date = dateString.date() ?? Date()
+        areaId = try object.value(for: Keys.areaId)
+        areaName = try object.value(for: Keys.areaName)
+        let arrivalString: String? = try object.value(for: Keys.arrival)
+        if let arrivalSting = arrivalString {
+            arrival = arrivalSting.date()
+        }
+        dateString = try object.value(for: Keys.dateAdded)
+        dateAdded = dateString.date()
+        let departureString: String? = try object.value(for: Keys.departure)
+        if let departureString = departureString {
+            departure = departureString.date()
+        }
+        duration = try object.value(for: Keys.duration)
+        employeeId = try object.value(for: Keys.employeeID)
+        endTime = try object.value(for: Keys.endTime)
+        let etaString: String? = try object.value(for: Keys.eta)
+        if let etaString = etaString {
+            eta = etaString.date()
+        }
         id = try object.value(for: Keys.id)
         invoiceId = try object.value(for: Keys.invoiceId)
-        date = try object.value(for: Keys.date)
-        startTime = try object.value(for: Keys.startTime)
-        endTime = try object.value(for: Keys.endTime)
-        duration = try object.value(for: Keys.duration)
-        employeeId = try object.value(for: Keys.employeeId)
-        arrival = try object.value(for: Keys.arrival)
-        departure = try object.value(for: Keys.departure)
-        eta = try object.value(for: Keys.eta)
-        result = try object.value(for: Keys.result)
-        addedByEmployeeId = try object.value(for: Keys.addedByEmployeeId)
-        dateAdded = try object.value(for: Keys.dateAdded)
         lastModifiedById = try object.value(for: Keys.lastModifiedById)
-        modifiedDate = try object.value(for: Keys.modifiedDate)
+        dateString = try object.value(for: Keys.modifiedDate)
+        modifiedDate = dateString.date()
+        result = try object.value(for: Keys.result)
+        startTime = try object.value(for: Keys.startTime)
         invoice = try object.value(for: Keys.invoice)
     }
 }

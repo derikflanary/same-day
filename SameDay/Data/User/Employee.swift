@@ -31,6 +31,7 @@ struct Employee: Unmarshaling {
     var employees = [Employee]()
     var areas = [Area]()
 
+
     var displayName: String {
         var fullname = "\(firstName) \(lastName)"
         fullname = fullname.lowercased()

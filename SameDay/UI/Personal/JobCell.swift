@@ -26,8 +26,8 @@ class JobCell: UITableViewCell, ReusableView {
     func configure(with appointment: Appointment, isSelected: Bool) {
         startTimeLabel.text = appointment.displayStartTime
         endTimeLabel.text = appointment.displayEndTime
-        titleLabel.text = appointment.invoice.account.displayName
-        addressLabel.text = appointment.invoice.account.addressString
+        titleLabel.text = appointment.invoice?.account.displayName
+        addressLabel.text = appointment.invoice?.account.addressString
         selectedView.isHidden = !isSelected
     }
     

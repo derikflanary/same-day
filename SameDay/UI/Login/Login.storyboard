@@ -34,9 +34,10 @@
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="username"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="username"/>
                                         <connections>
                                             <action selector="usernameDidChange" destination="Z3R-qu-V6c" eventType="editingChanged" id="PUH-Sv-rTU"/>
+                                            <action selector="usernameReturnTapped:" destination="Z3R-qu-V6c" eventType="primaryActionTriggered" id="NbM-Ip-eH6"/>
                                         </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbm-Ud-rH1">
@@ -62,6 +63,7 @@
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                         <connections>
                                             <action selector="passwordDidChange" destination="Z3R-qu-V6c" eventType="editingChanged" id="8uj-Pf-2gV"/>
+                                            <action selector="passwordReturnTapped:" destination="Z3R-qu-V6c" eventType="primaryActionTriggered" id="EuM-q4-e2O"/>
                                         </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHL-UC-gTY">

@@ -14,6 +14,22 @@ struct QueueState: State {
     var markers = [GMSMarker]()
     var areas = [Area]()
     var fakeAreas = [FakeArea]()
+    var potentialUnassignedAppointments: [Appointment] {
+        var appointments = [Appointment]()
+        for area in areas {
+            appointments.append(contentsOf: area.unassignedAppointments)
+        }
+        return appointments
+    }
+    var allAreasLoaded: Bool {
+        guard areas.count > 0 else { return false }
+        for area in areas {
+            if !area.isLoaded {
+                return false
+            }
+        }
+        return true
+    }
     
 
     mutating func react(to event: Event) {
