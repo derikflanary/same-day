@@ -32,6 +32,10 @@ struct LoadUnassignedAppointmentsForArea: SameDayAPICommand {
                 } catch {
                     print(error)
                 }
+            } else {
+                var updatedArea = self.area
+                updatedArea.isLoaded = true
+                core.fire(event: Updated(item: updatedArea))
             }
         }
     }

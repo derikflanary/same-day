@@ -53,11 +53,31 @@
                     <connections>
                         <outlet property="collectionView" destination="lSl-mJ-JYk" id="4tX-we-57m"/>
                         <outlet property="dataSource" destination="oki-hO-UGI" id="ajy-LC-Tgu"/>
+                        <outlet property="emptyStateView" destination="Qat-ur-5nO" id="2xz-sY-Bhw"/>
                         <outlet property="loadingIndicator" destination="TKz-UC-2a7" id="LRT-Mf-AB2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53D-4i-Xbq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="oki-hO-UGI" customClass="UnassignedDataSource" customModule="SameDay" customModuleProvider="target"/>
+                <view contentMode="scaleToFill" id="Qat-ur-5nO">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There are no current open jobs for you to claim." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhD-Xq-H9l">
+                            <rect key="frame" x="20" y="43.5" width="200" height="41"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="ZwX-mb-kcK" firstAttribute="leading" secondItem="dhD-Xq-H9l" secondAttribute="leading" constant="-20" id="2PB-KH-I7J"/>
+                        <constraint firstItem="dhD-Xq-H9l" firstAttribute="centerY" secondItem="ZwX-mb-kcK" secondAttribute="centerY" id="RKW-od-anQ"/>
+                        <constraint firstItem="dhD-Xq-H9l" firstAttribute="trailing" secondItem="ZwX-mb-kcK" secondAttribute="trailing" constant="-20" id="SCh-6C-z0D"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="ZwX-mb-kcK"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="1548" y="-223.53823088455775"/>
         </scene>

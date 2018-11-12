@@ -20,10 +20,12 @@ class UnassignedJobsViewController: UIViewController {
         return refreshControl
     }()
 
+
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var dataSource: UnassignedDataSource!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
 
+    @IBOutlet var emptyStateView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.setCollectionViewLayout(flowLayout, animated: true)
@@ -88,8 +90,10 @@ extension UnassignedJobsViewController: Subscriber {
         collectionView.reloadData()
         if state.queueState.allAreasLoaded {
             loadingIndicator.stopAnimating()
+            collectionView.backgroundView = dataSource.appointments.isEmpty ? emptyStateView : nil
         } else {
             loadingIndicator.startAnimating()
+            collectionView.backgroundView = nil
         }
     }
 
