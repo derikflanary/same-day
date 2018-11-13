@@ -17,8 +17,9 @@ class AppointmentDetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-
+    @IBOutlet weak var areaLabel: UILabel!
     @IBOutlet weak var windowLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var denyButton: RoundedButton!
     @IBOutlet weak var acceptButton: RoundedButton!
     @IBOutlet weak var completeButton: RoundedButton!
@@ -49,6 +50,18 @@ class AppointmentDetailViewController: UIViewController {
         }
     }
 
+    @IBAction func denyTapped() {
+
+    }
+
+    @IBAction func acceptTapped() {
+
+    }
+
+    @IBAction func completeTapped() {
+        
+    }
+
 }
 
 
@@ -57,11 +70,14 @@ class AppointmentDetailViewController: UIViewController {
 extension AppointmentDetailViewController: Subscriber {
 
     func update(with state: AppState) {
-        self.appointment = state.appointmentState.selectedAppointment
-        nameLabel.text = appointment?.displayName
-        addressLabel.text = appointment?.addressString
-        dateLabel.text = appointment?.displayStartDateAndTime
-        windowLabel.text = appointment?.displayEndDateAndTime
+        guard let appointment = state.appointmentState.selectedAppointment else { return }
+        self.appointment = appointment
+        nameLabel.text = appointment.displayName
+        addressLabel.text = appointment.addressString
+        dateLabel.text = appointment.displayStartDateAndTime ?? appointment.date.weekDayMonthDayString()
+        windowLabel.text = appointment.displayEndDateAndTime
+        phoneLabel.text = appointment.phone.asPhoneNumber()
+        areaLabel.text = appointment.areaName
         switch state.appointmentState.appointmentSourceType {
         case .potential:
             acceptButton.isHidden = false

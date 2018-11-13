@@ -28,8 +28,9 @@ class UnassignedJobsViewController: UIViewController, SegueHandlerType {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var dataSource: UnassignedDataSource!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
-
     @IBOutlet var emptyStateView: UIView!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.setCollectionViewLayout(flowLayout, animated: true)
@@ -65,6 +66,20 @@ extension UnassignedJobsViewController: UICollectionViewDelegate {
         core.fire(event: Selected(item: appointment))
         core.fire(event: Selected(item: AppointmentSourceType.potential))
         performSegueWithIdentifier(.showAppointmentDetail)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        UIView.animate(withDuration: 0.15) {
+            cell?.alpha = 0.6
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        UIView.animate(withDuration: 0.15) {
+            cell?.alpha = 1.0
+        }
     }
     
 }

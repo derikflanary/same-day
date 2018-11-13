@@ -16,7 +16,8 @@ class AppointmentCell: UICollectionViewCell, ReusableView {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var windowLabel: UILabel!
-    
+    @IBOutlet weak var areaLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.cornerRadius = 10
@@ -26,8 +27,9 @@ class AppointmentCell: UICollectionViewCell, ReusableView {
 
     func configure(with appointment: Appointment) {
         nameLabel.text = appointment.displayName
+        areaLabel.text = appointment.areaName
         addressLabel.text = appointment.addressString
-        dateLabel.text = appointment.displayStartDateAndTime
+        dateLabel.text = appointment.displayStartDateAndTime ?? appointment.date.weekDayMonthDayString()
         windowLabel.text = appointment.displayEndDateAndTime
     }
 

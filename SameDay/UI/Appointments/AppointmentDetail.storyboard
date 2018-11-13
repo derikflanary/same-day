@@ -28,6 +28,9 @@
                                         <state key="normal" title="Deny">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="denyTapped" destination="iLk-pa-aZW" eventType="touchUpInside" id="XI3-4R-QYA"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nHL-1F-ZPX" customClass="RoundedButton" customModule="SameDay" customModuleProvider="target">
                                         <rect key="frame" x="119.5" y="0.0" width="104" height="50"/>
@@ -36,6 +39,9 @@
                                         <state key="normal" title="Accept">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="acceptTapped" destination="iLk-pa-aZW" eventType="touchUpInside" id="nsh-Gb-JA7"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukA-dx-wgK" customClass="RoundedButton" customModule="SameDay" customModuleProvider="target">
                                         <rect key="frame" x="239.5" y="0.0" width="103.5" height="50"/>
@@ -44,6 +50,9 @@
                                         <state key="normal" title="Complete">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="completeTapped" destination="iLk-pa-aZW" eventType="touchUpInside" id="bKO-8E-NcV"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -51,7 +60,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="kqb-rY-MuT">
-                                <rect key="frame" x="16" y="60" width="343" height="203"/>
+                                <rect key="frame" x="16" y="60" width="343" height="185"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dg-7H-Ptq">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="25.5"/>
@@ -59,26 +68,38 @@
                                         <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Area" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wP9-Gf-9ut">
+                                        <rect key="frame" x="0.0" y="37.5" width="343" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="a26-Og-UUm">
-                                        <rect key="frame" x="0.0" y="37.5" width="343" height="64.5"/>
+                                        <rect key="frame" x="0.0" y="69" width="343" height="21.5"/>
                                         <subviews>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" text="Address" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xd4-DU-VH0">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="64.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" red="0.28235294119999998" green="0.54901960780000003" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIh-N5-dbv">
-                                        <rect key="frame" x="0.0" y="114" width="343" height="38.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gG-Rh-IvH">
+                                        <rect key="frame" x="0.0" y="102.5" width="343" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIh-N5-dbv">
+                                        <rect key="frame" x="0.0" y="134" width="343" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Window" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhg-n1-xHv">
-                                        <rect key="frame" x="0.0" y="164.5" width="343" height="38.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <rect key="frame" x="0.0" y="165.5" width="343" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -99,10 +120,12 @@
                     <connections>
                         <outlet property="acceptButton" destination="nHL-1F-ZPX" id="hPG-Xf-vxw"/>
                         <outlet property="addressLabel" destination="xd4-DU-VH0" id="yCs-i0-JFq"/>
+                        <outlet property="areaLabel" destination="wP9-Gf-9ut" id="DPK-VO-3rV"/>
                         <outlet property="completeButton" destination="ukA-dx-wgK" id="vv4-wP-fI0"/>
                         <outlet property="dateLabel" destination="PIh-N5-dbv" id="bdx-TO-MNd"/>
                         <outlet property="denyButton" destination="FIA-nK-rTh" id="XSf-CK-jZ7"/>
                         <outlet property="nameLabel" destination="9dg-7H-Ptq" id="uME-pW-kMg"/>
+                        <outlet property="phoneLabel" destination="0gG-Rh-IvH" id="weh-ER-hHc"/>
                         <outlet property="windowLabel" destination="Jhg-n1-xHv" id="2Fa-V7-k0H"/>
                     </connections>
                 </viewController>
