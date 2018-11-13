@@ -25,9 +25,8 @@ class AppointmentCell: UICollectionViewCell, ReusableView {
     }
 
     func configure(with appointment: Appointment) {
-        let account = appointment.invoice?.account
-        nameLabel.text = account?.displayName ?? appointment.areaName
-        addressLabel.text = account?.addressString
+        nameLabel.text = appointment.displayName
+        addressLabel.text = appointment.addressString
         dateLabel.text = appointment.displayStartDateAndTime
         windowLabel.text = appointment.displayEndDateAndTime
     }

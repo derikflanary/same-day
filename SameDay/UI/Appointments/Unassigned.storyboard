@@ -55,6 +55,7 @@
                         <outlet property="dataSource" destination="oki-hO-UGI" id="ajy-LC-Tgu"/>
                         <outlet property="emptyStateView" destination="Qat-ur-5nO" id="2xz-sY-Bhw"/>
                         <outlet property="loadingIndicator" destination="TKz-UC-2a7" id="LRT-Mf-AB2"/>
+                        <segue destination="Llm-JU-MeO" kind="show" identifier="showAppointmentDetail" id="kyK-jD-mJc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53D-4i-Xbq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -80,6 +81,14 @@
                 </view>
             </objects>
             <point key="canvasLocation" x="1548" y="-223.53823088455775"/>
+        </scene>
+        <!--AppointmentDetail-->
+        <scene sceneID="QXL-88-qZX">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AppointmentDetail" id="Llm-JU-MeO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VEc-Ai-U2o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2166" y="-262"/>
         </scene>
         <!--Job Queue-->
         <scene sceneID="cb0-gW-0YE">

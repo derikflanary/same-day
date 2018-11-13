@@ -14,18 +14,22 @@ struct GeocodeAddress: Command {
 
     private var networkAccess: AppointmentNetworkAccess = AppointmentNetworkAPIAccess.sharedInstance
     var appointment: Appointment
+    var area: Area
 
-    init(appointment: Appointment) {
+    init(appointment: Appointment, area: Area) {
         self.appointment = appointment
+        self.area = area
     }
 
     func execute(state: AppState, core: Core<AppState>) {
-        guard let address = appointment.invoice?.account.addressString else { return }
+        let address = appointment.addressString
         CLGeocoder().geocodeAddressString(address) { placemarks, error in
             if let placemark = placemarks?.first {
                 var updatedAppointment = self.appointment
-                updatedAppointment.invoice?.account.coordinates = placemark.location?.coordinate
-                core.fire(event: Updated(item: updatedAppointment))
+                updatedAppointment.coordinates = placemark.location?.coordinate
+                var updatedArea = self.area
+                updatedArea.unassignedAppointments.replace(item: updatedAppointment)
+                core.fire(event: Updated(item: updatedArea))
             } else if let error = error {
                 print(error)
             }

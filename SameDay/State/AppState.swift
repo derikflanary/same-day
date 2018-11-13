@@ -20,6 +20,7 @@ struct AppState: State {
     var queueState = QueueState()
     var personalScheduleState = PersonalScheduleState()
     var loginState = LoginState()
+    var appointmentState = AppointmentState()
 
     var accessToken: String? {
         do {
@@ -43,6 +44,7 @@ struct AppState: State {
         userState.react(to: event)
         queueState.react(to: event)
         personalScheduleState.react(to: event)
+        appointmentState.react(to: event)
     }
 
 }

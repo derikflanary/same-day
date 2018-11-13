@@ -42,6 +42,10 @@
 		EC226E2E218908420027F614 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E2D218908420027F614 /* Router.swift */; };
 		EC226E3021891F820027F614 /* FetchCredentialsFromKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E2F21891F820027F614 /* FetchCredentialsFromKeychain.swift */; };
 		EC226E3221891FA10027F614 /* AuthenticateToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC226E3121891FA10027F614 /* AuthenticateToken.swift */; };
+		EC2881C0219A262C0022179D /* AppointmentDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2881BF219A262C0022179D /* AppointmentDetail.storyboard */; };
+		EC2881C2219A2A700022179D /* AppointmentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2881C1219A2A700022179D /* AppointmentDetailViewController.swift */; };
+		EC2881C4219A49220022179D /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2881C3219A49220022179D /* SegueHandlerType.swift */; };
+		EC2881C6219A4A020022179D /* AppointmentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2881C5219A4A020022179D /* AppointmentState.swift */; };
 		EC5D589320EC3846002C6AF7 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589220EC3846002C6AF7 /* UIViewController+Extensions.swift */; };
 		EC5D589620EE8748002C6AF7 /* TeamScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589520EE8748002C6AF7 /* TeamScheduleViewController.swift */; };
 		EC5D589820EE90CA002C6AF7 /* TeamScheduleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D589720EE90CA002C6AF7 /* TeamScheduleDataSource.swift */; };
@@ -139,6 +143,10 @@
 		EC226E2D218908420027F614 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		EC226E2F21891F820027F614 /* FetchCredentialsFromKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCredentialsFromKeychain.swift; sourceTree = "<group>"; };
 		EC226E3121891FA10027F614 /* AuthenticateToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateToken.swift; sourceTree = "<group>"; };
+		EC2881BF219A262C0022179D /* AppointmentDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppointmentDetail.storyboard; sourceTree = "<group>"; };
+		EC2881C1219A2A700022179D /* AppointmentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDetailViewController.swift; sourceTree = "<group>"; };
+		EC2881C3219A49220022179D /* SegueHandlerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
+		EC2881C5219A4A020022179D /* AppointmentState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentState.swift; sourceTree = "<group>"; };
 		EC5D588720EC33F8002C6AF7 /* SwiftEntryKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftEntryKit.framework.dSYM; path = Carthage/Build/iOS/SwiftEntryKit.framework.dSYM; sourceTree = "<group>"; };
 		EC5D588920EC33FB002C6AF7 /* QuickLayout.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = QuickLayout.framework.dSYM; path = Carthage/Build/iOS/QuickLayout.framework.dSYM; sourceTree = "<group>"; };
 		EC5D589220EC3846002C6AF7 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -275,6 +283,21 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		EC2881BE219A25660022179D /* Appointments */ = {
+			isa = PBXGroup;
+			children = (
+				EC0F530C20E69771005D1C1D /* Unassigned.storyboard */,
+				EC0F530A20E696D7005D1C1D /* UnassignedJobsViewController.swift */,
+				ECB3812920E6A15E00DB7B88 /* UnassignedDataSource.swift */,
+				ECB3812F20E6BA4300DB7B88 /* AppointmentFlowLayout.swift */,
+				ECB3812B20E6B53E00DB7B88 /* AppointmentCell.swift */,
+				ECB3812C20E6B53E00DB7B88 /* AppointmentCell.xib */,
+				EC2881BF219A262C0022179D /* AppointmentDetail.storyboard */,
+				EC2881C1219A2A700022179D /* AppointmentDetailViewController.swift */,
+			);
+			path = Appointments;
+			sourceTree = "<group>";
+		};
 		EC5D589420EE8734002C6AF7 /* Team */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,12 +316,6 @@
 				ECFC3EC220C1F8EE005E192F /* PersonalScheduleDataSource.swift */,
 				ECFC3EBE20C0600E005E192F /* CalendarCell.swift */,
 				ECFC3EC420C1F923005E192F /* JobCell.swift */,
-				EC0F530C20E69771005D1C1D /* Unassigned.storyboard */,
-				EC0F530A20E696D7005D1C1D /* UnassignedJobsViewController.swift */,
-				ECB3812920E6A15E00DB7B88 /* UnassignedDataSource.swift */,
-				ECB3812F20E6BA4300DB7B88 /* AppointmentFlowLayout.swift */,
-				ECB3812B20E6B53E00DB7B88 /* AppointmentCell.swift */,
-				ECB3812C20E6B53E00DB7B88 /* AppointmentCell.xib */,
 			);
 			path = Personal;
 			sourceTree = "<group>";
@@ -373,6 +390,7 @@
 				EC0CE38F2193956000990087 /* LogOutCell.swift */,
 				EC226E0B21876E8C0027F614 /* Login */,
 				EC5D589420EE8734002C6AF7 /* Team */,
+				EC2881BE219A25660022179D /* Appointments */,
 				EC68F42D20D9B7CF007CD5BE /* Personal */,
 				ECFC3E9020B87953005E192F /* Common */,
 				ECFC3E8F20B8793A005E192F /* Queue Management */,
@@ -387,6 +405,7 @@
 				EC226E182187F8E70027F614 /* LoginState.swift */,
 				ECFC3E7E20B737A1005E192F /* UserState.swift */,
 				ECFC3E8B20B75F4C005E192F /* QueueState.swift */,
+				EC2881C5219A4A020022179D /* AppointmentState.swift */,
 				ECFC3EC020C1F6D0005E192F /* PersonalScheduleState.swift */,
 				ECFC3E8020B737FF005E192F /* GenericEvents.swift */,
 			);
@@ -397,6 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				ECFC3E9920BF6654005E192F /* Mappable.swift */,
+				EC2881C3219A49220022179D /* SegueHandlerType.swift */,
 				EC0CE383219214B300990087 /* BiometricAuthenticator.swift */,
 				EC68F42720D99456007CD5BE /* Keys.swift */,
 				EC95DEDE20B355CC0093C3B6 /* Reactor.swift */,
@@ -542,6 +562,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC0CE3972195F9ED00990087 /* TeamSchedule.storyboard in Resources */,
+				EC2881C0219A262C0022179D /* AppointmentDetail.storyboard in Resources */,
 				EC226E0D21876EA10027F614 /* Login.storyboard in Resources */,
 				EC8F0A6620B31D2E0042E486 /* LaunchScreen.storyboard in Resources */,
 				ECB3812E20E6B53E00DB7B88 /* AppointmentCell.xib in Resources */,
@@ -674,6 +695,7 @@
 				EC0F530320E2F18C005D1C1D /* LoadAreas.swift in Sources */,
 				EC226E03218767080027F614 /* Alamofire+Reactor.swift in Sources */,
 				ECFC3EC720C1FBC9005E192F /* Date+Extensions.swift in Sources */,
+				EC2881C2219A2A700022179D /* AppointmentDetailViewController.swift in Sources */,
 				EC226E11218771A50027F614 /* LoginViewController.swift in Sources */,
 				EC5D589820EE90CA002C6AF7 /* TeamScheduleDataSource.swift in Sources */,
 				EC95DEE520B4965D0093C3B6 /* UIColor+Extensions.swift in Sources */,
@@ -683,6 +705,7 @@
 				ECF63F7E20C89C2E001A8523 /* Result.swift in Sources */,
 				ECF63F8120C8A16A001A8523 /* LoadEmployee.swift in Sources */,
 				EC8F0A5C20B31D2D0042E486 /* AppDelegate.swift in Sources */,
+				EC2881C6219A4A020022179D /* AppointmentState.swift in Sources */,
 				EC226E172187F53E0027F614 /* Shakeable.swift in Sources */,
 				EC95DEE120B3586F0093C3B6 /* AppState.swift in Sources */,
 				EC95DEEE20B49E4D0093C3B6 /* HomeTabBarController.swift in Sources */,
@@ -719,6 +742,7 @@
 				EC226E0F218771100027F614 /* RoundedButton.swift in Sources */,
 				EC226E262188EC0A0027F614 /* OnSuccessfulLogin.swift in Sources */,
 				EC68F42C20D9B114007CD5BE /* LoadUser.swift in Sources */,
+				EC2881C4219A49220022179D /* SegueHandlerType.swift in Sources */,
 				EC226E04218767080027F614 /* Alamofire+Marshal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

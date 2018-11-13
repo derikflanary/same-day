@@ -164,7 +164,7 @@ extension LoginViewController: Subscriber {
             submitButton.shake()
             showAlert(title: "Authentication failed", message: message, image: nil, completion: nil)
         }
-        biometricsLoginButton.isHidden == !shouldUseBiometricAuth
+        biometricsLoginButton.isHidden = !shouldUseBiometricAuth
     }
 
 }

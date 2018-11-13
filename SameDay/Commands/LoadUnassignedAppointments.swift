@@ -25,10 +25,16 @@ struct LoadUnassignedAppointmentsForArea: SameDayAPICommand {
             if let json = response.value {
                 do {
                     let appointments: [Appointment] = try json.value(for: Keys.items)
+                    if !appointments.isEmpty {
+                        print(json)
+                    }
                     var updatedArea = self.area
                     updatedArea.isLoaded = true
                     updatedArea.unassignedAppointments = appointments
                     core.fire(event: Updated(item: updatedArea))
+                    for appointment in appointments {
+                        core.fire(command: GeocodeAddress(appointment: appointment, area: updatedArea))
+                    }
                 } catch {
                     print(error)
                 }

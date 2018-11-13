@@ -35,6 +35,15 @@ struct Appointment: Unmarshaling {
     let result: Result
     let startTime: Int
     var invoice: Invoice?
+    let phone: String
+    let street: String
+    let streetTwo: String?
+    let zip: String
+    let city: String
+    let firstName: String
+    let lastName: String
+    let state: String
+    var coordinates: CLLocationCoordinate2D?
 
     var displayStartTime: String? {
         guard let arrival = arrival else { return nil }
@@ -68,7 +77,13 @@ struct Appointment: Unmarshaling {
         return formatter.string(from: duration.hours.after(arrival))
     }
 
+    var displayName: String {
+        return "\(firstName) \(lastName)".lowercased().uppercased()
+    }
 
+    var addressString: String {
+        return "\(street), \(city), \(state) \(zip)".lowercased().uppercased()
+    }
 
     init(object: MarshaledObject) throws {
         addedByEmployeeId = try object.value(for: Keys.addedByEmployeeId)
@@ -101,6 +116,14 @@ struct Appointment: Unmarshaling {
         result = try object.value(for: Keys.result)
         startTime = try object.value(for: Keys.startTime)
         invoice = try object.value(for: Keys.invoice)
+        phone = try object.value(for: Keys.phone)
+        street = try object.value(for: Keys.street)
+        streetTwo = try object.value(for: Keys.street2)
+        city = try object.value(for: Keys.city)
+        zip = try object.value(for: Keys.zip)
+        state = try object.value(for: Keys.state)
+        firstName = try object.value(for: Keys.firstName)
+        lastName = try object.value(for: Keys.lastName)
     }
 }
 
@@ -124,7 +147,6 @@ struct Invoice: Unmarshaling {
     let processed: Bool
     let submitted: Bool
     let paid: Bool
-    var account: Account
 
     init(object: MarshaledObject) throws {
         id = try object.value(for: Keys.id)
@@ -145,50 +167,8 @@ struct Invoice: Unmarshaling {
         processed = try object.value(for: Keys.processed)
         submitted = try object.value(for: Keys.submitted)
         paid = try object.value(for: Keys.paid)
-        account = try object.value(for: Keys.account)
     }
 
-}
-
-struct Account: Unmarshaling {
-
-    let id: Int
-    let areaId: Int
-    let firstName: String
-    let lastName: String
-    let phone: String
-    let street: String
-    let street2: String?
-    let city: String
-    let state: String
-    let zip: String
-    let email: String
-    let status: String?
-    var coordinates: CLLocationCoordinate2D?
-
-    var displayName: String {
-        return "\(firstName) \(lastName)".lowercased().uppercased()
-    }
-
-    var addressString: String {
-        return "\(street), \(city), \(state) \(zip)".lowercased().uppercased()
-    }
-
-    init(object: MarshaledObject) throws {
-        id = try object.value(for: Keys.id)
-        areaId = try object.value(for: Keys.areaId)
-        firstName = try object.value(for: Keys.firstName)
-        lastName = try object.value(for: Keys.lastName)
-        phone = try object.value(for: Keys.phone)
-        street = try object.value(for: Keys.street)
-        street2 = try object.value(for: Keys.street2)
-        city = try object.value(for: Keys.city)
-        state = try object.value(for: Keys.state)
-        zip = try object.value(for: Keys.zip)
-        email = try object.value(for: Keys.email)
-        status = try object.value(for: Keys.status)
-    }
-    
 }
 
 

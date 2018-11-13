@@ -244,6 +244,7 @@
                         <outlet property="tableView" destination="ixk-tK-7XR" id="OH4-b4-7f8"/>
                         <outlet property="tableViewDataSource" destination="mN6-8L-WAp" id="CIk-hn-zui"/>
                         <outlet property="topView" destination="WK6-e5-bht" id="hc8-iq-Cgl"/>
+                        <segue destination="e6u-pb-EVA" kind="show" identifier="showAppointmentDetail" id="j8z-ZQ-hw1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hE-Ug-t5I" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -296,6 +297,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7U1-nI-YCo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="716" y="1155.472263868066"/>
+        </scene>
+        <!--AppointmentDetail-->
+        <scene sceneID="IHF-O1-zNE">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AppointmentDetail" id="e6u-pb-EVA" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ewB-RP-Py5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2305" y="1123"/>
         </scene>
     </scenes>
     <resources>

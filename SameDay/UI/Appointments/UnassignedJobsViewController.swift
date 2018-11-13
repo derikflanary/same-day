@@ -9,7 +9,11 @@
 import UIKit
 import SwiftEntryKit
 
-class UnassignedJobsViewController: UIViewController {
+class UnassignedJobsViewController: UIViewController, SegueHandlerType {
+
+    enum SegueIdentifier: String {
+        case showAppointmentDetail
+    }
 
     var core = App.sharedCore
     var flowLayout = AppointmentFlowLayout()
@@ -58,11 +62,11 @@ extension UnassignedJobsViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let appointment = dataSource.appointments[indexPath.row]
-        showAcceptJobAlert(for: appointment)
-//        showAlert(title: appointment.invoice.account.addressString, message: "You have selected this job", image: nil, completion: {
-//            self.navigationController?.popViewController(animated: true)
-//        } )
+        core.fire(event: Selected(item: appointment))
+        core.fire(event: Selected(item: AppointmentSourceType.potential))
+        performSegueWithIdentifier(.showAppointmentDetail)
     }
+    
 }
 
 private extension UnassignedJobsViewController {
