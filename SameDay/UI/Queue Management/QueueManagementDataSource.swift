@@ -10,13 +10,13 @@ import UIKit
 
 class QueueManagementDataSource: NSObject, UITableViewDataSource {
 
-    var areas = [FakeArea]()
+    var areas = [Area]()
     var users = [User]()
 
     var unassignedUsers: [User] {
         var unusedUsers = users
         for area in areas {
-            unusedUsers = unusedUsers.filter { !area.users.contains($0) }
+//            unusedUsers = unusedUsers.filter { !area.users.contains($0) }
         }
         return unusedUsers
     }
@@ -40,9 +40,10 @@ class QueueManagementDataSource: NSObject, UITableViewDataSource {
         case 0:
             return unassignedUsers.count
         default:
-            return areas[section - 1].users.count
+            break
+//            return areas[section - 1].users.count
         }
-
+        return 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,9 +54,9 @@ class QueueManagementDataSource: NSObject, UITableViewDataSource {
             user = unassignedUsers[indexPath.row]
         default:
             let area = areas[indexPath.section - 1]
-            user = area.users[indexPath.row]
+//            user = area.users[indexPath.row]
         }
-        cell.configure(with: user)
+//        cell.configure(with: user)
         return cell
     }
 
@@ -69,15 +70,17 @@ class QueueManagementDataSource: NSObject, UITableViewDataSource {
         case 0:
             userToMove = unassignedUsers[sourceIndexPath.row]
         default:
-            userToMove = areas[sourceIndexPath.section - 1].users[sourceIndexPath.row]
-            areas[sourceIndexPath.section - 1].users.remove(at: sourceIndexPath.row)
+            break
+//            userToMove = areas[sourceIndexPath.section - 1].users[sourceIndexPath.row]
+//            areas[sourceIndexPath.section - 1].users.remove(at: sourceIndexPath.row)
         }
 
         switch destinationIndexPath.section {
         case 0:
             break
         default:
-            areas[destinationIndexPath.section - 1].users.insert(userToMove, at: destinationIndexPath.row)
+            break
+//            areas[destinationIndexPath.section - 1].users.insert(userToMove, at: destinationIndexPath.row)
         }
 
         App.sharedCore.fire(event: Loaded(object: areas))

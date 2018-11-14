@@ -13,7 +13,6 @@ struct QueueState: State {
 
     var markers = [GMSMarker]()
     var areas = [Area]()
-    var fakeAreas = [FakeArea]()
     var potentialUnassignedAppointments: [Appointment] {
         var appointments = [Appointment]()
         for area in areas {

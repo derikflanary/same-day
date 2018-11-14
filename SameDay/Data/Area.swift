@@ -14,18 +14,6 @@ protocol Coordinatable {
     var coordinate: CLLocationCoordinate2D { get set }
 }
 
-struct FakeArea: Coordinatable {
-    var id: TimeInterval
-    var name: String
-    var users: [User]
-    var coordinate: CLLocationCoordinate2D
-}
-
-extension FakeArea: Equatable {
-    static func == (lhs: FakeArea, rhs: FakeArea) -> Bool {
-        return lhs.id == rhs.id
-    }
-}
 
 struct Area: Unmarshaling {
 

@@ -20,7 +20,7 @@ class AreasViewController: UIViewController, Mappable {
 
     enum MapState {
         case normal
-        case move(area: FakeArea)
+        case move(area: Area)
     }
 
     @IBOutlet var newAreaView: NewAreaView!
@@ -32,7 +32,7 @@ class AreasViewController: UIViewController, Mappable {
     internal var mapView: GMSMapView?
     internal var zoomLevel: Float = 10.0
     private var placesClient: GMSPlacesClient = GMSPlacesClient.shared()
-    private var areas = [FakeArea]()
+    private var areas = [Area]()
     private var addedMarkers = [GMSMarker]()
     private var temporaryMarker: GMSMarker?
     private var selectedMarker: GMSMarker?
@@ -41,9 +41,9 @@ class AreasViewController: UIViewController, Mappable {
     private var markers: [GMSMarker] {
         var marks = [GMSMarker]()
         for area in areas {
-            let marker = GMSMarker(position: area.coordinate)
-            marker.designed(with: area.name)
-            marks.append(marker)
+//            let marker = GMSMarker(position: area.coordinate)
+//            marker.designed(with: area.name)
+//            marks.append(marker)
         }
         return marks
     }
@@ -140,17 +140,17 @@ extension AreasViewController: GMSMapViewDelegate {
     }
 
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        guard let area = areas.area(for: marker) else { return false }
-        areaInfoWindow.removeFromSuperview()
-        areaInfoWindow.frame = CGRect(x: 0, y: 0, width: self.view.frame.width - (self.dropDownMargin * 2), height: AreaInfoWindow.height)
-        let markerPosition = mapView.projection.point(for: marker.position)
-        areaInfoWindow.center = CGPoint(x: markerPosition.x, y: markerPosition.y - AreaInfoWindow.height)
-        areaInfoWindow.area = area
-        areaInfoWindow.completion = {
-            self.areaInfoWindow.removeFromSuperview()
-        }
-        view.addSubview(areaInfoWindow)
-        selectedMarker = marker
+//        guard let area = areas.area(for: marker) else { return false }
+//        areaInfoWindow.removeFromSuperview()
+//        areaInfoWindow.frame = CGRect(x: 0, y: 0, width: self.view.frame.width - (self.dropDownMargin * 2), height: AreaInfoWindow.height)
+//        let markerPosition = mapView.projection.point(for: marker.position)
+//        areaInfoWindow.center = CGPoint(x: markerPosition.x, y: markerPosition.y - AreaInfoWindow.height)
+//        areaInfoWindow.area = area
+//        areaInfoWindow.completion = {
+//            self.areaInfoWindow.removeFromSuperview()
+//        }
+//        view.addSubview(areaInfoWindow)
+//        selectedMarker = marker
         return false
     }
 
@@ -165,14 +165,14 @@ extension AreasViewController: GMSMapViewDelegate {
     }
 
     func mapView(_ mapView: GMSMapView, didBeginDragging marker: GMSMarker) {
-        guard let areaMoving = areas.area(for: marker) else { return }
-        marker.designedForDragging()
-        mapState = .move(area: areaMoving)
+//        guard let areaMoving = areas.area(for: marker) else { return }
+//        marker.designedForDragging()
+//        mapState = .move(area: areaMoving)
     }
 
     func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
         guard case var MapState.move(movedArea) = mapState else { return }
-        movedArea.coordinate = marker.position
+//        movedArea.coordinate = marker.position
         core.fire(event: Updated(item: movedArea))
         mapState = .normal
     }
@@ -222,7 +222,6 @@ private extension AreasViewController {
 extension AreasViewController: Subscriber {
 
     func update(with state: AppState) {
-        areas = state.queueState.fakeAreas
         addMarkersToMap()
     }
     

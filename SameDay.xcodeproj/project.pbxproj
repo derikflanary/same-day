@@ -89,7 +89,7 @@
 		ECFC3E7F20B737A1005E192F /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E7E20B737A1005E192F /* UserState.swift */; };
 		ECFC3E8120B737FF005E192F /* GenericEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8020B737FF005E192F /* GenericEvents.swift */; };
 		ECFC3E8420B73816005E192F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8320B73816005E192F /* User.swift */; };
-		ECFC3E8620B73875005E192F /* FakeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8520B73875005E192F /* FakeArea.swift */; };
+		ECFC3E8620B73875005E192F /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8520B73875005E192F /* Area.swift */; };
 		ECFC3E8820B738DC005E192F /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8720B738DC005E192F /* Array+Extensions.swift */; };
 		ECFC3E8A20B7585E005E192F /* AreasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8920B7585E005E192F /* AreasViewController.swift */; };
 		ECFC3E8C20B75F4C005E192F /* QueueState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3E8B20B75F4C005E192F /* QueueState.swift */; };
@@ -195,7 +195,7 @@
 		ECFC3E7E20B737A1005E192F /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
 		ECFC3E8020B737FF005E192F /* GenericEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericEvents.swift; sourceTree = "<group>"; };
 		ECFC3E8320B73816005E192F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		ECFC3E8520B73875005E192F /* FakeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeArea.swift; sourceTree = "<group>"; };
+		ECFC3E8520B73875005E192F /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
 		ECFC3E8720B738DC005E192F /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		ECFC3E8920B7585E005E192F /* AreasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreasViewController.swift; sourceTree = "<group>"; };
 		ECFC3E8B20B75F4C005E192F /* QueueState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueState.swift; sourceTree = "<group>"; };
@@ -457,7 +457,7 @@
 				EC68F43420DB04D0007CD5BE /* User */,
 				EC68F43520DB04DE007CD5BE /* Appointments */,
 				ECF63F7D20C89C2E001A8523 /* Result.swift */,
-				ECFC3E8520B73875005E192F /* FakeArea.swift */,
+				ECFC3E8520B73875005E192F /* Area.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -724,7 +724,7 @@
 				ECFC3E7920B730D6005E192F /* UITableView+Extensions.swift in Sources */,
 				EC0CE3942194C4AA00990087 /* LoadEmployeeForArea.swift in Sources */,
 				ECFC3EC120C1F6D0005E192F /* PersonalScheduleState.swift in Sources */,
-				ECFC3E8620B73875005E192F /* FakeArea.swift in Sources */,
+				ECFC3E8620B73875005E192F /* Area.swift in Sources */,
 				EC0CE38C2193936F00990087 /* BiometricsCell.swift in Sources */,
 				EC226E192187F8E70027F614 /* LoginState.swift in Sources */,
 				EC226E2E218908420027F614 /* Router.swift in Sources */,
