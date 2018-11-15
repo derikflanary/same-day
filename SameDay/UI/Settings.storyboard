@@ -92,7 +92,7 @@
                         <viewLayoutGuide key="safeArea" id="pl9-a6-na9"/>
                     </view>
                     <navigationItem key="navigationItem" id="afs-4R-DeF">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="cancel" id="FVe-nV-Ueh">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="cancel" id="FVe-nV-Ueh">
                             <connections>
                                 <action selector="dismissTapped:" destination="HbA-4B-PhX" id="SZO-ez-5f0"/>
                             </connections>

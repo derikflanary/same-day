@@ -14,8 +14,7 @@ struct AuthenticateToken: Command {
         if let _ = state.accessToken {
             core.fire(event: LoggedIn())
             if let userId = state.userState.currentUserId {
-                core.fire(command: LoadUser(userId: userId))
-                core.fire(command: LoadAppointments(for: userId))
+                core.fire(command: OnSuccessfulLogin(for: userId))
             }
         } else {
             core.fire(event: LoggedOut())

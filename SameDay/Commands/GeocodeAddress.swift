@@ -14,9 +14,9 @@ struct GeocodeAddress: Command {
 
     private var networkAccess: AppointmentNetworkAccess = AppointmentNetworkAPIAccess.sharedInstance
     var appointment: Appointment
-    var area: Area
+    var area: Area?
 
-    init(appointment: Appointment, area: Area) {
+    init(appointment: Appointment, area: Area?) {
         self.appointment = appointment
         self.area = area
     }
@@ -27,9 +27,13 @@ struct GeocodeAddress: Command {
             if let placemark = placemarks?.first {
                 var updatedAppointment = self.appointment
                 updatedAppointment.coordinates = placemark.location?.coordinate
-                var updatedArea = self.area
-                updatedArea.unassignedAppointments.replace(item: updatedAppointment)
-                core.fire(event: Updated(item: updatedArea))
+                if let area = self.area {
+                    var updatedArea = area
+                    updatedArea.unassignedAppointments.replace(item: updatedAppointment)
+                    core.fire(event: Updated(item: updatedArea))
+                } else {
+                    core.fire(event: Updated(item: updatedAppointment))
+                }
             } else if let error = error {
                 print(error)
             }

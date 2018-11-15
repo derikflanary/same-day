@@ -110,7 +110,7 @@
                                     <outlet property="ibCalendarDelegate" destination="hva-h7-Anc" id="V2g-L9-FMn"/>
                                 </connections>
                             </collectionView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ixk-tK-7XR">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ixk-tK-7XR">
                                 <rect key="frame" x="0.0" y="415" width="375" height="252"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="UG1-d0-xHl">
@@ -119,16 +119,16 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="JobCell" rowHeight="60" id="vJm-HT-CET" customClass="JobCell" customModule="SameDay" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="JobCell" rowHeight="60" id="vJm-HT-CET" customClass="JobCell" customModule="SameDay" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vJm-HT-CET" id="tqo-IJ-0B2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="328" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEt-XC-gKF">
-                                                    <rect key="frame" x="0.0" y="52" width="375" height="8"/>
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <rect key="frame" x="0.0" y="51.5" width="328" height="8"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="8" id="PhS-sC-VHM"/>
                                                     </constraints>
@@ -158,7 +158,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbF-vn-67D">
-                                                    <rect key="frame" x="359" y="22" width="8" height="8"/>
+                                                    <rect key="frame" x="312" y="22" width="8" height="8"/>
                                                     <color key="backgroundColor" red="0.31372549020000001" green="0.78823529410000004" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="8" id="O7y-Fu-6Hp"/>
@@ -170,12 +170,11 @@
                                                 <constraint firstAttribute="bottom" secondItem="WEt-XC-gKF" secondAttribute="bottom" id="3De-k9-rZi"/>
                                                 <constraint firstItem="C4Z-fQ-4Mg" firstAttribute="leading" secondItem="mYA-9q-BeJ" secondAttribute="leading" id="6d5-vU-GFN"/>
                                                 <constraint firstAttribute="trailing" secondItem="qbF-vn-67D" secondAttribute="trailing" constant="8" id="B8F-FD-88F"/>
-                                                <constraint firstItem="QIi-Xv-gcv" firstAttribute="top" secondItem="C4Z-fQ-4Mg" secondAttribute="top" id="C2x-hL-Gav"/>
                                                 <constraint firstAttribute="trailing" secondItem="WEt-XC-gKF" secondAttribute="trailing" id="FxZ-Fu-Upe"/>
                                                 <constraint firstItem="eJM-Qh-iEj" firstAttribute="leading" secondItem="tqo-IJ-0B2" secondAttribute="leading" constant="108" id="GD4-nh-tnp"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QIi-Xv-gcv" secondAttribute="trailing" constant="16" id="JtR-qC-Yhe"/>
+                                                <constraint firstItem="QIi-Xv-gcv" firstAttribute="top" secondItem="eJM-Qh-iEj" secondAttribute="bottom" constant="2" id="KWj-a1-ByI"/>
                                                 <constraint firstItem="QIi-Xv-gcv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="C4Z-fQ-4Mg" secondAttribute="trailing" constant="16" id="ORi-Ib-jaO"/>
-                                                <constraint firstItem="eJM-Qh-iEj" firstAttribute="top" secondItem="mYA-9q-BeJ" secondAttribute="top" id="Qy1-sy-KeX"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="QIi-Xv-gcv" secondAttribute="bottom" constant="12" id="TY9-3h-Gcm"/>
                                                 <constraint firstItem="QIi-Xv-gcv" firstAttribute="leading" secondItem="eJM-Qh-iEj" secondAttribute="leading" id="Tz0-fT-hYE"/>
                                                 <constraint firstItem="mYA-9q-BeJ" firstAttribute="top" secondItem="tqo-IJ-0B2" secondAttribute="top" constant="8" id="UDY-qx-EQu"/>
@@ -184,6 +183,7 @@
                                                 <constraint firstItem="eJM-Qh-iEj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mYA-9q-BeJ" secondAttribute="trailing" constant="16" id="Zrz-ZN-jU9"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eJM-Qh-iEj" secondAttribute="trailing" constant="16" id="dlK-Fe-KKs"/>
                                                 <constraint firstItem="mYA-9q-BeJ" firstAttribute="leading" secondItem="tqo-IJ-0B2" secondAttribute="leading" constant="16" id="ihD-Lp-ZEB"/>
+                                                <constraint firstItem="eJM-Qh-iEj" firstAttribute="top" secondItem="tqo-IJ-0B2" secondAttribute="top" constant="8" id="p3Q-an-9Wc"/>
                                                 <constraint firstItem="qbF-vn-67D" firstAttribute="centerY" secondItem="tqo-IJ-0B2" secondAttribute="centerY" constant="-4" id="rUJ-O6-NEg"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -277,7 +277,7 @@
                 <viewControllerPlaceholder storyboardName="Settings" id="upa-Uk-iUN" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ta3-5U-pUV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2306" y="830"/>
+            <point key="canvasLocation" x="2254" y="1072"/>
         </scene>
         <!--Personal Schedule-->
         <scene sceneID="uDO-UU-wFa">

@@ -22,8 +22,11 @@ struct LoadAppointments: SameDayAPICommand {
         network.sessionManager.request(urlRequest).responseMarshaled { response in
             if let json = response.value {
                 do {
-                    let appointments: [Appointment] = try json.value(for: "employee.open_appointments")
+                    let appointments: [Appointment] = try json.value(for: Keys.items)
                     core.fire(event: Loaded(object: appointments))
+                    for appointment in appointments {
+                        core.fire(command: GeocodeAddress(appointment: appointment, area: nil))
+                    }
                 } catch {
                     print(error)
                 }

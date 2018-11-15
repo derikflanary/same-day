@@ -43,11 +43,8 @@ class AppointmentDetailViewController: UIViewController {
 
     @objc func addressTapped() {
         guard let coordinates = appointment?.coordinates else { return }
-        if let url = URL(string:"comgooglemaps://?center=\(coordinates.latitude),\(coordinates.longitude)"), UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        } else {
-            print("Can't use comgooglemaps://");
-        }
+        guard let directionsURL = URL(string: "comgooglemaps://?saddr=&daddr=\(Float(coordinates.latitude)),\(Float(coordinates.longitude))&directionsmode=driving") else { return }
+        UIApplication.shared.open(directionsURL, options: [:], completionHandler: nil)
     }
 
     @IBAction func denyTapped() {

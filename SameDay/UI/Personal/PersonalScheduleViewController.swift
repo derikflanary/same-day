@@ -51,8 +51,6 @@ class PersonalScheduleViewController: UIViewController, Mappable, SegueHandlerTy
     override func viewDidLoad() {
         super.viewDidLoad()
         configureMap(for: topView)
-        calendarView.scrollToDate(Date())
-        calendarView.selectDates([Date()])
         tableView.refreshControl = refreshControl
         refreshControl.tintColor = UIColor.theme
     }
@@ -60,6 +58,8 @@ class PersonalScheduleViewController: UIViewController, Mappable, SegueHandlerTy
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         core.add(subscriber: self)
+        calendarView.scrollToDate(Date())
+        calendarView.selectDates([Date()])
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -74,9 +74,7 @@ class PersonalScheduleViewController: UIViewController, Mappable, SegueHandlerTy
         refreshControl.endRefreshing()
     }
 
-    @IBAction func profileTapped(_ sender: Any) {
-
-    }
+    @IBAction func profileTapped(_ sender: Any) { }
     
 }
 
@@ -112,7 +110,6 @@ extension PersonalScheduleViewController: JTAppleCalendarViewDataSource {
 extension PersonalScheduleViewController: JTAppleCalendarViewDelegate {
 
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
-
         let cell = calendar.dequeueReusableCalendarCell(for: indexPath) as CalendarCell
         cell.configure(with: date, cellState: cellState, datesWithAppointments: core.state.personalScheduleState.datesWithAppointments, selectedDate: core.state.personalScheduleState.selectedDate)
         return cell
@@ -187,7 +184,7 @@ extension PersonalScheduleViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didLongPressInfoWindowOf marker: GMSMarker) {
         guard let mapsURL = URL(string:"comgooglemaps://"), let directionsURL = URL(string: "comgooglemaps://?saddr=&daddr=\(Float(marker.position.latitude)),\(Float(marker.position.longitude))&directionsmode=driving") else { return }
         if UIApplication.shared.canOpenURL(mapsURL) {
-            UIApplication.shared.open(directionsURL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
+            UIApplication.shared.open(directionsURL, options: [:], completionHandler: nil)
         }
     }
 
@@ -205,19 +202,19 @@ extension PersonalScheduleViewController: GMSMapViewDelegate {
 
 extension PersonalScheduleViewController: UITableViewDelegate {
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         let appointment = tableViewDataSource.appointments[indexPath.row]
         core.fire(event: Selected(item: appointment))
         core.fire(event: Selected(item: AppointmentSourceType.personalSchedule))
         performSegueWithIdentifier(.showAppointmentDetail)
     }
 
-    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let appointment = tableViewDataSource.appointments[indexPath.row]
         guard let coordinate = appointment.coordinates else { return }
         mapView?.animate(to: GMSCameraPosition(target: coordinate, zoom: 15, bearing: 0, viewingAngle: 0))
         tableViewDataSource.selectedAppointment = appointment
-        tableView.reloadSections(IndexSet(integer: 0), with: .none)
+        tableView.reloadData()
     }
 
 }
@@ -228,7 +225,6 @@ extension PersonalScheduleViewController: UITableViewDelegate {
 private extension PersonalScheduleViewController {
 
     func addMarkersToMap(from appointments: [Appointment]) {
-        
         for marker in addedMarkers {
             marker.map = nil
         }
@@ -257,19 +253,14 @@ extension PersonalScheduleViewController: Subscriber {
 
     func update(with state: AppState) {
         tableViewDataSource.appointments = state.personalScheduleState.appointmentsOfSelectedDate
-        tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+        tableView.reloadData()
         addMarkersToMap(from: state.personalScheduleState.appointmentsOfSelectedDate)
         if tableViewDataSource.appointments.isEmpty {
             tableView.backgroundView = emptyStateView
         } else {
+            calendarView.reloadData()
             tableView.backgroundView = nil
         }
     }
 
-}
-
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }
