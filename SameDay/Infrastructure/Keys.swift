@@ -13,7 +13,7 @@ struct Keys {
     static let authToken = "authtoken"
     static let biometryIsEnabled = "biometryIsEnabled"
     static let biometryUsageRequested = "biometryUsageRequested"
-    static let employeeID = "employeeid"
+    static let employeeid = "employeeid"
     static let userid = "userid"
 
     static let address = "address"

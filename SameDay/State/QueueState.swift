@@ -30,13 +30,19 @@ struct QueueState: State {
         return true
     }
     
-
     mutating func react(to event: Event) {
         switch event {
         case let event as Loaded<[Area]>:
             areas = event.object
         case let event as Updated<Area>:
             areas.replace(item: event.item)
+        case let event as Updated<Appointment>:
+            let area = areas.first(where: { $0.unassignedAppointments.contains(event.item) } )
+            if let area = area, event.item.result != .open {
+                if let index = areas.index(of: area) {
+                    areas[index].unassignedAppointments.remove(item: event.item)
+                }
+            }
         default:
             break
         }

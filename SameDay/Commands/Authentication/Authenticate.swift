@@ -35,7 +35,7 @@ struct Authenticate: Command {
                     let authToken = try OAuth2Token(object: json)
                     try authToken.lock()
 
-                    let employeeId: Int = try json.value(for: Keys.employeeID)
+                    let employeeId: Int = try json.value(for: Keys.employeeid)
                     core.fire(event: AuthenticationSucceeded())
                     core.fire(command: OnSuccessfulLogin(for: employeeId))
                     self.addToKeychain()

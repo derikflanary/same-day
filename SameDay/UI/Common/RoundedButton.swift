@@ -29,7 +29,7 @@ import UIKit
         didSet {
             UIView.animate(withDuration: 0.10) {
                 self.transform = self.isHighlighted ? CGAffineTransform(scaleX: 1.02, y: 1.02) : .identity
-                self.alpha = self.isHighlighted ? 0.7 : 1.0
+                self.alpha = self.isHighlighted ? 0.9 : 1.0
             }
         }
     }

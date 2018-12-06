@@ -12,11 +12,6 @@ import CoreLocation
 
 struct Appointment: Unmarshaling {
 
-    enum Result: String {
-        case open = "Open"
-        case rescheduled = "Rescheduled"
-    }
-
     let addedByEmployeeId: Int
     let date: Date
     let areaId: Int
@@ -32,7 +27,7 @@ struct Appointment: Unmarshaling {
     let invoiceId: Int
     let lastModifiedById: Int?
     let modifiedDate: Date?
-    let result: Result
+    var result: AppointmentResult
     let startTime: Int
     var invoice: Invoice?
     let phone: String
@@ -102,7 +97,7 @@ struct Appointment: Unmarshaling {
             departure = departureString.date()
         }
         duration = try object.value(for: Keys.duration)
-        employeeId = try object.value(for: Keys.employeeID)
+        employeeId = try object.value(for: Keys.employeeid)
         endTime = try object.value(for: Keys.endTime)
         let etaString: String? = try object.value(for: Keys.eta)
         if let etaString = etaString {

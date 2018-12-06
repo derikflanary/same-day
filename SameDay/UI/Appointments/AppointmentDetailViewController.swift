@@ -48,15 +48,21 @@ class AppointmentDetailViewController: UIViewController {
     }
 
     @IBAction func denyTapped() {
-
+        updateAppointment(with: .open)
     }
 
     @IBAction func acceptTapped() {
-
+        updateAppointment(with: .enRoute)
     }
 
     @IBAction func completeTapped() {
-        
+        updateAppointment(with: .completed)
+    }
+
+    func updateAppointment(with result: AppointmentResult) {
+        guard let userId = core.state.userState.currentUserId, let appointment = appointment else { return }
+        core.fire(command: UpdateAppointment(for: userId, appointment: appointment, updateType: result))
+
     }
 
 }
@@ -82,7 +88,7 @@ extension AppointmentDetailViewController: Subscriber {
             completeButton.isHidden = true
         case .personalSchedule:
             acceptButton.isHidden = true
-            denyButton.isHidden = true
+            denyButton.isHidden = false
             completeButton.isHidden = false
         }
     }

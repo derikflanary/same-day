@@ -72,6 +72,7 @@
 		EC95DEEC20B49DF40093C3B6 /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95DEEB20B49DF40093C3B6 /* StoryboardInitializable.swift */; };
 		EC95DEEE20B49E4D0093C3B6 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95DEED20B49E4D0093C3B6 /* HomeTabBarController.swift */; };
 		EC9A30AC20C9AD8400A975E1 /* Marshal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9A30AB20C9AD8400A975E1 /* Marshal.framework */; };
+		ECA136F821AF3DF500169FCB /* UpdateAppointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA136F721AF3DF500169FCB /* UpdateAppointment.swift */; };
 		ECB3812A20E6A15E00DB7B88 /* UnassignedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB3812920E6A15E00DB7B88 /* UnassignedDataSource.swift */; };
 		ECB3812D20E6B53E00DB7B88 /* AppointmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB3812B20E6B53E00DB7B88 /* AppointmentCell.swift */; };
 		ECB3812E20E6B53E00DB7B88 /* AppointmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECB3812C20E6B53E00DB7B88 /* AppointmentCell.xib */; };
@@ -178,6 +179,7 @@
 		EC95DEEB20B49DF40093C3B6 /* StoryboardInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
 		EC95DEED20B49E4D0093C3B6 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		EC9A30AB20C9AD8400A975E1 /* Marshal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Marshal.framework; path = Carthage/Build/iOS/Marshal.framework; sourceTree = "<group>"; };
+		ECA136F721AF3DF500169FCB /* UpdateAppointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAppointment.swift; sourceTree = "<group>"; };
 		ECB3812920E6A15E00DB7B88 /* UnassignedDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnassignedDataSource.swift; sourceTree = "<group>"; };
 		ECB3812B20E6B53E00DB7B88 /* AppointmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentCell.swift; sourceTree = "<group>"; };
 		ECB3812C20E6B53E00DB7B88 /* AppointmentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppointmentCell.xib; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 				EC0CE3932194C4AA00990087 /* LoadEmployeeForArea.swift */,
 				EC68F43620DD3EDB007CD5BE /* LoadUnassignedAppointments.swift */,
 				ECBF78D520F6585F0091228E /* LoadManagerEmployees.swift */,
+				ECA136F721AF3DF500169FCB /* UpdateAppointment.swift */,
 				EC68F43820DD4A7E007CD5BE /* GeocodeAddress.swift */,
 				EC0CE3952194C68C00990087 /* Authentication */,
 			);
@@ -677,6 +680,7 @@
 				ECB3812A20E6A15E00DB7B88 /* UnassignedDataSource.swift in Sources */,
 				EC68F43320DB008B007CD5BE /* AppointmentNetworkAccess.swift in Sources */,
 				EC0CE3922194C37800990087 /* AreaRouter.swift in Sources */,
+				ECA136F821AF3DF500169FCB /* UpdateAppointment.swift in Sources */,
 				EC226E15218783140027F614 /* Authenticate.swift in Sources */,
 				EC226E3021891F820027F614 /* FetchCredentialsFromKeychain.swift in Sources */,
 				EC226E1D2188C7E80027F614 /* SameDayAPIEnvironment.swift in Sources */,

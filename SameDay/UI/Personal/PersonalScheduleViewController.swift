@@ -68,9 +68,8 @@ class PersonalScheduleViewController: UIViewController, Mappable, SegueHandlerTy
     }
 
     @objc func handleRefresh() {
-        tableViewDataSource.appointments = core.state.personalScheduleState.appointmentsOfSelectedDate
-        tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
-        addMarkersToMap(from: core.state.personalScheduleState.appointmentsOfSelectedDate)
+        guard let currentUserId = core.state.userState.currentUserId else { return }
+        core.fire(command: LoadAppointments(for: currentUserId))
         refreshControl.endRefreshing()
     }
 

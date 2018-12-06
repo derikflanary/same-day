@@ -14,20 +14,25 @@ extension Router {
     enum Appointment: URLRequestConvertible {
         case getAllAppointments(userId: Int)
         case getAppointmentsForArea(areaId: Int)
+        case postAppointmentUpdate(employeeId: Int, appointmentId: Int, updateType: String)
 
         var method: HTTPMethod {
             switch self {
             case .getAllAppointments, .getAppointmentsForArea:
                 return .get
+            case .postAppointmentUpdate:
+                return .post
             }
         }
 
         var path: String {
             switch self {
             case .getAllAppointments(let userId):
-                return "/Appointments/Open/\(userId)"
+                return "/Appointments/\(userId)"
             case .getAppointmentsForArea(let areaId):
                 return "/Area/\(areaId)/OpenAppointments"
+            case .postAppointmentUpdate:
+                return "/Appointment/Update"
             }
         }
 
@@ -40,6 +45,11 @@ extension Router {
             switch self {
             case .getAllAppointments, .getAppointmentsForArea:
                 break
+            case let .postAppointmentUpdate(employeeId, appointmentId, updateType):
+                urlRequest = try URLEncoding.default.encode(urlRequest, with: [
+                    Keys.employeeid: employeeId,
+                    Keys.id: appointmentId,
+                    Keys.result: updateType])
             }
             return urlRequest
         }
