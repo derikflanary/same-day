@@ -44,7 +44,6 @@ class NewAreaView: UIView {
     }
 
     @IBAction func saveButtonTapped() {
-        guard let name = name, let coordinate = coordinate else { return }
     }
 
 }

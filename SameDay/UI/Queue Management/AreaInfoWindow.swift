@@ -59,8 +59,8 @@ extension AreaInfoWindow: CustomInputAccessoryDelegate {
         endEditing(true)
         nameTextField.isUserInteractionEnabled = false
         nameTextField.borderStyle = .none
-        guard let area = area, let name = nameTextField.text else { return }
-        var updatedArea = area
+        guard let area = area, let _ = nameTextField.text else { return }
+        let updatedArea = area
         core.fire(event: Updated(item: updatedArea))
     }
 

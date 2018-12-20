@@ -14,11 +14,7 @@ class QueueManagementDataSource: NSObject, UITableViewDataSource {
     var users = [User]()
 
     var unassignedUsers: [User] {
-        var unusedUsers = users
-        for area in areas {
-//            unusedUsers = unusedUsers.filter { !area.users.contains($0) }
-        }
-        return unusedUsers
+        return users
     }
 
 

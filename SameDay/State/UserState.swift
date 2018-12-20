@@ -21,8 +21,11 @@ struct UserState: State {
     var users = [User(name: "Gilg Gwilliams"), User(name: "Mary Jane")]
     var areas = [Area]()
     var currentArea: Area? {
-        guard let defaultAreaId = currentUser?.defaultAreaId else { return nil }
-        return areas.filter { $0.id == defaultAreaId }.first
+        if let defaultAreaId = currentUser?.defaultAreaId {
+            return areas.filter { $0.id == defaultAreaId }.first
+        } else {
+            return areas.first
+        }
     }
 
     public func fetchCurrentUserId() throws -> Int? {

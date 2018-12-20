@@ -49,8 +49,8 @@ struct Employee: Unmarshaling {
         isRep = try object.value(for: Keys.isRep)
         isTech = try object.value(for: Keys.isTech)
         isActive = try object.value(for: Keys.isActive)
-        defaultAreaId = try object.value(for: Keys.defaultAreaId)
         areas = try object.value(for: Keys.areas)
+        defaultAreaId = try object.value(for: Keys.defaultAreaId)
     }
 
 }

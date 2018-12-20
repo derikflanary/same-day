@@ -171,7 +171,7 @@ extension AreasViewController: GMSMapViewDelegate {
     }
 
     func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
-        guard case var MapState.move(movedArea) = mapState else { return }
+        guard case let MapState.move(movedArea) = mapState else { return }
 //        movedArea.coordinate = marker.position
         core.fire(event: Updated(item: movedArea))
         mapState = .normal
