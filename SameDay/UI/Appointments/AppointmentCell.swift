@@ -10,7 +10,7 @@ import UIKit
 
 class AppointmentCell: UICollectionViewCell, ReusableView {
 
-    static var height: CGFloat = 152
+    static var height: CGFloat = 128
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!

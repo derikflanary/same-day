@@ -48,25 +48,68 @@ class AppointmentDetailViewController: UIViewController {
     }
 
     @IBAction func denyTapped() {
-        updateAppointment(with: .open)
+        denyButton.isLoading = true
+        updateAppointment(with: nil, updateType: .deny)
     }
 
     @IBAction func acceptTapped() {
-        updateAppointment(with: .enRoute)
+        guard let userId = core.state.userState.currentUserId else { return }
+        acceptButton.isLoading = true
+        updateAppointment(with: userId, updateType: .accept)
     }
 
     @IBAction func completeTapped() {
-        updateAppointment(with: .completed)
+        guard let userId = core.state.userState.currentUserId else { return }
+        completeButton.isLoading = true
+        updateAppointment(with: userId, updateType: .complete)
     }
-
-    func updateAppointment(with result: AppointmentResult) {
-        guard let userId = core.state.userState.currentUserId, let appointment = appointment else { return }
-        core.fire(command: UpdateAppointment(for: userId, appointment: appointment, updateType: result))
-
-    }
-
+    
 }
 
+
+// MARK: - Private function
+
+private extension AppointmentDetailViewController {
+    
+    func updateAppointment(with userId: Int?, updateType: AppointmentUpdateType) {
+        guard let appointment = appointment else { return }
+        disableButtons()
+        core.fire(command: UpdateAppointment(for: userId, appointment: appointment, updateType: .complete, completion: { succeeded, message in
+            self.completeButton.isLoading = false
+            self.enableButtons()
+            if succeeded {
+                self.showAlert(title: "Succeeded", message: updateType.successMessage, image: nil, completion: nil)
+                self.dismiss(animated: true, completion: nil)
+            } else if let message = message {
+                switch updateType {
+                case .accept:
+                    self.acceptButton.shake()
+                case .deny:
+                    self.denyButton.shake()
+                case .complete:
+                    self.completeButton.shake()
+                }
+                self.showErrorMessage(message)
+            }
+        }))
+    }
+    
+    func disableButtons() {
+        acceptButton.isEnabled = false
+        denyButton.isEnabled = false
+        completeButton.isEnabled = false
+    }
+    
+    func enableButtons() {
+        acceptButton.isEnabled = true
+        acceptButton.isLoading = false
+        denyButton.isEnabled = true
+        denyButton.isLoading = false
+        completeButton.isEnabled = true
+        completeButton.isLoading = false
+    }
+    
+}
 
 // MARK: - Subscriber
 

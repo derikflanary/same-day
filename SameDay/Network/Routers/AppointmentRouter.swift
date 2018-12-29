@@ -14,7 +14,7 @@ extension Router {
     enum Appointment: URLRequestConvertible {
         case getAllAppointments(userId: Int)
         case getAppointmentsForArea(areaId: Int)
-        case postAppointmentUpdate(employeeId: Int, appointmentId: Int, updateType: String)
+        case postAppointmentUpdate(employeeId: Int?, appointmentId: Int, updateType: String)
 
         var method: HTTPMethod {
             switch self {
@@ -46,10 +46,12 @@ extension Router {
             case .getAllAppointments, .getAppointmentsForArea:
                 break
             case let .postAppointmentUpdate(employeeId, appointmentId, updateType):
-                urlRequest = try URLEncoding.default.encode(urlRequest, with: [
-                    Keys.employeeid: employeeId,
-                    Keys.id: appointmentId,
-                    Keys.result: updateType])
+                var params: Parameters = [Keys.id: appointmentId,
+                                          Keys.result: updateType]
+                if let employeeId = employeeId {
+                    params[Keys.employeeid] = employeeId
+                }
+                urlRequest = try URLEncoding.default.encode(urlRequest, with: params)
             }
             return urlRequest
         }

@@ -31,7 +31,7 @@ struct Appointment: Unmarshaling {
     let startTime: Int
     var invoice: Invoice?
     let phone: String
-    let street: String
+    let street: String?
     let streetTwo: String?
     let zip: String
     let city: String
@@ -73,11 +73,11 @@ struct Appointment: Unmarshaling {
     }
 
     var displayName: String {
-        return "\(firstName) \(lastName)".lowercased().uppercased()
+        return "\(firstName) \(lastName)".lowercased().capitalized
     }
 
     var addressString: String {
-        return "\(street), \(city), \(state) \(zip)".lowercased().uppercased()
+        return "\(street ?? "No street address found"), \(city), \(state) \(zip)".lowercased().capitalized
     }
 
     init(object: MarshaledObject) throws {
