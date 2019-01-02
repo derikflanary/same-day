@@ -79,7 +79,7 @@ private extension AppointmentDetailViewController {
             self.enableButtons()
             if succeeded {
                 self.showAlert(title: "Succeeded", message: updateType.successMessage, image: nil, completion: nil)
-                self.dismiss(animated: true, completion: nil)
+                self.navigationController?.popViewController(animated: true)
             } else if let message = message {
                 switch updateType {
                 case .accept:

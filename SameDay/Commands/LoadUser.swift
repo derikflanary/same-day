@@ -28,9 +28,6 @@ struct LoadUser: SameDayAPICommand {
                     for area in employee.areas {
                         core.fire(command: LoadUnassignedAppointmentsForArea(area: area, startDate: nil))
                     }
-                    if employee.type == .manager {
-                        core.fire(command: LoadManagerEmployees(employee: employee))
-                    }
                 } catch {
                     print(error)
                 }

@@ -62,14 +62,14 @@ struct UpdateAppointment: SameDayAPICommand {
         network.sessionManager.request(urlRequest).responseMarshaled { response in
             if let json = response.value {
                 do {
-                    let code: Int = try json.value(for: "statuscode")
-                    if code == 200 {
+                    if let error: String = try json.value(for: Keys.error) {
+                        print(error)
+                        self.completion?(false, "Failed to update the appointment")
+                    } else {
                         var updatedAppointment = self.appointment
                         updatedAppointment.result = self.updateType.result
                         core.fire(event: Updated(item: updatedAppointment))
                         self.completion?(true, self.updateType.successMessage)
-                    } else {
-                        self.completion?(false, "Failed to update the appointment")
                     }
                 } catch {
                     self.completion?(false, "Failed to update the appointment")

@@ -51,7 +51,7 @@ extension Router {
                 if let employeeId = employeeId {
                     params[Keys.employeeid] = employeeId
                 }
-                urlRequest = try URLEncoding.default.encode(urlRequest, with: params)
+                urlRequest = try JSONEncoding.default.encode(urlRequest, with: params)
             }
             return urlRequest
         }
