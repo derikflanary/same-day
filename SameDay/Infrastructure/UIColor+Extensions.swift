@@ -23,6 +23,7 @@ extension UIColor {
     class var whiteOne: UIColor { return #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1) }
     class var grayOne: UIColor { return #colorLiteral(red: 0.662745098, green: 0.6745098039, blue: 0.7215686275, alpha: 1) }
     class var grayTwo: UIColor { return #colorLiteral(red: 0.5803921569, green: 0.5843137255, blue: 0.5921568627, alpha: 1) }
+    class var grayThree: UIColor { return #colorLiteral(red: 0.9506184715, green: 0.9506184715, blue: 0.9506184715, alpha: 1) }
     class var blackOne: UIColor { return #colorLiteral(red: 0.1294117647, green: 0.1294117647, blue: 0.1294117647, alpha: 1) }
 
 }

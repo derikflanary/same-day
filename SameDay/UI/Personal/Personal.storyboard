@@ -24,7 +24,7 @@
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="seE-1F-6tU" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
                                 <rect key="frame" x="0.0" y="355" width="375" height="60"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="6Ht-nC-4E7"/>
                                 </constraints>
@@ -79,7 +79,7 @@
                                                 </view>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="Crm-6y-jj1" secondAttribute="bottom" constant="18" id="FgE-mL-yOy"/>
                                             <constraint firstItem="4hJ-8a-ga5" firstAttribute="centerX" secondItem="OTd-p8-f6E" secondAttribute="centerX" id="LBk-ot-55H"/>
@@ -126,13 +126,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="328" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEt-XC-gKF">
-                                                    <rect key="frame" x="0.0" y="51.5" width="328" height="8"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="8" id="PhS-sC-VHM"/>
-                                                    </constraints>
-                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3:00 pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C4Z-fQ-4Mg">
                                                     <rect key="frame" x="16" y="27" width="55" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -167,10 +160,8 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="WEt-XC-gKF" secondAttribute="bottom" id="3De-k9-rZi"/>
                                                 <constraint firstItem="C4Z-fQ-4Mg" firstAttribute="leading" secondItem="mYA-9q-BeJ" secondAttribute="leading" id="6d5-vU-GFN"/>
                                                 <constraint firstAttribute="trailing" secondItem="qbF-vn-67D" secondAttribute="trailing" constant="8" id="B8F-FD-88F"/>
-                                                <constraint firstAttribute="trailing" secondItem="WEt-XC-gKF" secondAttribute="trailing" id="FxZ-Fu-Upe"/>
                                                 <constraint firstItem="eJM-Qh-iEj" firstAttribute="leading" secondItem="tqo-IJ-0B2" secondAttribute="leading" constant="108" id="GD4-nh-tnp"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QIi-Xv-gcv" secondAttribute="trailing" constant="16" id="JtR-qC-Yhe"/>
                                                 <constraint firstItem="QIi-Xv-gcv" firstAttribute="top" secondItem="eJM-Qh-iEj" secondAttribute="bottom" constant="2" id="KWj-a1-ByI"/>
@@ -178,7 +169,6 @@
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="QIi-Xv-gcv" secondAttribute="bottom" constant="12" id="TY9-3h-Gcm"/>
                                                 <constraint firstItem="QIi-Xv-gcv" firstAttribute="leading" secondItem="eJM-Qh-iEj" secondAttribute="leading" id="Tz0-fT-hYE"/>
                                                 <constraint firstItem="mYA-9q-BeJ" firstAttribute="top" secondItem="tqo-IJ-0B2" secondAttribute="top" constant="8" id="UDY-qx-EQu"/>
-                                                <constraint firstItem="WEt-XC-gKF" firstAttribute="leading" secondItem="tqo-IJ-0B2" secondAttribute="leading" id="Uqz-TN-lNA"/>
                                                 <constraint firstItem="C4Z-fQ-4Mg" firstAttribute="top" secondItem="mYA-9q-BeJ" secondAttribute="bottom" constant="2" id="Zfg-Dd-hoD"/>
                                                 <constraint firstItem="eJM-Qh-iEj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mYA-9q-BeJ" secondAttribute="trailing" constant="16" id="Zrz-ZN-jU9"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eJM-Qh-iEj" secondAttribute="trailing" constant="16" id="dlK-Fe-KKs"/>
@@ -208,7 +198,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ixk-tK-7XR" firstAttribute="leading" secondItem="aBD-Um-4qt" secondAttribute="leading" id="2kH-5R-WG0"/>
                             <constraint firstItem="WK6-e5-bht" firstAttribute="trailing" secondItem="aBD-Um-4qt" secondAttribute="trailing" id="7YR-09-BKB"/>

@@ -30,12 +30,7 @@ struct PersonalScheduleState: State {
         case let event as Loaded<[Appointment]>:
             appointments = event.object
         case let event as Updated<Appointment>:
-            let appointment = event.item
-            if !appointments.contains(appointment) && appointment.result == .enRoute {
-                appointments.append(appointment)
-            } else {
-                appointments.replace(item: event.item)
-            }
+            appointments.replace(item: event.item)
         default:
             break
         }

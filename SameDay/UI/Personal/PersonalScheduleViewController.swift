@@ -58,11 +58,11 @@ class PersonalScheduleViewController: UIViewController, Mappable, SegueHandlerTy
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         core.add(subscriber: self)
-        calendarView.scrollToDate(Date())
-        calendarView.selectDates([Date()])
     }
 
     override func viewDidDisappear(_ animated: Bool) {
+        calendarView.scrollToDate(Date())
+        calendarView.selectDates([Date()])
         super.viewDidDisappear(animated)
         core.remove(subscriber: self)
     }
