@@ -20,7 +20,7 @@ struct Appointment: Unmarshaling {
     let dateAdded: Date?
     var departure: Date? = nil
     let duration: Int
-    let employeeId: Int?
+    var employeeId: Int?
     let endTime: Int
     var eta: Date? = nil
     let id: Int

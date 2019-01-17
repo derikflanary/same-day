@@ -127,7 +127,7 @@ extension AppointmentDetailViewController: Subscriber {
         switch state.appointmentState.appointmentSourceType {
         case .potential:
             acceptButton.isHidden = false
-            denyButton.isHidden = false
+            denyButton.isHidden = true
             completeButton.isHidden = true
         case .personalSchedule:
             acceptButton.isHidden = true

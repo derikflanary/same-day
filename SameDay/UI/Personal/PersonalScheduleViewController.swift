@@ -53,16 +53,17 @@ class PersonalScheduleViewController: UIViewController, Mappable, SegueHandlerTy
         configureMap(for: topView)
         tableView.refreshControl = refreshControl
         refreshControl.tintColor = UIColor.theme
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         core.add(subscriber: self)
+        calendarView.scrollToDate(Date())
+        calendarView.selectDates([Date()])
     }
 
     override func viewDidDisappear(_ animated: Bool) {
-        calendarView.scrollToDate(Date())
-        calendarView.selectDates([Date()])
         super.viewDidDisappear(animated)
         core.remove(subscriber: self)
     }
@@ -88,9 +89,8 @@ extension PersonalScheduleViewController: JTAppleCalendarViewDataSource {
         formatter.timeZone = Calendar.current.timeZone
         formatter.locale = Calendar.current.locale
 
-
         let startDate = Calendar.current.date(byAdding: .month, value: -2, to: Date())!
-        let endDate = Calendar.current.date(byAdding: .year, value: 1, to: Date())!
+        let endDate = Calendar.current.date(byAdding: .month, value: 6, to: Date())!
         let parameters = ConfigurationParameters(startDate: startDate,
                                                  endDate: endDate,
                                                  numberOfRows: 1,
@@ -132,6 +132,8 @@ extension PersonalScheduleViewController: JTAppleCalendarViewDelegate {
         core.fire(event: Selected(item: date))
         calendarView.reloadData()
         tableViewDataSource.selectedAppointment = nil
+        let nameOfMonth = monthFormatter.string(from: date)
+        monthLabel.text = nameOfMonth
     }
 
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {

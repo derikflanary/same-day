@@ -31,6 +31,8 @@ struct PersonalScheduleState: State {
             appointments = event.object
         case let event as Updated<Appointment>:
             appointments.replace(item: event.item)
+        case let event as Deleted<Appointment>:
+            appointments.remove(item: event.item)
         default:
             break
         }

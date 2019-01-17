@@ -68,7 +68,12 @@ struct UpdateAppointment: SameDayAPICommand {
                     } else {
                         var updatedAppointment = self.appointment
                         updatedAppointment.result = self.updateType.result
-                        core.fire(event: Updated(item: updatedAppointment))
+                        updatedAppointment.employeeId = self.userId
+                        if updatedAppointment.employeeId == nil {
+                            core.fire(event: Deleted(item: updatedAppointment))
+                        } else {
+                            core.fire(event: Updated(item: updatedAppointment))                            
+                        }
                         self.completion?(true, self.updateType.successMessage)
                     }
                 } catch {
