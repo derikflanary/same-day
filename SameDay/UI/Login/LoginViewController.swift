@@ -10,12 +10,37 @@ import UIKit
 import Marshal
 
 class LoginViewController: UIViewController, StoryboardInitializable {
+    
+    enum AuthenticateState {
+        case login
+        case register
+
+        var title: String {
+            switch self {
+            case .login:
+                return "First time? Register here"
+            case .register:
+                return "Already registered? Login here"
+            }
+        }
+        
+        var submitTitle: String {
+            switch self {
+            case .login:
+                return "SUBMIT"
+            case .register:
+                return "REGISTER"
+            }
+        }
+        
+    }
 
     static var storyboardName = "Login"
     static var viewControllerIdentifier = "LoginViewController"
 
     var core = App.sharedCore
     var tapGestureRecognizer = UITapGestureRecognizer()
+    var authenticateState = AuthenticateState.login
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -25,7 +50,14 @@ class LoginViewController: UIViewController, StoryboardInitializable {
     @IBOutlet weak var logoCenterYConstraint: NSLayoutConstraint!
     @IBOutlet weak var logoTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var biometricsLoginButton: UIButton!
-
+    @IBOutlet weak var firstNameStackView: UIStackView!
+    @IBOutlet weak var lastNameStackView: UIStackView!
+    @IBOutlet weak var emailStackView: UIStackView!
+    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,9 +90,29 @@ class LoginViewController: UIViewController, StoryboardInitializable {
     }
     
     @IBAction func submitButtonTapped() {
-        guard let username = usernameTextField.text, let password = passwordTextField.text else { return }
-        core.fire(command: Authenticate(username: username, password: password))
-        submitButton.isLoading = !submitButton.isLoading
+        switch authenticateState {
+        case .login:
+            guard let username = usernameTextField.text, let password = passwordTextField.text else { return }
+            core.fire(command: Authenticate(username: username, password: password))
+            submitButton.isLoading = !submitButton.isLoading
+        case .register:
+            guard let username = usernameTextField.text,
+                let password = passwordTextField.text,
+                let firstName = firstNameTextField.text,
+                let lastName = lastNameTextField.text,
+                let email = emailTextField.text,
+                email.contains("@"),
+                email.contains(".")
+            else {
+                submitButton.isLoading = false
+                submitButton.shake()
+                showAlert(title: "Invalid Email", message: "Please enter a valid email address", image: nil, completion: nil)
+                return
+            }
+            core.fire(command: RegisterUser(username: username, password: password, firstname: firstName, lastname: lastName, email: email))
+            submitButton.isLoading = !submitButton.isLoading
+
+        }
     }
     
     @IBAction func biometricLoginButtonTapped() {
@@ -83,11 +135,50 @@ class LoginViewController: UIViewController, StoryboardInitializable {
 
 
     @IBAction func passwordReturnTapped(_ sender: Any) {
-        guard submitButton.isEnabled else { return }
-        passwordTextField.resignFirstResponder()
-        submitButtonTapped()
+        switch authenticateState {
+        case .login:
+            guard submitButton.isEnabled else { return }
+            passwordTextField.resignFirstResponder()
+            submitButtonTapped()
+        case .register:
+            firstNameTextField.becomeFirstResponder()
+        }
     }
 
+    @IBAction func firstNameReturnTapped() {
+        lastNameTextField.becomeFirstResponder()
+    }
+    
+    @IBAction func lastNameReturnTapped() {
+        emailTextField.becomeFirstResponder()
+    }
+    
+    
+    @IBAction func registerButtonTapped() {
+        switch authenticateState {
+        case .login:
+            authenticateState = .register
+            UIView.animate(withDuration: 0.5) {
+                self.firstNameStackView.isHidden = false
+                self.lastNameStackView.isHidden = false
+                self.emailStackView.isHidden = false
+                self.biometricsLoginButton.alpha = 0.0
+                self.logoImageView.alpha = 0.0
+            }
+        case .register:
+            authenticateState = .login
+            UIView.animate(withDuration: 0.5) {
+                self.firstNameStackView.isHidden = true
+                self.lastNameStackView.isHidden = true
+                self.emailStackView.isHidden = true
+                self.biometricsLoginButton.alpha = 1.0
+                self.logoImageView.alpha = 1.0
+            }
+        }
+        registerButton.setTitle(authenticateState.title, for: .normal)
+        submitButton.setTitle(authenticateState.submitTitle, for: .normal)
+    }
+    
 }
 
 
@@ -113,10 +204,19 @@ private extension LoginViewController {
     }
 
     func updateSubmitButton() {
-        if let username = usernameTextField.text, username != "", let password = passwordTextField.text, password != "" {
-            submitButton.isEnabled = true
-        } else {
-            submitButton.isEnabled = false
+        switch authenticateState {
+        case .login:
+            if let username = usernameTextField.text, username != "", let password = passwordTextField.text, password != "" {
+                submitButton.isEnabled = true
+            } else {
+                submitButton.isEnabled = false
+            }
+        case .register:
+            if let username = usernameTextField.text, username != "", let password = passwordTextField.text, password != "", let firstName = firstNameTextField.text, firstName != "", let lastName = lastNameTextField.text, lastName != "", let email = emailTextField.text, email != "" {
+                submitButton.isEnabled = true
+            } else {
+                submitButton.isEnabled = false
+            }
         }
     }
 }

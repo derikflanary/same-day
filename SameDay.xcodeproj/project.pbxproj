@@ -102,6 +102,8 @@
 		ECFC3EC320C1F8EE005E192F /* PersonalScheduleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3EC220C1F8EE005E192F /* PersonalScheduleDataSource.swift */; };
 		ECFC3EC520C1F923005E192F /* JobCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3EC420C1F923005E192F /* JobCell.swift */; };
 		ECFC3EC720C1FBC9005E192F /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC3EC620C1FBC9005E192F /* Date+Extensions.swift */; };
+		EE0B5FD521F7B0B50085560E /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0B5FD421F7B0B50085560E /* Register.swift */; };
+		EE0B5FD721F7B2070085560E /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0B5FD621F7B2070085560E /* RegisterUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -206,6 +208,8 @@
 		ECFC3EC220C1F8EE005E192F /* PersonalScheduleDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalScheduleDataSource.swift; sourceTree = "<group>"; };
 		ECFC3EC420C1F923005E192F /* JobCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCell.swift; sourceTree = "<group>"; };
 		ECFC3EC620C1FBC9005E192F /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		EE0B5FD421F7B0B50085560E /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		EE0B5FD621F7B2070085560E /* RegisterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
 		FE5BC21D9ACEF9E9CD9BD2A3 /* Pods-SameDay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SameDay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SameDay/Pods-SameDay.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -238,6 +242,7 @@
 			children = (
 				EC226E14218783140027F614 /* Authenticate.swift */,
 				EC226E3121891FA10027F614 /* AuthenticateToken.swift */,
+				EE0B5FD621F7B2070085560E /* RegisterUser.swift */,
 				EC226E2F21891F820027F614 /* FetchCredentialsFromKeychain.swift */,
 				EC226E252188EC0A0027F614 /* OnSuccessfulLogin.swift */,
 				EC226E292188F0EF0027F614 /* Logout.swift */,
@@ -265,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				EC226E2D218908420027F614 /* Router.swift */,
+				EE0B5FD421F7B0B50085560E /* Register.swift */,
 				EC226E0921876C6D0027F614 /* AppointmentRouter.swift */,
 				EC0CE3912194C37800990087 /* AreaRouter.swift */,
 				EC226E2B218908330027F614 /* UserRouter.swift */,
@@ -708,6 +714,7 @@
 				EC95DEEE20B49E4D0093C3B6 /* HomeTabBarController.swift in Sources */,
 				ECFC3E8E20B8619F005E192F /* NewAreaView.swift in Sources */,
 				ECFC3E9420BDB8CE005E192F /* CustomInputAccessoryView.swift in Sources */,
+				EE0B5FD721F7B2070085560E /* RegisterUser.swift in Sources */,
 				ECB3812D20E6B53E00DB7B88 /* AppointmentCell.swift in Sources */,
 				EC226E1F2188C8590027F614 /* NetworkConfig.swift in Sources */,
 				ECFC3EBF20C0600E005E192F /* CalendarCell.swift in Sources */,
@@ -737,6 +744,7 @@
 				ECF63F7A20C71F5F001A8523 /* Job.swift in Sources */,
 				EC226E0F218771100027F614 /* RoundedButton.swift in Sources */,
 				EC226E262188EC0A0027F614 /* OnSuccessfulLogin.swift in Sources */,
+				EE0B5FD521F7B0B50085560E /* Register.swift in Sources */,
 				EC68F42C20D9B114007CD5BE /* LoadUser.swift in Sources */,
 				EC2881C4219A49220022179D /* SegueHandlerType.swift in Sources */,
 				EC226E04218767080027F614 /* Alamofire+Marshal.swift in Sources */,

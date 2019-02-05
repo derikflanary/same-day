@@ -15,6 +15,8 @@ struct Keys {
     static let biometryUsageRequested = "biometryUsageRequested"
     static let employeeid = "employeeid"
     static let error = "error"
+    static let errors = "errors"
+    static let password = "password"
     static let userid = "userid"
 
     static let address = "address"

@@ -27,7 +27,7 @@ class SameDayAPIEnvironment: ProtectedAPIEnvironment, MockAPIEnvironment {
         self.bearerToken = bearerToken
         switch environment {
         case .prod:
-            self.forceRefresh = true
+            self.forceRefresh = false
             protocolClass = nil
         }
     }

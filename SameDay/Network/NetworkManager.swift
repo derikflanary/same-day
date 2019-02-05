@@ -113,6 +113,31 @@ class API {
     }
     
     /// This will call the refresh method of the environment before the request if
+    /// the environment requires a refresh before the request. Used to retrieve a
+    /// marshaled response.
+    ///
+    /// - Parameters:
+    ///   - urlRequest: Network request to be made
+    ///   - responseAs: Type of response that will be fired into state
+    ///   - core: The core object to use in firing events
+    ///   - completion: A callback for when the request has completed
+    func request<U>(_ urlRequest: URLRequestConvertible, with core: Core<U>, completion: @escaping ((DataResponse<MarshaledObject>) -> Void)) {
+        if let request = urlRequest.urlRequest {
+            core.fire(event: Requested(request: request))
+        }
+        guard let protected = environment as? ProtectedAPIEnvironment, protected.forceRefresh else {
+            sessionManager.request(urlRequest).responseMarshaled(completionHandler: completion)
+            return
+        }
+        
+        protected.refresh { [weak self] success in
+            self?.refreshComplete()
+            self?.sessionManager.request(urlRequest).responseMarshaled(completionHandler: completion)
+        }
+    }
+    
+    
+    /// This will call the refresh method of the environment before the request if
     /// the environment requires a refresh before the request. Used for a **list** of
     /// objects, instead of a single object.
     ///
