@@ -21,11 +21,9 @@ struct QueueState: State {
         return appointments
     }
     var allAreasLoaded: Bool {
-        guard areas.count > 0 else { return false }
+        guard areas.count > 0 else { return true }
         for area in areas {
-            if !area.isLoaded {
-                return false
-            }
+            return area.isLoaded
         }
         return true
     }

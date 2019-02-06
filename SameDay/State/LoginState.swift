@@ -11,7 +11,7 @@ import Foundation
 struct LoginState: State {
 
     var errorMessage: String?
-    var isLoggedIn = false
+    var isLoggedIn: Bool?
 
     mutating func react(to event: Event) {
         errorMessage = nil

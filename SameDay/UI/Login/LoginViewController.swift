@@ -256,7 +256,7 @@ extension LoginViewController: BiometricAuthenticatorDelegate {
 extension LoginViewController: Subscriber {
 
     func update(with state: AppState) {
-        if state.loginState.isLoggedIn {
+        if let isLoggedIn = state.loginState.isLoggedIn, isLoggedIn {
             submitButton.isLoading = false
         }
         if let message = state.loginState.errorMessage {

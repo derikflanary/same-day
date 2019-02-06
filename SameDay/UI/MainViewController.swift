@@ -54,10 +54,12 @@ private extension MainViewController {
 extension MainViewController: Subscriber {
 
     func update(with state: AppState) {
-        if state.loginState.isLoggedIn {
-            showHomeViewController()
-        } else {
-            showLoginViewController()
+        if let isLoggedIn = state.loginState.isLoggedIn {
+            if isLoggedIn {
+                showHomeViewController()
+            } else {
+                showLoginViewController()
+            }
         }
     }
 

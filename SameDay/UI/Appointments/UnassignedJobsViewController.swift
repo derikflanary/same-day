@@ -36,8 +36,8 @@ class UnassignedJobsViewController: UIViewController, SegueHandlerType {
         collectionView.setCollectionViewLayout(flowLayout, animated: true)
         collectionView.register(AppointmentCell.nib(), forCellWithReuseIdentifier: AppointmentCell.reuseIdentifier)
         collectionView.refreshControl = refreshControl
-        guard let area = core.state.userState.currentArea else { return }
-        core.fire(command: LoadUnassignedAppointmentsForArea(area: area, startDate: nil))
+        let areas = core.state.queueState.areas
+        core.fire(command: LoadAllUnassignedAppointments(for: areas))
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -52,8 +52,8 @@ class UnassignedJobsViewController: UIViewController, SegueHandlerType {
 
     @objc func handleRefresh() {
         refreshControl.endRefreshing()
-        guard let area = core.state.userState.currentArea else { return }
-        core.fire(command: LoadUnassignedAppointmentsForArea(area: area, startDate: nil))
+        let areas = core.state.queueState.areas
+        core.fire(command: LoadAllUnassignedAppointments(for: areas))
     }
 
 }

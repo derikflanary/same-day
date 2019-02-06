@@ -9,6 +9,23 @@
 import Foundation
 import Marshal
 
+
+struct LoadAllUnassignedAppointments: SameDayAPICommand {
+    
+    let areas: [Area]
+    
+    init(for areas: [Area]) {
+        self.areas = areas
+    }
+    
+    func execute(network: API, state: AppState, core: Core<AppState>) {
+        for area in areas {
+            core.fire(command: LoadUnassignedAppointmentsForArea(area: area, startDate: nil))
+        }
+    }
+    
+}
+
 struct LoadUnassignedAppointmentsForArea: SameDayAPICommand {
 
     let area: Area
