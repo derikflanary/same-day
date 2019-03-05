@@ -74,7 +74,7 @@ private extension AppointmentDetailViewController {
     func updateAppointment(with userId: Int?, updateType: AppointmentUpdateType) {
         guard let appointment = appointment else { return }
         disableButtons()
-        core.fire(command: UpdateAppointment(for: userId, appointment: appointment, updateType: .complete, completion: { succeeded, message in
+        core.fire(command: UpdateAppointment(for: userId, appointment: appointment, updateType: updateType, completion: { succeeded, message in
             self.completeButton.isLoading = false
             self.enableButtons()
             if succeeded {

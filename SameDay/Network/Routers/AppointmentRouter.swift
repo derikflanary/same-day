@@ -14,11 +14,12 @@ extension Router {
     enum Appointment: URLRequestConvertible {
         case getAllAppointments(userId: Int)
         case getAppointmentsForArea(areaId: Int)
+        case getAllOpenAppointment(userId: Int)
         case postAppointmentUpdate(employeeId: Int?, appointmentId: Int, updateType: String)
 
         var method: HTTPMethod {
             switch self {
-            case .getAllAppointments, .getAppointmentsForArea:
+            case .getAllAppointments, .getAppointmentsForArea, .getAllOpenAppointment:
                 return .get
             case .postAppointmentUpdate:
                 return .post
@@ -31,6 +32,8 @@ extension Router {
                 return "/Appointments/\(userId)"
             case .getAppointmentsForArea(let areaId):
                 return "/Area/\(areaId)/OpenAppointments"
+            case .getAllOpenAppointment(let userId):
+                return "/Appointments/open/\(userId)"
             case .postAppointmentUpdate:
                 return "/Appointment/Update"
             }
@@ -43,7 +46,7 @@ extension Router {
             urlRequest.httpMethod = method.rawValue
 
             switch self {
-            case .getAllAppointments, .getAppointmentsForArea:
+            case .getAllAppointments, .getAppointmentsForArea, .getAllOpenAppointment:
                 break
             case let .postAppointmentUpdate(employeeId, appointmentId, updateType):
                 var params: Parameters = [Keys.id: appointmentId,

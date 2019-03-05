@@ -36,13 +36,13 @@ class UnassignedJobsViewController: UIViewController, SegueHandlerType {
         collectionView.setCollectionViewLayout(flowLayout, animated: true)
         collectionView.register(AppointmentCell.nib(), forCellWithReuseIdentifier: AppointmentCell.reuseIdentifier)
         collectionView.refreshControl = refreshControl
-        let areas = core.state.queueState.areas
-        core.fire(command: LoadAllUnassignedAppointments(for: areas))
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         core.add(subscriber: self)
+        guard let currentUserId = core.state.userState.currentUserId else { return }
+        core.fire(command: LoadAllUnassignedAppointments(for: currentUserId))
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -52,8 +52,8 @@ class UnassignedJobsViewController: UIViewController, SegueHandlerType {
 
     @objc func handleRefresh() {
         refreshControl.endRefreshing()
-        let areas = core.state.queueState.areas
-        core.fire(command: LoadAllUnassignedAppointments(for: areas))
+        guard let currentUserId = core.state.userState.currentUserId else { return }
+        core.fire(command: LoadAllUnassignedAppointments(for: currentUserId))
     }
 
 }
@@ -109,7 +109,7 @@ extension UnassignedJobsViewController: Subscriber {
     func update(with state: AppState) {
         dataSource.appointments = state.queueState.potentialUnassignedAppointments
         collectionView.reloadData()
-        if state.queueState.allAreasLoaded {
+        if state.queueState.appointmentsLoaded {
             loadingIndicator.stopAnimating()
             collectionView.backgroundView = dataSource.appointments.isEmpty ? emptyStateView : nil
         } else {

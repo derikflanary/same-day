@@ -12,18 +12,38 @@ import Marshal
 
 struct LoadAllUnassignedAppointments: SameDayAPICommand {
     
-    let areas: [Area]
+    let userId: Int
     
-    init(for areas: [Area]) {
-        self.areas = areas
+    init(for userId: Int) {
+        self.userId = userId
     }
     
     func execute(network: API, state: AppState, core: Core<AppState>) {
-        for area in areas {
-            core.fire(command: LoadUnassignedAppointmentsForArea(area: area, startDate: nil))
+        let request = Router.Appointment.getAllOpenAppointment(userId: userId)
+        network.sessionManager.request(request).responseMarshaled { response in
+            if let json = response.value {
+                do {
+                    let appointments: [Appointment] = try json.value(for: Keys.items)
+                    if !appointments.isEmpty {
+                        print(json)
+                    }
+                    core.fire(event: LoadedUnassignedAppointment(appointments: appointments))
+                    for appointment in appointments {
+                        core.fire(command: GeocodeAddress(appointment: appointment, area: nil))
+                    }
+                } catch {
+                    print(error)
+                }
+            } else {
+                core.fire(event: LoadedUnassignedAppointment(appointments: []))
+            }
         }
     }
     
+}
+
+struct LoadedUnassignedAppointment: Event {
+    let appointments: [Appointment]
 }
 
 struct LoadUnassignedAppointmentsForArea: SameDayAPICommand {

@@ -177,6 +177,7 @@ class LoginViewController: UIViewController, StoryboardInitializable {
         }
         registerButton.setTitle(authenticateState.title, for: .normal)
         submitButton.setTitle(authenticateState.submitTitle, for: .normal)
+        updateSubmitButton()
     }
     
 }
