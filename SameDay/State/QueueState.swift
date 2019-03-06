@@ -27,7 +27,11 @@ struct QueueState: State {
             areas.replace(item: event.item)
         case let event as Updated<Appointment>:
             if let index = potentialUnassignedAppointments.index(of: event.item) {
-                potentialUnassignedAppointments[index] = event.item
+                if event.item.employeeId == nil {
+                    potentialUnassignedAppointments[index] = event.item
+                } else {
+                    potentialUnassignedAppointments.remove(at: index)
+                }
             }
         default:
             break

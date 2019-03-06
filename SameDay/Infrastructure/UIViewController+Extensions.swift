@@ -34,8 +34,8 @@ extension UIViewController {
         SwiftEntryKit.display(entry: contentView, using: attributes)
     }
 
-    func showErrorMessage(_ message: String) {
-        showAlert(title: message, message: nil, image: nil, completion: nil)
+    func showErrorMessage(_ title: String?, message: String? = nil) {
+        showAlert(title: title ?? "Something went wrong.", message: message, image: nil, completion: nil)
         App.sharedCore.fire(event: ErrorDisplayed())
     }
 

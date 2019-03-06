@@ -48,9 +48,9 @@ struct UpdateAppointment: SameDayAPICommand {
     let userId: Int?
     let appointment: Appointment
     let updateType: AppointmentUpdateType
-    var completion: ((Bool, String?) -> Void)?
+    var completion: ((Bool, String?, String?) -> Void)?
 
-    init(for userId: Int?, appointment: Appointment, updateType: AppointmentUpdateType, completion: ((Bool, String?) -> Void)?) {
+    init(for userId: Int?, appointment: Appointment, updateType: AppointmentUpdateType, completion: ((Bool, String?, String?) -> Void)?) {
         self.userId = userId
         self.appointment = appointment
         self.updateType = updateType
@@ -64,7 +64,7 @@ struct UpdateAppointment: SameDayAPICommand {
                 do {
                     if let error: String = try json.value(for: Keys.error) {
                         print(error)
-                        self.completion?(false, "Failed to update the appointment")
+                        self.completion?(false, "Failed to update the appointment", error)
                     } else {
                         var updatedAppointment = self.appointment
                         updatedAppointment.result = self.updateType.result
@@ -74,10 +74,10 @@ struct UpdateAppointment: SameDayAPICommand {
                         } else {
                             core.fire(event: Updated(item: updatedAppointment))                            
                         }
-                        self.completion?(true, self.updateType.successMessage)
+                        self.completion?(true, self.updateType.successMessage, nil)
                     }
                 } catch {
-                    self.completion?(false, "Failed to update the appointment")
+                    self.completion?(false, "Failed to update the appointment", nil)
                 }
             }
         }
