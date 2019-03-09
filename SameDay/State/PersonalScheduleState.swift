@@ -30,7 +30,7 @@ struct PersonalScheduleState: State {
         case let event as Loaded<[Appointment]>:
             appointments = event.object
         case let event as Updated<Appointment>:
-            appointments.replace(item: event.item)
+            appointments.replaceOrAdd(item: event.item)
         case let event as Deleted<Appointment>:
             appointments.remove(item: event.item)
         default:
