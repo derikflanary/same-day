@@ -24,6 +24,7 @@ class PersonalScheduleViewController: UIViewController, Mappable, SegueHandlerTy
     var mapView: GMSMapView?
     var zoomLevel: Float = 12.0
     var addedMarkers = [GMSMarker]()
+    var selectedDate = Date()
 
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -59,8 +60,9 @@ class PersonalScheduleViewController: UIViewController, Mappable, SegueHandlerTy
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         core.add(subscriber: self)
-        calendarView.scrollToDate(Date())
-        calendarView.selectDates([Date()])
+        calendarView.scrollToDate(Date(), triggerScrollToDateDelegate: false, animateScroll: false, preferredScrollPosition: nil, extraAddedOffset: 0) {
+            self.calendarView.selectDates([Date()])
+        }
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -125,11 +127,12 @@ extension PersonalScheduleViewController: JTAppleCalendarViewDelegate {
 
     func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
         let cell = cell as! CalendarCell
-        cell.dayLabel.text = cellState.text
+        cell.configure(with: date, cellState: cellState, datesWithAppointments: core.state.personalScheduleState.datesWithAppointments, selectedDate: core.state.personalScheduleState.selectedDate)
     }
 
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         core.fire(event: Selected(item: date))
+        
         calendarView.reloadData()
         tableViewDataSource.selectedAppointment = nil
         let nameOfMonth = monthFormatter.string(from: date)
@@ -255,11 +258,12 @@ extension PersonalScheduleViewController: Subscriber {
     func update(with state: AppState) {
         tableViewDataSource.appointments = state.personalScheduleState.appointmentsOfSelectedDate
         tableView.reloadData()
+        calendarView.reloadData()
+        calendarView.reloadDates([state.personalScheduleState.selectedDate])
         addMarkersToMap(from: state.personalScheduleState.appointmentsOfSelectedDate)
         if tableViewDataSource.appointments.isEmpty {
             tableView.backgroundView = emptyStateView
         } else {
-            calendarView.reloadData()
             tableView.backgroundView = nil
         }
     }

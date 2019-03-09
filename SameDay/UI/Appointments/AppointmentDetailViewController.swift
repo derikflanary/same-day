@@ -23,7 +23,10 @@ class AppointmentDetailViewController: UIViewController {
     @IBOutlet weak var denyButton: RoundedButton!
     @IBOutlet weak var acceptButton: RoundedButton!
     @IBOutlet weak var completeButton: RoundedButton!
-
+    @IBOutlet weak var promotionLabel: UILabel!
+    @IBOutlet weak var numberOfReceiversLabel: UILabel!
+    @IBOutlet weak var receiverTypesLabel: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

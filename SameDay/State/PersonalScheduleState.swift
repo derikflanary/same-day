@@ -16,7 +16,7 @@ struct PersonalScheduleState: State {
 
     var appointmentsOfSelectedDate: [Appointment] {
         let filteredAppointments = appointments.filter { Calendar.current.compare($0.date, to: selectedDate, toGranularity: .day) == .orderedSame }
-        return filteredAppointments.sorted(by:  { $0.date < $1.date })
+        return filteredAppointments.sorted(by:  { $0.date < $1.date && $0.result != .completed })
     }
 
     var datesWithAppointments: [Date] {

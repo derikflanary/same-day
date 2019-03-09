@@ -15,9 +15,18 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
         case biometrics
         case logout
     }
+    
+    var shouldUseBiometricAuth: Bool {
+        guard let biometryEnabled = BiometricAuthenticator.sharedInstance.biometryIsEnabled else { return false }
+        return biometryEnabled
+    }
+    
+    var sections: [Sections] {
+        return shouldUseBiometricAuth ? [.biometrics, .logout] : [.logout]
+    }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return Sections.allCases.count
+        return sections.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -25,7 +34,7 @@ class SettingsDataSource: NSObject, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let section = Sections.allCases[indexPath.section]
+        let section = sections[indexPath.section]
         switch section {
         case .biometrics:
             let cell = tableView.dequeueReusableCell() as BiometricsCell
