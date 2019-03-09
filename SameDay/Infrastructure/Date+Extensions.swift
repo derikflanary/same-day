@@ -189,3 +189,18 @@ extension String {
     
 }
 
+extension Int {
+    
+    func timeWindowString() -> String {
+        let militaryTimeInt = self / 2
+        let dateAsString = "\(militaryTimeInt):00"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        let date = dateFormatter.date(from: dateAsString)
+        dateFormatter.dateFormat = "h:mm a"
+        let date12 = dateFormatter.string(from: date!)
+        return date12
+    }
+    
+}
+

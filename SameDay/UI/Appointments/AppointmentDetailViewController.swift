@@ -124,7 +124,7 @@ extension AppointmentDetailViewController: Subscriber {
         nameLabel.text = appointment.displayName
         addressLabel.text = appointment.addressString
         dateLabel.text = appointment.displayStartDateAndTime ?? appointment.date.weekDayMonthDayString()
-        windowLabel.text = appointment.displayEndDateAndTime
+        windowLabel.text = appointment.windowString
         phoneLabel.text = appointment.phone.asPhoneNumber()
         areaLabel.text = appointment.areaName
         switch state.appointmentState.appointmentSourceType {

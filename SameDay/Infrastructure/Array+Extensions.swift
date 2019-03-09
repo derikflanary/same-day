@@ -15,6 +15,14 @@ extension Array where Element: Equatable  {
             self[index] = item
         }
     }
+    
+    mutating func replaceOrAdd(item: Element) {
+        if let index = index(of: item) {
+            self[index] = item
+        } else {
+            append(item)
+        }
+    }
 
     mutating func remove(item: Element) {
         if let index = index(of: item) {

@@ -40,6 +40,12 @@ struct Appointment: Unmarshaling {
     let state: String
     var coordinates: CLLocationCoordinate2D?
 
+    var windowString: String {
+        let startTimeString = startTime.timeWindowString()
+        let endTimeString = endTime.timeWindowString()
+        return "\(startTimeString)-\(endTimeString)"
+    }
+    
     var displayStartTime: String? {
         guard let arrival = arrival else { return nil }
         let formatter = DateFormatter()
