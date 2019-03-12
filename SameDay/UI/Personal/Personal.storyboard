@@ -197,6 +197,9 @@
                                 <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Yjo-R7-LEM">
+                                <rect key="frame" x="177.5" y="531" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -206,10 +209,12 @@
                             <constraint firstItem="ixk-tK-7XR" firstAttribute="top" secondItem="seE-1F-6tU" secondAttribute="bottom" id="EDp-5V-Za7"/>
                             <constraint firstItem="ixk-tK-7XR" firstAttribute="trailing" secondItem="aBD-Um-4qt" secondAttribute="trailing" id="IEw-2s-Xb8"/>
                             <constraint firstItem="seE-1F-6tU" firstAttribute="top" secondItem="WK6-e5-bht" secondAttribute="bottom" constant="24" id="aGw-wl-E0x"/>
+                            <constraint firstItem="Yjo-R7-LEM" firstAttribute="centerY" secondItem="ixk-tK-7XR" secondAttribute="centerY" id="anI-Ii-ecY"/>
                             <constraint firstItem="ixk-tK-7XR" firstAttribute="bottom" secondItem="aBD-Um-4qt" secondAttribute="bottom" id="aog-nW-mYb"/>
                             <constraint firstItem="WK6-e5-bht" firstAttribute="height" secondItem="xcr-Ed-e0m" secondAttribute="height" multiplier="0.4" id="ejB-iv-Z3t"/>
                             <constraint firstItem="seE-1F-6tU" firstAttribute="top" secondItem="q62-l4-YOw" secondAttribute="bottom" constant="4" id="pLD-3n-Xpr"/>
                             <constraint firstItem="seE-1F-6tU" firstAttribute="leading" secondItem="aBD-Um-4qt" secondAttribute="leading" id="vuq-Vj-bI4"/>
+                            <constraint firstItem="Yjo-R7-LEM" firstAttribute="centerX" secondItem="ixk-tK-7XR" secondAttribute="centerX" id="wBd-wf-Bph"/>
                             <constraint firstItem="q62-l4-YOw" firstAttribute="top" secondItem="WK6-e5-bht" secondAttribute="bottom" constant="4" id="wEe-p9-0QO"/>
                             <constraint firstItem="seE-1F-6tU" firstAttribute="trailing" secondItem="aBD-Um-4qt" secondAttribute="trailing" id="wvg-K2-e6V"/>
                             <constraint firstItem="q62-l4-YOw" firstAttribute="leading" secondItem="aBD-Um-4qt" secondAttribute="leading" constant="16" id="wxc-ar-8ii"/>
@@ -228,6 +233,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="Yjo-R7-LEM" id="hBg-sU-h7V"/>
                         <outlet property="calendarView" destination="seE-1F-6tU" id="roh-Ih-Mq9"/>
                         <outlet property="emptyStateView" destination="Ljf-k7-jai" id="oNW-4a-qfi"/>
                         <outlet property="monthLabel" destination="q62-l4-YOw" id="nOG-ZY-uIR"/>

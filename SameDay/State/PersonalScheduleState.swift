@@ -13,10 +13,11 @@ struct PersonalScheduleState: State {
 
     var selectedDate = Date()
     var appointments = [Appointment]()
+    var allAppointmentsLoaded = false
 
     var appointmentsOfSelectedDate: [Appointment] {
         let filteredAppointments = appointments.filter { Calendar.current.compare($0.date, to: selectedDate, toGranularity: .day) == .orderedSame }
-        return filteredAppointments.sorted(by:  { $0.date < $1.date && $0.result != .completed })
+        return filteredAppointments.sorted(by:  { $0.date < $1.date })
     }
 
     var datesWithAppointments: [Date] {
@@ -29,6 +30,7 @@ struct PersonalScheduleState: State {
             selectedDate = event.item
         case let event as Loaded<[Appointment]>:
             appointments = event.object
+            allAppointmentsLoaded = true
         case let event as Updated<Appointment>:
             appointments.replaceOrAdd(item: event.item)
         case let event as Deleted<Appointment>:

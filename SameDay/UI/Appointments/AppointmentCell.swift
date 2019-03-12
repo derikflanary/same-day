@@ -29,8 +29,8 @@ class AppointmentCell: UICollectionViewCell, ReusableView {
         nameLabel.text = appointment.displayName
         areaLabel.text = appointment.areaName
         addressLabel.text = appointment.addressString
-        dateLabel.text = appointment.displayStartDateAndTime ?? appointment.date.weekDayMonthDayString()
-        windowLabel.text = appointment.displayEndDateAndTime
+        dateLabel.text = appointment.date.weekDayMonthDayString()
+        windowLabel.text = appointment.windowString
     }
 
 }

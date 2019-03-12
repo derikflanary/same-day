@@ -39,6 +39,7 @@ struct Appointment: Unmarshaling {
     let lastName: String
     let state: String
     var coordinates: CLLocationCoordinate2D?
+    var lineItems = [String]()
 
     var windowString: String {
         let startTimeString = startTime.timeWindowString()
@@ -46,12 +47,8 @@ struct Appointment: Unmarshaling {
         return "\(startTimeString)-\(endTimeString)"
     }
     
-    var displayStartTime: String? {
-        guard let arrival = arrival else { return nil }
-        let formatter = DateFormatter()
-        formatter.timeStyle = .short
-        formatter.dateStyle = .none
-        return formatter.string(from: arrival)
+    var displayStartTime: String {
+        return startTime.timeWindowString()
     }
 
     var displayStartDateAndTime: String? {
@@ -62,12 +59,8 @@ struct Appointment: Unmarshaling {
         return formatter.string(from: arrival)
     }
 
-    var displayEndTime: String? {
-        guard let arrival = arrival else { return nil }
-        let formatter = DateFormatter()
-        formatter.timeStyle = .short
-        formatter.dateStyle = .none
-        return formatter.string(from: duration.hours.after(arrival))
+    var displayEndTime: String {
+        return endTime.timeWindowString()
     }
 
     var displayEndDateAndTime: String? {
@@ -125,6 +118,7 @@ struct Appointment: Unmarshaling {
         state = try object.value(for: Keys.state)
         firstName = try object.value(for: Keys.firstName)
         lastName = try object.value(for: Keys.lastName)
+        lineItems = try object.value(for: Keys.lineItems)
     }
 }
 

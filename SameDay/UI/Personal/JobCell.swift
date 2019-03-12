@@ -32,7 +32,6 @@ class JobCell: UITableViewCell, ReusableView {
             startTimeLabel.text = appointment.result.rawValue
             endTimeLabel.text = ""
             contentView.backgroundColor = UIColor.grayThree
-//            accessoryType = .none
         default:
             startTimeLabel.text = appointment.displayStartTime
             endTimeLabel.text = appointment.displayEndTime

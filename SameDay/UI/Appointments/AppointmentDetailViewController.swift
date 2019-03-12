@@ -127,6 +127,9 @@ extension AppointmentDetailViewController: Subscriber {
         windowLabel.text = appointment.windowString
         phoneLabel.text = appointment.phone.asPhoneNumber()
         areaLabel.text = appointment.areaName
+        promotionLabel.text = "Promotion: -"
+        numberOfReceiversLabel.text = "Number TVs: 0"
+        receiverTypesLabel.text = appointment.lineItems.count == 0 ? "" : appointment.lineItems.joined(separator: ", ")
         switch state.appointmentState.appointmentSourceType {
         case .potential:
             acceptButton.isHidden = false

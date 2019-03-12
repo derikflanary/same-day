@@ -45,8 +45,9 @@ class PersonalScheduleViewController: UIViewController, Mappable, SegueHandlerTy
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet var emptyStateView: UIView!
-
-
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    
     // MARK: - View life cycle
 
     override func viewDidLoad() {
@@ -262,8 +263,13 @@ extension PersonalScheduleViewController: Subscriber {
         calendarView.reloadDates([state.personalScheduleState.selectedDate])
         addMarkersToMap(from: state.personalScheduleState.appointmentsOfSelectedDate)
         if tableViewDataSource.appointments.isEmpty {
-            tableView.backgroundView = emptyStateView
+            if state.personalScheduleState.allAppointmentsLoaded {
+                tableView.backgroundView = emptyStateView
+            } else {
+                activityIndicator.startAnimating()
+            }
         } else {
+            activityIndicator.stopAnimating()
             tableView.backgroundView = nil
         }
     }
