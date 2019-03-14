@@ -40,6 +40,12 @@ struct AppState: State {
     }
 
     mutating func react(to event: Event) {
+        switch event {
+        case let event as LoggedOut:
+            self = AppState()
+        default:
+            break
+        }
         loginState.react(to: event)
         userState.react(to: event)
         queueState.react(to: event)

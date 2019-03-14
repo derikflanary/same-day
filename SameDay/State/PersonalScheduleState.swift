@@ -12,11 +12,16 @@ import CoreLocation
 struct PersonalScheduleState: State {
 
     var selectedDate = Date()
-    var appointments = [Appointment]()
+    var appointments = [Appointment]() {
+        didSet {
+            appointments = appointments.filter { $0.result != .completed }
+        }
+    }
     var allAppointmentsLoaded = false
 
     var appointmentsOfSelectedDate: [Appointment] {
         let filteredAppointments = appointments.filter { Calendar.current.compare($0.date, to: selectedDate, toGranularity: .day) == .orderedSame }
+        
         return filteredAppointments.sorted(by:  { $0.date < $1.date })
     }
 

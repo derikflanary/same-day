@@ -209,17 +209,17 @@ extension PersonalScheduleViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         let appointment = tableViewDataSource.appointments[indexPath.row]
-        core.fire(event: Selected(item: appointment))
-        core.fire(event: Selected(item: AppointmentSourceType.personalSchedule))
-        performSegueWithIdentifier(.showAppointmentDetail)
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let appointment = tableViewDataSource.appointments[indexPath.row]
         guard let coordinate = appointment.coordinates else { return }
         mapView?.animate(to: GMSCameraPosition(target: coordinate, zoom: 15, bearing: 0, viewingAngle: 0))
         tableViewDataSource.selectedAppointment = appointment
         tableView.reloadData()
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let appointment = tableViewDataSource.appointments[indexPath.row]
+        core.fire(event: Selected(item: appointment))
+        core.fire(event: Selected(item: AppointmentSourceType.personalSchedule))
+        performSegueWithIdentifier(.showAppointmentDetail)
     }
 
 }

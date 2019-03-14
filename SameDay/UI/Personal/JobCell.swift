@@ -36,7 +36,7 @@ class JobCell: UITableViewCell, ReusableView {
             startTimeLabel.text = appointment.displayStartTime
             endTimeLabel.text = appointment.displayEndTime
             contentView.backgroundColor = .white
-            accessoryType = .detailButton
+            accessoryType = appointment.coordinates != nil ? .detailDisclosureButton : .disclosureIndicator
         }
     }
     

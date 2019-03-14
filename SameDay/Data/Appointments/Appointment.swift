@@ -39,7 +39,13 @@ struct Appointment: Unmarshaling {
     let lastName: String
     let state: String
     var coordinates: CLLocationCoordinate2D?
+    let promotion: String
+    let numberTvs: Int
     var lineItems = [String]()
+    
+    var lineItemString: String {
+        return lineItems.count > 0 ? lineItems.joined(separator: ", ") : "-"
+    }
 
     var windowString: String {
         let startTimeString = startTime.timeWindowString()
@@ -119,6 +125,8 @@ struct Appointment: Unmarshaling {
         firstName = try object.value(for: Keys.firstName)
         lastName = try object.value(for: Keys.lastName)
         lineItems = try object.value(for: Keys.lineItems)
+        promotion = try object.value(for: Keys.promotion)
+        numberTvs = try object.value(for: Keys.numberTvs)
     }
 }
 

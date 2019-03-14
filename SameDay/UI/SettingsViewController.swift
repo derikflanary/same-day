@@ -37,7 +37,7 @@ class SettingsViewController: UIViewController {
 extension SettingsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let section = SettingsDataSource.Sections.allCases[indexPath.section]
+        let section = datasource.sections[indexPath.row]
         switch section {
         case .biometrics:
             break
