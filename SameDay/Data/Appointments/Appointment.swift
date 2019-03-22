@@ -41,10 +41,10 @@ struct Appointment: Unmarshaling {
     var coordinates: CLLocationCoordinate2D?
     let promotion: String
     let numberTvs: Int
-    var lineItems = [String]()
+    var receivers = [String]()
     
-    var lineItemString: String {
-        return lineItems.count > 0 ? lineItems.joined(separator: ", ") : "-"
+    var receiversString: String {
+        return receivers.count > 0 ? receivers.joined(separator: ", ") : "-"
     }
 
     var windowString: String {
@@ -103,6 +103,9 @@ struct Appointment: Unmarshaling {
         }
         duration = try object.value(for: Keys.duration)
         employeeId = try object.value(for: Keys.employeeid)
+        if employeeId == 0 {
+            employeeId = nil
+        }
         endTime = try object.value(for: Keys.endTime)
         let etaString: String? = try object.value(for: Keys.eta)
         if let etaString = etaString {
@@ -124,7 +127,7 @@ struct Appointment: Unmarshaling {
         state = try object.value(for: Keys.state)
         firstName = try object.value(for: Keys.firstName)
         lastName = try object.value(for: Keys.lastName)
-        lineItems = try object.value(for: Keys.lineItems)
+        receivers = try object.value(for: Keys.receiverlist)
         promotion = try object.value(for: Keys.promotion)
         numberTvs = try object.value(for: Keys.numberTvs)
     }

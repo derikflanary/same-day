@@ -26,12 +26,13 @@ class JobCell: UITableViewCell, ReusableView {
     func configure(with appointment: Appointment, isSelected: Bool) {
         titleLabel.text = appointment.displayName
         addressLabel.text = appointment.addressString
-        selectedView.isHidden = !isSelected
+        selectedView.isHidden = true
         switch appointment.result {
         case .completed:
             startTimeLabel.text = appointment.result.rawValue
             endTimeLabel.text = ""
             contentView.backgroundColor = UIColor.grayThree
+            accessoryType = .none
         default:
             startTimeLabel.text = appointment.displayStartTime
             endTimeLabel.text = appointment.displayEndTime

@@ -75,6 +75,7 @@ struct Keys {
     static let promotion = "promotion"
     static let kitId = "kitid"
     static let receivers = "receivers"
+    static let receiverlist = "receiverlist"
     static let upgradeOptions = "upgradeoptions"
     static let basePackageId = "basepackageid"
     static let programmingQuote = "programmingquote"

@@ -45,13 +45,13 @@ enum AppointmentUpdateType {
 
 struct UpdateAppointment: SameDayAPICommand {
 
-    let userId: Int?
+    let userId: Int
     let appointment: Appointment
     let updateType: AppointmentUpdateType
     var completion: ((Bool, String?, String?) -> Void)?
 
     init(for userId: Int?, appointment: Appointment, updateType: AppointmentUpdateType, completion: ((Bool, String?, String?) -> Void)?) {
-        self.userId = userId
+        self.userId = userId ?? 0
         self.appointment = appointment
         self.updateType = updateType
         self.completion = completion
@@ -68,11 +68,13 @@ struct UpdateAppointment: SameDayAPICommand {
                     } else {
                         var updatedAppointment = self.appointment
                         updatedAppointment.result = self.updateType.result
-                        updatedAppointment.employeeId = self.userId
-                        if updatedAppointment.employeeId == nil {
+                        switch self.updateType {
+                        case .accept, .complete:
+                            updatedAppointment.employeeId = self.userId
+                            core.fire(event: Updated(item: updatedAppointment))
+                        case .deny:
+                            updatedAppointment.employeeId = nil
                             core.fire(event: Deleted(item: updatedAppointment))
-                        } else {
-                            core.fire(event: Updated(item: updatedAppointment))                            
                         }
                         self.completion?(true, self.updateType.successMessage, nil)
                     }

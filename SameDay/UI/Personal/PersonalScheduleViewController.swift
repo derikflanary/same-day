@@ -210,7 +210,7 @@ extension PersonalScheduleViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         let appointment = tableViewDataSource.appointments[indexPath.row]
         guard let coordinate = appointment.coordinates else { return }
-        mapView?.animate(to: GMSCameraPosition(target: coordinate, zoom: 15, bearing: 0, viewingAngle: 0))
+        mapView?.animate(to: GMSCameraPosition(target: coordinate, zoom: 12, bearing: 0, viewingAngle: 0))
         tableViewDataSource.selectedAppointment = appointment
         tableView.reloadData()
     }
@@ -265,6 +265,7 @@ extension PersonalScheduleViewController: Subscriber {
         if tableViewDataSource.appointments.isEmpty {
             if state.personalScheduleState.allAppointmentsLoaded {
                 tableView.backgroundView = emptyStateView
+                activityIndicator.stopAnimating()
             } else {
                 activityIndicator.startAnimating()
             }

@@ -33,6 +33,9 @@ struct QueueState: State {
                     potentialUnassignedAppointments.remove(at: index)
                 }
             }
+        case let event as Deleted<Appointment>:
+            guard event.item.result == .open && event.item.employeeId == nil else { break }
+            potentialUnassignedAppointments.append(event.item)
         default:
             break
         }
