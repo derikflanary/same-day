@@ -55,7 +55,6 @@ class PersonalScheduleViewController: UIViewController, Mappable, SegueHandlerTy
         configureMap(for: topView)
         tableView.refreshControl = refreshControl
         refreshControl.tintColor = UIColor.theme
-        
     }
 
     override func viewWillAppear(_ animated: Bool) {

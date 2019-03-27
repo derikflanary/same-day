@@ -14,7 +14,7 @@ extension UIViewController {
 
     func showAlert(title: String, message: String?, image: UIImage?, completion: (() -> Void)?) {
         var attributes = EKAttributes()
-        attributes.position = .bottom
+        attributes.position = .top
         attributes.displayDuration = 3
         attributes.screenInteraction = .forward
         attributes.roundCorners = .all(radius: 10)
