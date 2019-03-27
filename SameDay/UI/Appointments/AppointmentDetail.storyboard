@@ -14,7 +14,7 @@
         <scene sceneID="Mn7-Pw-BV4">
             <objects>
                 <viewController title="Appointment Details" id="iLk-pa-aZW" customClass="AppointmentDetailViewController" customModule="SameDay" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="eNY-Bi-VrK">
+                    <view key="view" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" id="eNY-Bi-VrK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -133,13 +133,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="JkA-oI-B8P" firstAttribute="trailing" secondItem="QKm-qi-fdv" secondAttribute="trailing" constant="16" id="7B2-kT-5Fz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QKm-qi-fdv" secondAttribute="trailing" id="7B2-kT-5Fz"/>
                             <constraint firstItem="QKm-qi-fdv" firstAttribute="top" secondItem="z5g-E9-j7o" secondAttribute="bottom" constant="8" id="OBJ-Su-YFU"/>
-                            <constraint firstItem="z5g-E9-j7o" firstAttribute="leading" secondItem="JkA-oI-B8P" secondAttribute="leading" id="a6O-9S-keI"/>
+                            <constraint firstItem="z5g-E9-j7o" firstAttribute="leading" secondItem="eNY-Bi-VrK" secondAttribute="leadingMargin" constant="-16" id="a6O-9S-keI"/>
                             <constraint firstItem="z5g-E9-j7o" firstAttribute="top" secondItem="JkA-oI-B8P" secondAttribute="top" id="bHH-Ru-dmP"/>
-                            <constraint firstItem="z5g-E9-j7o" firstAttribute="trailing" secondItem="JkA-oI-B8P" secondAttribute="trailing" id="chV-KU-PjC"/>
+                            <constraint firstItem="z5g-E9-j7o" firstAttribute="trailing" secondItem="eNY-Bi-VrK" secondAttribute="trailingMargin" constant="16" id="chV-KU-PjC"/>
                             <constraint firstItem="JkA-oI-B8P" firstAttribute="bottom" secondItem="QKm-qi-fdv" secondAttribute="bottom" constant="16" id="geI-zF-TX3"/>
-                            <constraint firstItem="QKm-qi-fdv" firstAttribute="leading" secondItem="JkA-oI-B8P" secondAttribute="leading" constant="16" id="lBy-KW-QG2"/>
+                            <constraint firstItem="QKm-qi-fdv" firstAttribute="leading" secondItem="eNY-Bi-VrK" secondAttribute="leadingMargin" id="lBy-KW-QG2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JkA-oI-B8P"/>
                     </view>

@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="415" height="128"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CRE-Vy-fWp">
+                    <view contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CRE-Vy-fWp">
                         <rect key="frame" x="0.0" y="0.0" width="415" height="128"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Address" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNk-Po-1uW">
@@ -65,10 +65,10 @@
                             <constraint firstItem="9SL-mK-o66" firstAttribute="top" secondItem="7qR-zC-yyZ" secondAttribute="bottom" constant="4" id="7KN-7u-dJt"/>
                             <constraint firstItem="7qR-zC-yyZ" firstAttribute="trailing" secondItem="gNk-Po-1uW" secondAttribute="trailing" id="C5j-zA-sE2"/>
                             <constraint firstItem="7qR-zC-yyZ" firstAttribute="leading" secondItem="mgT-PD-LzT" secondAttribute="leading" id="Ksq-kn-SYb"/>
-                            <constraint firstAttribute="trailing" secondItem="mgT-PD-LzT" secondAttribute="trailing" constant="16" id="Laz-1W-nQi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mgT-PD-LzT" secondAttribute="trailing" constant="8" id="Laz-1W-nQi"/>
                             <constraint firstAttribute="bottom" secondItem="9SL-mK-o66" secondAttribute="bottom" constant="10" id="Le2-db-z2l"/>
                             <constraint firstItem="PFt-Ys-AK7" firstAttribute="leading" secondItem="mgT-PD-LzT" secondAttribute="leading" id="Mnn-2a-o4q"/>
-                            <constraint firstItem="mgT-PD-LzT" firstAttribute="leading" secondItem="CRE-Vy-fWp" secondAttribute="leading" constant="16" id="NFz-49-t3A"/>
+                            <constraint firstItem="mgT-PD-LzT" firstAttribute="leading" secondItem="CRE-Vy-fWp" secondAttribute="leadingMargin" constant="8" id="NFz-49-t3A"/>
                             <constraint firstAttribute="trailing" secondItem="gNk-Po-1uW" secondAttribute="trailing" constant="16" id="RRf-3w-lcV"/>
                             <constraint firstItem="PFt-Ys-AK7" firstAttribute="top" secondItem="gNk-Po-1uW" secondAttribute="top" id="UEJ-RK-o8r"/>
                             <constraint firstItem="MIw-de-dQg" firstAttribute="leading" secondItem="mgT-PD-LzT" secondAttribute="leading" id="XWH-8V-3bO"/>
